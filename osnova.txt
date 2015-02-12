@@ -1,0 +1,18 @@
+Zadanie: Studie nástrojů pro trasování a testování programů v Javě
+
+Predbežná osnova:
+
+* Teoretická časť *
+(Približne 10 strán)
+- Základné vlastnosti jazyka Java s dôrazom na preklad do bajtkódu.
+- Popis štruktúry bajtkódu
+- Spôsob dynamického načítania Java tried do JVM - Classloadery
+- Spôsoby modifikácie Bajtkódu pomocou nástrojov:
+  - Byteman + popis vlastností nástroja
+  - Javassist + popis vlastností nástroja
+- Porovnanie oboch nástrojov.
+
+* Praktická časť *
+(Približne 20 strán)
+- Výber jedného z nástrojov
+- Implementácia a popis sady príkladov pre vzbraný nástroj.

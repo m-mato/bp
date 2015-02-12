@@ -1,0 +1,9 @@
+\begin{thebibliography}{LYBB13}
+
+\bibitem[LYBB13]{Lindholm:2013:JVM:2462629}
+Tim Lindholm, Frank Yellin, Gilad Bracha, and Alex Buckley.
+\newblock {\em The Java Virtual Machine Specification, Java SE 7 Edition}.
+\newblock Addison-Wesley Professional, 1st edition, 2013.
+\newblock \url{http://docs.oracle.com/javase/specs/jvms/se7/html/}.
+
+\end{thebibliography}
