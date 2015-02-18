@@ -4,10 +4,12 @@
 \contentsline {section}{\numberline {1.2}\slshape \IeC {\v C}lenenie pr\IeC {\'a}ce}{3}{section.1.2}
 \contentsline {chapter}{\numberline {2}\bfseries Bajtk\IeC {\'o}d}{4}{chapter.2}
 \contentsline {section}{\numberline {2.1}\slshape \IeC {\v S}trukt\IeC {\'u}ra \textit {class} s\IeC {\'u}boru}{4}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}\rmfamily D\IeC {\'a}tov\IeC {\'e} typy}{6}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.1}\rmfamily Reprezent\IeC {\'a}cia d\IeC {\'a}tov\IeC {\'y}ch typov}{6}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}\rmfamily Premenn\IeC {\'e} tried a in\IeC {\v s}tanci\IeC {\'\i }}{7}{subsection.2.1.2}
 \contentsline {subsection}{\numberline {2.1.3}\rmfamily Met\IeC {\'o}dy}{8}{subsection.2.1.3}
 \contentsline {subsection}{\numberline {2.1.4}\rmfamily Atrib\IeC {\'u}ty}{9}{subsection.2.1.4}
-\contentsline {section}{\numberline {2.2}\slshape In\IeC {\v s}truk\IeC {\v c}n\IeC {\'a} sada bajtk\IeC {\'o}du}{9}{section.2.2}
-\contentsline {chapter}{Literat\IeC {\'u}ra}{10}{section.2.2}
-\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{11}{appendix.A}
+\contentsline {section}{\numberline {2.2}\slshape In\IeC {\v s}trukcie JVM}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}\rmfamily D\IeC {\'a}tov\IeC {\'e} typy}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}\rmfamily Architekt\IeC {\'u}ra a in\IeC {\v s}truk\IeC {\v c}n\IeC {\'a} sada}{11}{subsection.2.2.2}
+\contentsline {chapter}{Literat\IeC {\'u}ra}{13}{subsection.2.2.2}
+\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{14}{appendix.A}

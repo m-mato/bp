@@ -67,12 +67,12 @@ nasledujúcich fázach:
 
 \begin{enumerate}
 \item Preklad do medzikódu: Java~compiler~\footnote{Najčastejšie využívaným
-Javacompilerom je \textit{javac}, ktorý je súčasťou JDK.} preloží zdrojový kód
-do bajtkódu. V praxy to znamená, že každej triede, alebo rozhraniu je
-priradený súbor \textit{class}, ktorý obsahuje inštrukcie popisujúce fungovanie
-danej triedy. \item Načítanie a Interpretácia: Virtuálny stroj Javy (ďalej len
-JVM~\footnote{Java Virtual Machine, špecifikácia je dostupná
-na \url{http://docs.oracle.com/javase/specs/jvms/se7/html}}) načíta
+Javacompilerom je \textit{javac}, ktorý je súčasťou JDK (Java Development Kit).}
+preloží zdrojový kód do bajtkódu. V praxy to znamená, že každej triede, alebo
+rozhraniu je priradený súbor \textit{class}, ktorý obsahuje inštrukcie
+popisujúce fungovanie danej triedy. \item Načítanie a Interpretácia: Virtuálny
+stroj Javy (ďalej len JVM~\footnote{Java Virtual Machine, špecifikácia je
+dostupná na \url{http://docs.oracle.com/javase/specs/jvms/se7/html}}) načíta
 inštrukcie \textit{class} súboru potrebnej triedy, ktoré ďalej spracúva jedným
 z nasledujúcich spôsobov:
 
@@ -130,6 +130,7 @@ charakterizuje inštrukčnú sadu bajtkódu.~\footnote{Nasledujúci text vychád
 zo 4. až 6. kapitoly špecifikácie JVM~\cite{Lindholm:2013:JVM:2462629}.}
 
 \section{Štruktúra \textit{class} súboru}
+\label{sec:classFile}
 \textit{Class} súbor pozostáva z jednej \textit{ClassFile} štruktúry. \textit
 {ClassFile} štruktúra jednoznačne identifikuje konkrétnu triedu, prípadne
 rozhranie, definuje jej premenné a metódy.
@@ -240,13 +241,17 @@ Atribútmi štruktúry \textit{ClassFile} sú napríklad: \textit{SourceFile},
 \textit{Deprecated}, \textit{InnerClasses} a iné. Atribút \textit{SourceFile} 
 slúži na reprezentáciu mena \textit{class} súboru. Pole \textit{attributes[]}
 \textit{class} súboru môže obsahovať maximálne jeden takýto atribút. Atribút
-\textit{Depricated} môže byť použitý v prípade, že bola daná trieda nahradená (\textit{depricated}). Pri volaní takejto triedy môže prekladač upozorníť 
-užívateľa, že sa odkazuje na nahradenú triedu~\footnote{Rovnakým spôsobom je možné atribút \textit{Depricated} aplikovať aj na premenné a metódy.}. Vo všeobecnosti sa štruktúre \textit{attribute\_info} sa venuje
+\textit{Depricated} môže byť použitý v prípade, že bola daná trieda nahradená
+(\textit{depricated}). Pri volaní takejto triedy môže prekladač upozorníť 
+užívateľa, že sa odkazuje na nahradenú triedu~\footnote{Rovnakým spôsobom je
+možné atribút \textit{Depricated} aplikovať aj na premenné a metódy.}. Vo
+všeobecnosti sa štruktúre \textit{attribute\_info} sa venuje
 kapitola \ref{sec:attributes}.
 
-\subsection{Dátové typy}
+\subsection{Reprezentácia dátových typov}
 \label{sec:descriptors}
-Dátové typy sú v \textit{class} súboroch reprezentované vo formáte reťazcov s kódovaním \textit{UTF-8}. Delíme ich na:
+Dátové typy sú v \textit{class} súboroch reprezentované vo formáte reťazcov
+s kódovaním \textit{UTF-8}. Delíme ich na:
 \begin{itemize}
 \item dátové typy premenných
 \begin{itemize}
@@ -393,15 +398,128 @@ attribute_info {
 \end{verbatim}
 \end{example}
 
-Položka \textit{attributes\_name\_index} je indexom do \textit{constant\_pool}odkazujúcim na meno atribútu.
+Položka \textit{attributes\_name\_index} je indexom do \textit{constant\_pool}
+odkazujúcim na meno atribútu. Tento proces sa nazýca kontrola formátu
+(\textit{format checking}). Prvé štyri bajty musia obsahovať tzv. magickú
+konštantu \textit{magic}. Všetky rozoznané atribúty musia mať správnu dĺžku 
 
-Štvorbajtová položka \textit{attribute\_length} je rovná hodnote vyjadrujúcej
+\section{Inštrukcie JVM}
+Po načítaní \textit{class} súboru JVM sa JVM nasjkôr uistí, že je tento súbor
+v správnom formáte popísanom v kapitole \ref{sec:classFile}. Štvorbajtová
+položka \textit{attribute\_length} je rovná hodnote vyjadrujúcej
 dĺžku následných informácií uložených v \textit{info[attribute\_length]}.
 Informácie sa líšia na základe odlišnej funkcionality a využitá jednotlivých
-atribútov.
+atribútov. \textit{Class} súbor nesmie byť skrátený ani obsahovať nadbytočné
+bajty, takisto úložisko \textit{constant\_pool} nesmie obsahovať žiadne
+nerozoznateľné informácie.
 
-\section{Inštrukčná sada bajtkódu}
-TODO...
+Inštrukcie bajtkódu načítanej metódy sú uložené v poli \textit{code[]}
+atribútu \textit{Code}, štruktúry \textit{method\_info} daného \textit{class}
+súboru. Štruktúra \textit{Code\_attribute} reprezentujúca atribút \textit{Code}
+musí spĺňať obmedzenia definované JVM. Tieto obmedzenie rozdeľujeme na dve
+základné kategórie: 
+
+\begin{itemize}
+\item Statické obmedzenia: Stanovujú rozloženie inštrukcií v poli \textit{code}
+a priradenie operandov jednotlivým inštrukciám. Niektorými z nich sú napríklad:
+\begin{itemize}
+\item prvá inštrukcia musí začínať na indexe 0
+\item pole \textit{code} nesmie byť prázdne
+\end{itemize}
+\item Štrukturované obmedzenia: Špecifikujú vztahy medzi inštrukciami JVM. Ide
+o podmienky ako napríklad:
+\begin{itemize}
+\item žiadna lokálna premenná nemôže byť volaná predtým ako jej bola priradená
+hodnota
+\item pred volaním (nestatickej) metódy respektíve premennej musí byť
+inicializovaná inštancia triedy ktorá ju obsahuje
+\end{itemize}
+\end{itemize}
+
+Prekladače jazyka Java generujú \textit{class} súbory, ktoré spĺňajú požiadavnky
+popísané v predchádzajúcom odseku. JVM však nemá žiadnu záruku, že
+\textit{class} súbor, ktorý požaduje bol generovaný prekladačom. Metódou
+verifikácie~\footnote{Ďalšie príklady obmedzení a podorbný popis verifikácie
+\textit{class} súborov je dostupný v špecifikácií
+JVM~\cite{Lindholm:2013:JVM:2462629}} \textit{class} súboru môže JVM určiť či
+daný súbor pochádza z dôveryhodného zdroja.
+
+\subsection{Dátové typy}
+Dátové typy JVM delíme do troch základných
+kategórií:
+
+\begin{itemize}
+\item Primitívne dátové typy: byte, short, int, long, boolean, float, double.
+\item Referenčné dátové typy: pole, inštancia triedy, rozhranie.
+\item Typ \textit{returnAddress}: typ využívaný výhradne ištrukciami
+\textit{jsr}, \textit{ret} a \textit{jsr\_w}.
+\end{itemize}
+
+Väčšina uvedených typov má veľkosť 32 bitov, typy \textit{long} a
+\textit{double} sú však 64 bitové, preto zaberajú dva sloty v zásobníku.
+
+\subsection{Architektúra a inštrukčná sada}
+Architektúra JVM je založená na datovej~štruktúre~zásobník~\footnote{Dátová
+štruktúra zásobník (\textit{stack}) funguje na princípe FIFO (\textit{first in
+first out}), kde posledný vložený prvok je prvým vybraným.}, ktorej základnými
+operáciami sú \textit{push} - vloženie prvku do zásobníka a \textit{pop} - výber
+prvku z vrcholu zásobníka. JVM nemá registre na ukladanie hodnôt, preto musia
+byť pred použitím všetky uložené na zásobník.
+
+Na nasledujúcom jednoduchom príklade sú popísané základné inštrukcie bajtkódu
+pre prácu s premennými a konštantami.
+
+\begin{example}{Metóda \textit{greatherThen} a jej príslušné inštrukcie
+bajtkódu}
+\begin{verbatim}
+public int greaterThen(int intOne, int intTwo) {
+  if (intOne > intTwo) {
+    return 0;
+  } else {
+    return 1;
+  }
+}
+
+0: iload_1
+1: iload_2
+2: if_icmple  7
+5: iconst_0
+6: ireturn
+7: iconst_1
+8: ireturn
+\end{verbatim}
+\end{example}
+
+!! 
+STACK OBRÁZOK DOPLNIŤ 
+!!
+
+Inštrukcie \textit{iload\_1} a \textit{iload\_2} pridajú do zásobníka operandov (ďalej len zásobník) hodnoty lokálnych premenných na indexoch 1 a 2. V tomto 
+prípade ide o parametre \textit{intOne} a \textit{intTwo}. Všeobecne má 
+inštrukcia \textit{load} s predponou označujúcou datový typ(\textit{lload} pre 
+long, \textit{fload} pre float) dva tvary: 
+
+\begin{itemize}
+\item \textit{load\_<n>}, kde \textit{n} označuje index lokálnej premennej
+\item \textit{load vindex}, kde pozíciou lokalnej premennej je hodnota
+\textit{vindex}
+\end{itemize}
+
+Následne inštrukcia \textit{if\_icmple} porovná dva objekty na vrchole 
+zásobníka a prejde na siedmu inštrukciu v prípade, že je hodnota položky na 
+vrchole zásobníka väčšia ako hodnota druhej položky. V príklade sú na zásobníku 
+len položky vložené predchádzajúcimi inštrukciami. Podmienka teda platí v 
+prípade, že hodnota parametra \textit{intOne} je menšia hodnota \textit{intTwo}.
+Vo všeobecnosti je možné podmienené výrazy vyjadriť pomocou inštrukcií:
+\textit{if\_acmp<cond>, if\_icmp<cond>, if<cond>, ifnonnull, ifnull}.
+
+Inštrukcie \textit{iconst\_0} a \textit{iconst\_1} vložia na zásobník hodnotu 0
+respektíve 1, ktorá je následné vrátená inštrukciou \textit{ireturn}. Inštrukcie
+\textit{iconst\_<n>, a ireturn} sú taktiež dostupné vo variantách s predponou 
+ľubovoľného primitívneho dátového typu.
+
+Dôkladný popis všetkých inštrukcií je
+dostupný v špecifikácií JVM~\cite{Lindholm:2013:JVM:2462629}.
 
 \clearpage
 \addcontentsline{toc}{chapter}{Literatúra} 
@@ -411,7 +529,7 @@ TODO...
 \appendix
 
 \chapter{Tabuľky}
-Zdrojom nasledujúcich tabuliek je špecifikácia JVM
+Zdrojom nasledujúcich tabuliek je špecifikácia
 JVM~\cite{Lindholm:2013:JVM:2462629}.
 
 \begin{table}
@@ -502,10 +620,12 @@ JVM~\cite{Lindholm:2013:JVM:2462629}.
     ACC\_STATIC & 0x0008 & Deklarovaná ako statická. \\ \hline
     ACC\_FINAL & 0x0010 & Deklarovaná ako final; žiadne ďalšie priradenia po
     inicializácií. \\ \hline
-    ACC\_VOLATILE & 0x0040 & Deklarovaná ako volatile; nemôže byť uložená do medzipamäte. \\ \hline
+    ACC\_VOLATILE & 0x0040 & Deklarovaná ako volatile; nemôže byť uložená do
+    medzipamäte. \\ \hline
     ACC\_TRANSIENT & 0x0080 & Deklarovaná ako transient; nieje čítaná ani
     modifikovaná objektovým manažérom. \\ \hline
-    ACC\_SYNTHETIC & 0x1000 & Deklarovaná ako synthetic, nieje prítomná v zdrojovom kóde. \\ \hline
+    ACC\_SYNTHETIC & 0x1000 & Deklarovaná ako synthetic, nieje prítomná v
+    zdrojovom kóde. \\ \hline
     ACC\_ENUM & 0x4000 & Deklarovaná ako prvok objektu enum \\
     \hline
   \end{tabular}
@@ -533,12 +653,14 @@ JVM~\cite{Lindholm:2013:JVM:2462629}.
     ACC\_BRIDGE & 0x0040 & Bridge metóda; je generovaná prekladačom. \\ \hline
     ACC\_VARARGS & 0x0080 & Deklarovaná s dynamickým počtom argumentov.
     \\ \hline
-    ACC\_NATIVE & 0x0100 & Deklarovaná ako natívna; implementovaná v inom jazyku ako Java.
+    ACC\_NATIVE & 0x0100 & Deklarovaná ako natívna; implementovaná v inom
+    jazyku ako Java. \\ \hline
+    ACC\_ABSTRACT & 0x0400 & Deklarovaná ako abstraktná, nieje implementovaná.
     \\ \hline
-    ACC\_ABSTRACT & 0x0400 & Deklarovaná ako abstraktná, nieje implementovaná. \\ \hline
     ACC\_STRICKT & 0x0800 & Deklarovaná ako stricktfp, výpočty s plávajúcou
     čiarkou sú FP - strict. \\ \hline
-    ACC\_SYNTHETIC & 0x1000 & Deklarovaná ako synthetic, nieje prítomná v zdrojovom kóde. \\
+    ACC\_SYNTHETIC & 0x1000 & Deklarovaná ako synthetic, nieje prítomná v
+    zdrojovom kóde. \\
     \hline
   \end{tabular}
   \caption{Tabuľka indikátorov prístupových práv a vlastností štruktúry
