@@ -18,12 +18,12 @@
 \newcommand\q[1]{\quotedblbase #1\textquotedblleft}%
 \newenvironment{example}[1]
 {
-\vspace{5mm}
+\vspace{3mm}
 \noindent\textbf{#1}
-\vspace{1mm}
+\vspace{2mm}
 }
 {
-\vspace{5mm}
+\vspace{3mm}
 }
 
 \widowpenalty=10000
@@ -423,16 +423,16 @@ základné kategórie:
 \item Statické obmedzenia: Stanovujú rozloženie inštrukcií v poli \textit{code}
 a priradenie operandov jednotlivým inštrukciám. Niektorými z nich sú napríklad:
 \begin{itemize}
-\item prvá inštrukcia musí začínať na indexe 0
-\item pole \textit{code} nesmie byť prázdne
+\item prvá inštrukcia musí začínať na indexe 0,
+\item pole \textit{code} nesmie byť prázdne.
 \end{itemize}
 \item Štrukturované obmedzenia: Špecifikujú vztahy medzi inštrukciami JVM. Ide
 o podmienky ako napríklad:
 \begin{itemize}
 \item žiadna lokálna premenná nemôže byť volaná predtým ako jej bola priradená
-hodnota
+hodnota,
 \item pred volaním (nestatickej) metódy respektíve premennej musí byť
-inicializovaná inštancia triedy ktorá ju obsahuje
+inicializovaná inštancia triedy ktorá ju obsahuje.
 \end{itemize}
 \end{itemize}
 
@@ -451,7 +451,7 @@ kategórií:
 \begin{itemize}
 \item Primitívne dátové typy: byte, short, int, long, boolean, float, double.
 \item Referenčné dátové typy: pole, inštancia triedy, rozhranie.
-\item Typ \textit{returnAddress}: typ využívaný výhradne ištrukciami
+\item Typ \textit{returnAddress}: používaný výhradne ištrukciami
 \textit{jsr}, \textit{ret} a \textit{jsr\_w}.
 \end{itemize}
 
@@ -469,8 +469,7 @@ byť pred použitím všetky uložené na zásobník.
 Na nasledujúcom jednoduchom príklade sú popísané základné inštrukcie bajtkódu
 pre prácu s premennými a konštantami.
 
-\begin{example}{Metóda \textit{greatherThen} a jej príslušné inštrukcie
-bajtkódu}
+\begin{example}{Metóda \textit{greatherThen} pred a po kompilácií}
 \begin{verbatim}
 public int greaterThen(int intOne, int intTwo) {
   if (intOne > intTwo) {
@@ -490,36 +489,54 @@ public int greaterThen(int intOne, int intTwo) {
 \end{verbatim}
 \end{example}
 
-!! 
-STACK OBRÁZOK DOPLNIŤ 
-!!
+Inštrukcie \textit{iload\_1} a \textit{iload\_2} pridajú do zásobníka operandov 
+(ďalej len zásobník) hodnoty lokálnych premenných na indexoch 1 a 2. V tomto 
+prípade ide o parametre \textit{intOne} a \textit{intTwo}. 
 
-Inštrukcie \textit{iload\_1} a \textit{iload\_2} pridajú do zásobníka operandov (ďalej len zásobník) hodnoty lokálnych premenných na indexoch 1 a 2. V tomto 
-prípade ide o parametre \textit{intOne} a \textit{intTwo}. Všeobecne má 
-inštrukcia \textit{load} s predponou označujúcou datový typ(\textit{lload} pre 
-long, \textit{fload} pre float) dva tvary: 
+\begin{figure}[H]
+  \begin{minipage}{0.55\textwidth}
+     \includegraphics[width=0.825\textwidth]{iload_1.png}
+  \end{minipage}
+  \begin{minipage}{0.55\textwidth}
+     \includegraphics[width=0.825\textwidth]{iload_2.png}
+  \end{minipage}
+  \caption{Znázornenie funkcionality inštrukcií \textit{iload\_1} a
+  \textit{iload\_2}.}
+  \label{fig:gTiload}
+\end{figure}
+
+Vo všeobecnosti môžeme túto inštrukciu chápať ako \textit{xload} s predponou \t
+extit{x} označujúcou ľubovoľný primitívny datový typ(napríklad: \textit{lload} 
+pre long, \textit{fload} pre float). Existujú dva tvary, volania tejto 
+inštrukcie: 
 
 \begin{itemize}
-\item \textit{load\_<n>}, kde \textit{n} označuje index lokálnej premennej
+\item \textit{load\_<n>}, kde \textit{n} označuje index (celé číslo) lokálnej 
+premennej, zároveň musí platiť: $0 \leq n \leq 4$,
 \item \textit{load vindex}, kde pozíciou lokalnej premennej je hodnota
-\textit{vindex}
+\textit{vindex}.
 \end{itemize}
 
-Následne inštrukcia \textit{if\_icmple} porovná dva objekty na vrchole 
-zásobníka a prejde na siedmu inštrukciu v prípade, že je hodnota položky na 
-vrchole zásobníka väčšia ako hodnota druhej položky. V príklade sú na zásobníku 
-len položky vložené predchádzajúcimi inštrukciami. Podmienka teda platí v 
-prípade, že hodnota parametra \textit{intOne} je menšia hodnota \textit{intTwo}.
-Vo všeobecnosti je možné podmienené výrazy vyjadriť pomocou inštrukcií:
-\textit{if\_acmp<cond>, if\_icmp<cond>, if<cond>, ifnonnull, ifnull}.
+Ďalšou inštrukciou je \textit{if\_icmple} s parametrom 7, ktorá porovná dva 
+objekty na vrchole zásobníka a prejde na siedmu inštrukciu v prípade, že je 
+hodnota položky na vrchole zásobníka väčšia ako hodnota druhej položky. V 
+príklade sú na zásobníku len položky vložené predchádzajúcimi inštrukciami.
+Podmienka teda platí v prípade, že hodnota parametra \textit{intOne} je menšia 
+hodnota \textit{intTwo}. Vo všeobecnosti je možné podmienené výrazy vyjadriť 
+pomocou inštrukcií: \textit{if\_acmp<cond>, if\_icmp<cond>, if<cond>, 
+ifnonnull, ifnull}.
 
 Inštrukcie \textit{iconst\_0} a \textit{iconst\_1} vložia na zásobník hodnotu 0
-respektíve 1, ktorá je následné vrátená inštrukciou \textit{ireturn}. Inštrukcie
+respektíve 1 v závislosti od vyhodnotenia podmienky \textit{if\_icmple}. Táto 
+hodnota je následne vrátená inštrukciou \textit{ireturn}. Inštrukcie
 \textit{iconst\_<n>, a ireturn} sú taktiež dostupné vo variantách s predponou 
 ľubovoľného primitívneho dátového typu.
 
-Dôkladný popis všetkých inštrukcií je
-dostupný v špecifikácií JVM~\cite{Lindholm:2013:JVM:2462629}.
+Dôkladný popis všetkých inštrukcií vrátene ich parametrov možno nájsť v 
+špecifikácií JVM~\cite{Lindholm:2013:JVM:2462629}.
+
+\chapter{Classloadery}
+TODO...
 
 \clearpage
 \addcontentsline{toc}{chapter}{Literatúra} 
