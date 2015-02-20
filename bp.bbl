@@ -6,4 +6,10 @@ Tim Lindholm, Frank Yellin, Gilad Bracha, and Alex Buckley.
 \newblock Addison-Wesley Professional, 1st edition, 2013.
 \newblock \url{http://docs.oracle.com/javase/specs/jvms/se7/html/}.
 
+\bibitem[Ora11]{Oracle:ClassLoader}
+Oracle.
+\newblock {\em Class ClassLoader documentation}, 7th edition, 2011.
+\newblock
+  \url{http://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html}.
+
 \end{thebibliography}

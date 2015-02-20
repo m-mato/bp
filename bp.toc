@@ -12,5 +12,7 @@
 \contentsline {subsection}{\numberline {2.2.1}\rmfamily D\IeC {\'a}tov\IeC {\'e} typy}{10}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}\rmfamily Architekt\IeC {\'u}ra a in\IeC {\v s}truk\IeC {\v c}n\IeC {\'a} sada}{10}{subsection.2.2.2}
 \contentsline {chapter}{\numberline {3}\bfseries Classloadery}{13}{chapter.3}
-\contentsline {chapter}{Literat\IeC {\'u}ra}{14}{chapter.3}
+\contentsline {subsection}{\numberline {3.0.3}\rmfamily Dynamick\IeC {\'e} na\IeC {\v c}\IeC {\'\i }tavanie tried}{13}{subsection.3.0.3}
+\contentsline {subsection}{\numberline {3.0.4}\rmfamily Opakovan\IeC {\'e} na\IeC {\v c}\IeC {\'\i }tanie triedy}{13}{subsection.3.0.4}
+\contentsline {chapter}{Literat\IeC {\'u}ra}{14}{subsection.3.0.4}
 \contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{15}{appendix.A}

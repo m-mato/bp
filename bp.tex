@@ -535,7 +535,35 @@ hodnota je následne vrátená inštrukciou \textit{ireturn}. Inštrukcie
 Dôkladný popis všetkých inštrukcií vrátene ich parametrov možno nájsť v 
 špecifikácií JVM~\cite{Lindholm:2013:JVM:2462629}.
 
-\chapter{Classloadery}
+\chapter{Classloadery} 
+\textit{Class loader} je objekt zodpovedný za načítavanie tried. Trieda
+\textit{ClassLoader} je abstraktná. Pomocou mena \textit{class} súboru by mal
+\textit{class loader} nájsť a generovať obsah definujúci danú triedu. Každá
+trieda obsahuje referenciu na \textit{ClassLoader}, ktorý ju
+definoval.~\cite{Oracle:ClassLoader} Žiadna trieda nemôže byť načítaná dva-krát
+tým istým \textit{class loaderom}.
+
+Zvyčajne je trieda do JVM načítaná len v prípade, že je potrebná. Načítané sú 
+zároveň všetky triedy na ktoré sa odkazuje. Pomocou \textit{class loaderov} je
+možné za behu programu dynamicky načítať ďalšie triedy, prípadne načítať nové 
+inštancie pôvodných tried.
+
+Pri štandardnom načítaní triedy niektorá z podtreid \textit{ClassLoader} vykoná 
+nasledujúce tri kroky:
+\begin{enumerate}
+\item Skontroluje či trieda už nebola načítaná
+\item Ak nebola, požiada nadtriedu o načítanie danej triedy 
+\item V prípade, že nuspeje pokúsi sa načítať triedu pomocou
+vlastného \textit{class loaderu}
+\end{enumerate}
+
+\subsection{Dynamické načítavanie tried}
+K načítaniu novej triedy za behu programu je potrebný \textit{class loader}.
+Získať ho je možné pomocou príkazu \q{\textit{MyClass.class.getClassLoader();}}.
+Novú triedu reprezentovanú súborom \textit{class} následne vráti metóda
+\textit{class loaderu}: \q{\textit{loadClass(class)}}.
+
+\subsection{Opakované načítanie triedy}
 TODO...
 
 \clearpage
