@@ -540,16 +540,15 @@ Dôkladný popis všetkých inštrukcií vrátene ich parametrov možno nájsť 
 \textit{ClassLoader} je abstraktná. Pomocou mena \textit{class} súboru by mal
 \textit{class loader} nájsť a generovať obsah definujúci danú triedu. Každá
 trieda obsahuje referenciu na \textit{ClassLoader}, ktorý ju
-definoval.~\cite{Oracle:ClassLoader} Žiadna trieda nemôže byť načítaná dva-krát
-tým istým \textit{class loaderom}.
+definoval.~\cite{Oracle:ClassLoader}
 
 Zvyčajne je trieda do JVM načítaná len v prípade, že je potrebná. Načítané sú 
 zároveň všetky triedy na ktoré sa odkazuje. Pomocou \textit{class loaderov} je
 možné za behu programu dynamicky načítať ďalšie triedy, prípadne načítať nové 
 inštancie pôvodných tried.
 
-Pri štandardnom načítaní triedy niektorá z podtreid \textit{ClassLoader} vykoná 
-nasledujúce tri kroky:
+Pri štandardnom načítaní triedy niektorá z implementácií \textit{ClassLoader} 
+vykoná nasledujúce tri kroky:
 \begin{enumerate}
 \item Skontroluje či trieda už nebola načítaná
 \item Ak nebola, požiada nadtriedu o načítanie danej triedy 
@@ -559,11 +558,36 @@ vlastného \textit{class loaderu}
 
 \subsection{Dynamické načítavanie tried}
 K načítaniu novej triedy za behu programu je potrebný \textit{class loader}.
-Získať ho je možné pomocou príkazu \q{\textit{MyClass.class.getClassLoader();}}.
+Získať ho je možné pomocou príkazu \textit{MyClass.class.getClassLoader();}.
 Novú triedu reprezentovanú súborom \textit{class} následne vráti metóda
-\textit{class loaderu}: \q{\textit{loadClass(class)}}.
+\textit{class loaderu}: \textit{loadClass(class)}.
 
-\subsection{Opakované načítanie triedy}
+\subsection{Znovunačítanie triedy}
+Dynamické znovunačítanie triedy je komplkovanejšie. Vstavané implementácie 
+triedy \textit{ClassLoader} vždy kontrolujú, či trieda už nebola do JVM
+načítaná. Preto nieje možné žiadnu triedu načítať dvakrát pomocou vstavaných
+\textit{class loaderov}. Je nutné navrhnúť vlastnú implementáciu.
+
+-
+
+! PRÍKLAD VLASTNÉHO CLASSLOADERA - TODO ... !
+
+-
+
+Ďalšou komplikáciou je trieda \textit{ClassLoader.resolve()},
+ktorá zabezbečuje linkovanie. Táto trieda je \textit{final}, z čoho vyplíva, že 
+ju nieje možné prepísať, nepovolí však žiadnemu \textit{class loaderu} linkovať
+dva-krát tú istú triedu. Preto je nutné pri kaďom ďalšom znovunačítaní triedy
+vytvoriť novú inštanciu \textit{class loaderu}. %Štruktúra implementácie vlastného \textit{class loaderu} je uvedená v prílohe \ref{ex:cLoader}.
+
+-
+
+! PRÍKLAD POUŽITIA CLASSLOADERA - TODO ... !
+
+\chapter{Nástroj Byteman}
+TODO...
+
+\chapter{Nástroj Javasist}
 TODO...
 
 \clearpage
@@ -712,5 +736,29 @@ JVM~\cite{Lindholm:2013:JVM:2462629}.
   \textit {method\_info}.}
   \label{tab:tab5}
 \end{table}
+
+%\begin{example}{Príklad implementácie vlastného \textit{class loaderu}.}
+%\begin{verbatim}
+%class NetworkClassLoader extends ClassLoader {
+%  String host;
+%  int port;
+%
+%  public Class findClass(String name) {
+%    byte[] b = loadClassData(name);
+%    return defineClass(name, b, 0, b.length);
+%  }
+%
+%  private byte[] loadClassData(String name) {
+%    // load the class data from the connection
+%    …
+%  }
+%}
+%\end{verbatim}
+%\caption{Príklad zachytáva štruktúru vlastnej implementácie triedy
+%\textit{ClassLoader}. \textit{NetworkClassLoader} by mohol slúžiť napríklad na
+%načítanie dát zo siete. Zdroj: \cite{Oracle:ClassLoader}.}
+%\label{ex:cLoader}
+%\end{example}
+
 
 \end{document}
