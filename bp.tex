@@ -586,14 +586,17 @@ vytvoriť novú inštanciu \textit{class loaderu}. %Štruktúra implementácie v
 
 \chapter{Byteman}
 \textit{Byteman} je nástroj manipulujúci s bajtkódom určný na zjednodušenie 
-správania sa Java aplikácií počas načítavania JVM, alebo za behu programu. Používa sa najmä na zjednodušenie trasovania a testovania aplikácií. Umožňuje používateľovi pridávať novú funkcionalitu do ktorejkoľvek časti programu.
+správania sa Java aplikácií počas načítavania JVM, alebo za behu programu. 
+Používa sa najmä na zjednodušenie trasovania a testovania aplikácií. Umožňuje 
+používateľovi pridávať novú funkcionalitu do ktorejkoľvek časti programu.
 Funguje bez nutnosti prepisovania a opätovnej kompilácie pôvodnej aplikácie.
 
-\textit{Byteman} modifikuje bajtkód aplikácie za behu programu. Preto môže  zmeniť Java kód, popisujúci časť treid JVM ako napríklad \textit{String},
+\textit{Byteman} modifikuje bajtkód aplikácie za behu programu. Preto môže  
+zmeniť Java kód, popisujúci časť treid JVM ako napríklad \textit{String},
 \textit{Thread} a podobne. Vďaka tejto funkcionalite je taktiež možné
 napríklad trasovanie správania sa JVM.
 
-Používa  jednoduchý jazyk
+\textit{Byteman} používa jednoduchý jazyk
 ECA~pravdiel~\footnote{ECA (\textit{event-condition-action}) pravidlá 
 pozostávajú z udalosti, podmienky a akcie. Význam pravidla znamená: Keď nastane 
 udalosť, skontrolu podmienku a v prípade, že platí, vykonaj
@@ -601,7 +604,40 @@ akciu~\cite{Sellis:ECARules}.} založený na Jave. Tieto ECA pravidlá
 používa na špecifikáciu kde, kedy a ako má byť pôvodný Java kód transformovaný
 aby modifikoval operáciu~\cite{RedHat:Byteman}.
 
-\section{Použitie}
+Tracing...
+
+Testing...
+
+\section{Byteman Agent}
+Aby mohol \textit{Byteman} manipulovať s programom, musí na ňom bežať
+\textit{Byteman Agent}, ktorý konfiguruje JVM pre prácu s pravidlami jazyka
+používaného týmto nástrojom.
+
+Pri inštalácií agenta s prekladom programu je riešením použitie argumentu príkazu
+\textit{java -javaagent}, ktorý zadáva cestu k \textit{JAR} súboru popisujúcemu 
+pravidlá jazyka. Agentovi je možné pomocou argumentov nakonfigurovať dve
+základné možnosti funkcionality:
+
+\begin{itemize}
+\item Najjednoduchšou možnosťou je použiť argument \textit{script:[PATH]}, ktorý
+načíta do programu skript definovaný pravidlami v súbore s cestou
+\textit{PATH}
+\item V prípade potreby načítavania pravidiel do programu aj po spustení je nutné
+nastaviť argument \textit{listener} na hodnotu \textit{true}. Do takto
+spusteného programu je možné následne pomocou skriptu \textit{bmsubmit.sh}
+pridávať a odoberať pravidlá.
+\end{itemize}
+
+\textit{Byteman} je nastavený aby neinjektoval kód do tried JVM. Pri zmene tried
+ako napríklad \textit{String a Thread} je preto nutné zmeniť vlastnosť
+\textit{system property org.jboss.byteman.transform.all}. Zároveň je nutné
+zaistiť, aby bol \textit{Byteman Agent} načítaný (rovnako ako tieto triedy)
+defaultným \textit{classloaderom}.
+
+Agenta je možné inštalovať taktiež do už bežaicich aplikácií \footnote{typicky
+ide o dlho bežiace aplikácie ako napríklad aplikačný server JBoss} pomocou
+skitpu \textit{bminstall.sh}. \textit{Byteman} je následne možné využiť ako
+nástroj na kontrolu správania sa programu~\cite{RedHat:Byteman}. 
 
 \section{Jazyk}
 
