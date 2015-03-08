@@ -12,4 +12,15 @@ Oracle.
 \newblock
   \url{http://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html}.
 
+\bibitem[Red]{RedHat:Byteman}
+Red Hat and individual contributors.
+\newblock {\em Byteman Programmer's Guide}.
+\newblock \url{http://downloads.jboss.org/byteman/2.2.1/ProgrammersGuide.pdf}.
+
+\bibitem[Sel95]{Sellis:ECARules}
+Timos Sellis.
+\newblock {\em Rules in Database Systems: Second International Workshop, RIDS
+  '95, Glyfada, Athens, Greece, September 25 - 27, 1995. Proceedings}.
+\newblock Lecture Notes in Artificial Intelligence. Springer, 1995.
+
 \end{thebibliography}

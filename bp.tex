@@ -584,8 +584,26 @@ vytvoriť novú inštanciu \textit{class loaderu}. %Štruktúra implementácie v
 
 ! PRÍKLAD POUŽITIA CLASSLOADERA - TODO ... !
 
-\chapter{Nástroj Byteman}
-TODO...
+\chapter{Byteman}
+\textit{Byteman} je nástroj manipulujúci s bajtkódom určný na zjednodušenie 
+správania sa Java aplikácií počas načítavania JVM, alebo za behu programu. Používa sa najmä na zjednodušenie trasovania a testovania aplikácií. Umožňuje používateľovi pridávať novú funkcionalitu do ktorejkoľvek časti programu.
+Funguje bez nutnosti prepisovania a opätovnej kompilácie pôvodnej aplikácie.
+
+\textit{Byteman} modifikuje bajtkód aplikácie za behu programu. Preto môže  zmeniť Java kód, popisujúci časť treid JVM ako napríklad \textit{String},
+\textit{Thread} a podobne. Vďaka tejto funkcionalite je taktiež možné
+napríklad trasovanie správania sa JVM.
+
+Používa  jednoduchý jazyk
+ECA~pravdiel~\footnote{ECA (\textit{event-condition-action}) pravidlá 
+pozostávajú z udalosti, podmienky a akcie. Význam pravidla znamená: Keď nastane 
+udalosť, skontrolu podmienku a v prípade, že platí, vykonaj
+akciu~\cite{Sellis:ECARules}.} založený na Jave. Tieto ECA pravidlá
+používa na špecifikáciu kde, kedy a ako má byť pôvodný Java kód transformovaný
+aby modifikoval operáciu~\cite{RedHat:Byteman}.
+
+\section{Použitie}
+
+\section{Jazyk}
 
 \chapter{Nástroj Javasist}
 TODO...
