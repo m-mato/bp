@@ -1,5 +1,10 @@
 \begin{thebibliography}{LYBB13}
 
+\bibitem[Byt]{Byteman:Homepage}
+{Byteman} project description.
+\newblock \url{http://byteman.jboss.org}.
+\newblock Accessed: 2015-03-09.
+
 \bibitem[LYBB13]{Lindholm:2013:JVM:2462629}
 Tim Lindholm, Frank Yellin, Gilad Bracha, and Alex Buckley.
 \newblock {\em The Java Virtual Machine Specification, Java SE 7 Edition}.

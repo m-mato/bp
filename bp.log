@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.18)  8 MAR 2015 14:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.18)  9 MAR 2015 19:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -718,37 +718,31 @@ Overfull \hbox (0.71822pt too wide) in paragraph at lines 566--570
 
 ] [14]
 Kapitola 4.
-
-Overfull \hbox (1.92223pt too wide) in paragraph at lines 588--593
-\T1/ppl/m/n/10.95 ¬uje po-u-ºí-va-te-©ovi pri-dá-va´ novú fun-kci-ona-litu do k
-to-rej-ko©-vek £asti prog-
- []
-
-
-Overfull \hbox (1.05841pt too wide) in paragraph at lines 622--625
-[]\T1/ppl/m/n/10.95 Najjednoduch²ou moº-nos-´ou je po-u-ºi´ ar-gu-ment \T1/ppl/
-m/it/10.95 sc-ript:[PATH]\T1/ppl/m/n/10.95 , ktorý
- []
-
 [15
 
-] [16]
+]
+Overfull \hbox (3.90474pt too wide) in paragraph at lines 627--633
+\T1/ppl/m/n/10.95 fun-go-va-nia ap-li-ká-cie. Pri vkla-daní kódu na ve©mi ²pe-c
+i-fické miesta je moºné
+ []
+
+[16] [17]
 Kapitola 5.
-[17
+[18
 
 ] (./bp.bbl
-Underfull \hbox (badness 6428) in paragraph at lines 10--14
+Underfull \hbox (badness 6428) in paragraph at lines 15--19
 []\T1/ppl/m/n/10.95 Oracle.  \T1/ppl/m/sl/10.95 Class Class-Lo-ader do-cu-men-t
 a-tion\T1/ppl/m/n/10.95 , 7th edi-tion,
  []
 
 
-Underfull \hbox (badness 1622) in paragraph at lines 10--14
+Underfull \hbox (badness 1622) in paragraph at lines 15--19
 \T1/ppl/m/n/10.95 2011.  []$\T1/pcr/m/n/10.95 http : / / docs . oracle . com / 
 javase / 7 / docs / api /
  []
 
-) [18
+) [19
 
 
 ]
@@ -756,115 +750,115 @@ Dodatok A.
 
 Package hyperref Warning: Composite letter `\textasciicaron+l'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 654.
+(hyperref)                removing `\textasciicaron' on input line 679.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 690--691
+Underfull \hbox (badness 10000) in paragraph at lines 715--716
 []\T1/ppl/m/n/10.95 Deklarovaná ako ve-rejná; prí-
  []
 
 
-Underfull \hbox (badness 2205) in paragraph at lines 697--698
+Underfull \hbox (badness 2205) in paragraph at lines 722--723
 []\T1/ppl/m/n/10.95 Deklarovaná ako ab-s-traktná, ne-
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 699--700
+Underfull \hbox (badness 2103) in paragraph at lines 724--725
 []\T1/ppl/m/n/10.95 Deklarovaná ako synt-he-tic, nieje
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 712--712
+Underfull \hbox (badness 10000) in paragraph at lines 737--737
 []\T1/ppl/b/n/10.95 Reprezentácia
  []
 
 
-Underfull \hbox (badness 1097) in paragraph at lines 748--749
+Underfull \hbox (badness 1097) in paragraph at lines 773--774
 []\T1/ppl/m/n/10.95 Deklarovaná ako trans-ient; nieje £í-
  []
 
 
-Underfull \hbox (badness 3199) in paragraph at lines 748--749
+Underfull \hbox (badness 3199) in paragraph at lines 773--774
 \T1/ppl/m/n/10.95 taná ani mo-di-fi-ko-vaná ob-jek-to-vým
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 733--756
+Underfull \hbox (badness 10000) in paragraph at lines 758--781
 [][]
  []
 
 
-Underfull \hbox (badness 1831) in paragraph at lines 765--766
+Underfull \hbox (badness 1831) in paragraph at lines 790--791
 []\T1/ppl/m/n/10.95 Deklarovaná ako ve-rejná; prí-
  []
 
 
-Underfull \hbox (badness 1558) in paragraph at lines 776--776
+Underfull \hbox (badness 1558) in paragraph at lines 801--801
 []\T1/ppl/m/n/10.95 Bridge me-tóda; je ge-ne-ro-vaná
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 779--780
+Underfull \hbox (badness 1755) in paragraph at lines 804--805
 []\T1/ppl/m/n/10.95 Deklarovaná ako na-tívna; im-
  []
 
 
-Underfull \hbox (badness 2951) in paragraph at lines 779--780
+Underfull \hbox (badness 2951) in paragraph at lines 804--805
 \T1/ppl/m/n/10.95 ple-men-to-vaná v inom ja-zyku
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 781--782
+Underfull \hbox (badness 10000) in paragraph at lines 806--807
 []\T1/ppl/m/n/10.95 Deklarovaná ako ab-s-traktná,
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 818.
-[19
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 843.
+[20
 
-] [20pdfTeX warning (ext4): destination with the same identifier (name{table.A.
+] [21pdfTeX warning (ext4): destination with the same identifier (name{table.A.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.818 \end{document}
+l.843 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{table.A.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.818 \end{document}
-                    ] [21pdfTeX warning (ext4): destination with the same ident
+l.843 \end{document}
+                    ] [22pdfTeX warning (ext4): destination with the same ident
 ifier (name{table.A.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.818 \end{document}
-                    ] [22pdfTeX warning (ext4): destination with the same ident
+l.843 \end{document}
+                    ] [23pdfTeX warning (ext4): destination with the same ident
 ifier (name{table.A.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.818 \end{document}
-                    ] [23pdfTeX warning (ext4): destination with the same ident
+l.843 \end{document}
+                    ] [24pdfTeX warning (ext4): destination with the same ident
 ifier (name{table.A.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.818 \end{document}
+l.843 \end{document}
                     ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 818.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 843.
  (./bp.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 818.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 818.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 843.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 843.
 Package rerunfilecheck Info: File `bp.out' has not changed.
 (rerunfilecheck)             Checksum: F9223A51AEBCC8788B22586D5BB60D69;1351.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 818.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 843.
  ) 
 Here is how much of TeX's memory you used:
- 6531 strings out of 493109
- 92525 string characters out of 6135009
- 201141 words of memory out of 5000000
- 9811 multiletter control sequences out of 15000+600000
+ 6535 strings out of 493109
+ 92583 string characters out of 6135009
+ 201181 words of memory out of 5000000
+ 9812 multiletter control sequences out of 15000+600000
  33829 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,9n,31p,448b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -879,10 +873,10 @@ t/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/pa
 latino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/
 uplri8a.pfb>
-Output written on bp.pdf (28 pages, 353993 bytes).
+Output written on bp.pdf (29 pages, 355765 bytes).
 PDF statistics:
- 423 PDF objects out of 1000 (max. 8388607)
- 322 compressed objects within 4 object streams
- 81 named destinations out of 1000 (max. 500000)
+ 433 PDF objects out of 1000 (max. 8388607)
+ 331 compressed objects within 4 object streams
+ 84 named destinations out of 1000 (max. 500000)
  184 words of extra memory for PDF output out of 10000 (max. 10000000)
 
