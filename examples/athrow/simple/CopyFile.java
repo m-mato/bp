@@ -1,6 +1,10 @@
+package simple;
+
 import java.io.*;
 
 public class CopyFile {
+   private String matiak;
+
    public static void main(String args[])
    {
       if(args.length != 1) {

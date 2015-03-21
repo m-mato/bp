@@ -1,9 +1,8 @@
 RULE detect throwed exception
 CLASS CopyFile
-METHOD main
+METHOD copy
 AT THROW ALL
 BIND exception:Throwable= $^
 IF true
-DO System.out.println("Detected athrow, exception: " + exception);
-   exception.finalize()
+DO System.out.println("Detected athrow, exception: " + exception)
 ENDRULE
