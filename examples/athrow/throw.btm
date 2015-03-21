@@ -1,5 +1,5 @@
 RULE detect throwed exception
-CLASS CopyFile
+CLASS simple.CopyFile
 METHOD copy
 AT THROW ALL
 BIND exception:Throwable= $^
