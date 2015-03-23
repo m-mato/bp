@@ -607,7 +607,7 @@ Primárne bol \textit{Byteman} určený na podoru testovania multivláknových a
 multi-JVM aplikácií za použitia techniky nazývanej
 \textit{fault~injection~\footnote{TODO...}}. Zahŕňa preto funkcionalitu, ktorá 
 bola navrhnutá na riešenie problémov súvisiacich s týmto typom testovania.
-\textit{Byteman} poskytuje podporu pre automatizáciu v štiroch hlavných 
+\textit{Byteman} poskytuje podporu pre automatizáciu v štyroch hlavných 
 oblastiach:
 
 \begin{itemize}
@@ -634,12 +634,13 @@ proguktu~\cite{Byteman:Homepage}.
 \section{Byteman Agent}
 
 Aby mohol \textit{Byteman} manipulovať s programom, musí na ňom bežať
-\textit{Byteman Agent}, ktorý konfiguruje JVM pre prácu s pravidlami jeho jazyka.
+\textit{Byteman Agent}, ktorý konfiguruje JVM pre prácu s pravidlami
+jeho jazyka.
 
-Pri inštalácií agenta s prekladom programu je riešením použitie argumentu príkazu
-\textit{java -javaagent}, ktorý zadáva cestu k \textit{JAR} súboru popisujúcemu 
-pravidlá jazyka. Agentovi je možné pomocou argumentov nakonfigurovať dve
-základné možnosti funkcionality:
+Pri inštalácií agenta s prekladom programu je riešením použitie argumentu
+príkazu \textit{java -javaagent}, ktorý zadáva cestu k \textit{JAR} súboru
+popisujúcemu pravidlá jazyka. Agentovi je možné pomocou argumentov
+nakonfigurovať dve základné možnosti funkcionality:
 
 \begin{itemize}
 \item Základnou možnosťou je použiť argument \textit{script:[PATH]}, ktorý
@@ -663,8 +664,40 @@ ich opätovného spustenia. Slúži na to skipt \textit{bminstall.sh}.
 \textit{Byteman} je následne možné využiť ako nástroj na kontrolu správania sa 
 programu~\cite{RedHat:Byteman}. 
 
-\section{Jazyk}
+\section{Štruktúra jazyka pravidel}
+
 TODO...
+
+\subsection{Udalosti}
+
+Udalosti pravidiel (\textit{Rule Events})...
+TODO...
+
+\subsection{Závislosti}
+
+Závislosti pravidiel (\textit{Rule bindings})
+TODO...
+
+\subsection{Výrazy}
+
+Výrazy \textit{Rule expressions}
+TODO...
+
+\subsection{Podmienky}
+
+Podmienky (\textit{Rule Conditions})
+TODO...
+
+\subsection{Akcie}
+
+Akcie pravidiel (\textit{Rule Actions})
+TODO...
+
+\subsection{Vstavané volania}
+
+Vstavané volania (\textit{Built-In Calls})
+TODO...
+Rule Helpers?
 
 \chapter{Nástroj Javasist}
 TODO...
