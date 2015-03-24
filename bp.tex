@@ -632,7 +632,6 @@ vyhnúť sa režijným nákaldom, ktoré často rastú pri ladení, alebo trasov
 proguktu~\cite{Byteman:Homepage}.
 
 \section{Byteman Agent}
-
 Aby mohol \textit{Byteman} manipulovať s programom, musí na ňom bežať
 \textit{Byteman Agent}, ktorý konfiguruje JVM pre prácu s pravidlami
 jeho jazyka.
@@ -665,12 +664,37 @@ ich opätovného spustenia. Slúži na to skipt \textit{bminstall.sh}.
 programu~\cite{RedHat:Byteman}. 
 
 \section{Štruktúra jazyka pravidel}
+Pravidlá jazyka Byteman sú definované v skriptoch s príponou \textit{btm}.
+Každé pravidlo pozostáva zo sekvencie definícií. Všeobecný predpis takto
+definovaného pravidla je nasledovný:
 
-TODO...
+\begin{example}{Kostra pravidla}
+\begin{verbatim}
+RULE <rule name>
+CLASS <class name>
+METHOD <method name>
+BIND <bindings>
+IF <condition>
+DO <actions>
+ENDRULE
+\end{verbatim}
+\end{example}
+
+Každá z definícií, ktorú je možné v pravidle použiť patrí do niektorej z kategórií: Udalosti, Závislosti, Výrazy, Podmienky, Akcie, Vstavané volania. Tieto kategórie a jednotlivé definície popisujú nasledujúce podkapitoy.
+Definície musia byť zároveň zadané v správnom poradí pričom prvou je vždy
+\textit{RULE} a poslednou \textit{ENDRULE}.
 
 \subsection{Udalosti}
+Udalosti pravidiel (\textit{Rule Events}) identifikujú umiestneneie pravidla v
+cieľovej metóde, ktorá sa nachádza v cieľovej triede.
 
-Udalosti pravidiel (\textit{Rule Events})...
+Za kľučvým slovom \textit{RULE} musí nasledovať meno pravidla, ktoré je ľubovoľným textovým reťazcom, pričom musí obsahovať medzeru. Kvôli rozlišovaniu jednotlivých pravidiel by mali byť tieto mená unikátne.
+
+Rovnako za kľúčovými slovami \textit{CLASS} a \textit{METHOD} sa nachádza meno triedy a metódy do ktorej bude pravidlo načítané. Meno triedy môže byť špecifikované aj bez cesty ku balíku, v ktorom sa nachádza. V takomto prípade, Byteman spracuváva každú triedu s týmto menom, ktorá je do JVM načítaná. Definíciu \textit{CLASS} je možné nahradiť kľúčovým slovom
+\textit{INTERFACE}, ktoré rovńakým spôsobom ako \textit{CLASS} popisuje rozhranie. Doplnením znaku ^ na začiatok mena triedy, respektíve rozrania je možné zabezpečiť dedičnosť - prenos pravidiel na potomkov. Metódu je možné okrem samotného názvu špecifikovať aj jej návratovým typom, prípadne
+argumentami. Tieto bližšie špecifikácie niesu povinné, preto je možné načítať pravidlo do viacerých preťažených metód zároveň.
+
+Po nájdení metódy, respektíve metód, ktoré vyplívajú s definícií CLASS, METHOD, prípadne INTERFACE je do každej z nich vložený takzvaný spúšťač \textit{trigger point}.
 TODO...
 
 \subsection{Závislosti}

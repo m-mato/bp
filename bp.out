@@ -15,7 +15,13 @@
 \BOOKMARK [2][-]{subsection.3.0.4}{ Znovunac\355tanie triedy}{subsection.3.0.3}% 15
 \BOOKMARK [0][-]{chapter.4}{Byteman}{}% 16
 \BOOKMARK [1][-]{section.4.1}{ Byteman Agent}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.2}{ Jazyk}{chapter.4}% 18
-\BOOKMARK [0][-]{chapter.5}{N\341stroj Javasist}{}% 19
-\BOOKMARK [0][-]{chapter.5}{Literat\372ra}{}% 20
-\BOOKMARK [0][-]{appendix.A}{Tabulky}{}% 21
+\BOOKMARK [1][-]{section.4.2}{ \227trukt\372ra jazyka pravidel}{chapter.4}% 18
+\BOOKMARK [2][-]{subsection.4.2.1}{ Udalosti}{section.4.2}% 19
+\BOOKMARK [2][-]{subsection.4.2.2}{ Z\341vislosti}{section.4.2}% 20
+\BOOKMARK [2][-]{subsection.4.2.3}{ V\375razy}{section.4.2}% 21
+\BOOKMARK [2][-]{subsection.4.2.4}{ Podmienky}{section.4.2}% 22
+\BOOKMARK [2][-]{subsection.4.2.5}{ Akcie}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.6}{ Vstavan\351 volania}{section.4.2}% 24
+\BOOKMARK [0][-]{chapter.5}{N\341stroj Javasist}{}% 25
+\BOOKMARK [0][-]{chapter.5}{Literat\372ra}{}% 26
+\BOOKMARK [0][-]{appendix.A}{Tabulky}{}% 27

@@ -16,7 +16,13 @@
 \contentsline {subsection}{\numberline {3.0.4}\rmfamily Znovuna\IeC {\v c}\IeC {\'\i }tanie triedy}{13}{subsection.3.0.4}
 \contentsline {chapter}{\numberline {4}\bfseries Byteman}{15}{chapter.4}
 \contentsline {section}{\numberline {4.1}\slshape Byteman Agent}{16}{section.4.1}
-\contentsline {section}{\numberline {4.2}\slshape Jazyk}{17}{section.4.2}
-\contentsline {chapter}{\numberline {5}\bfseries N\IeC {\'a}stroj Javasist}{18}{chapter.5}
-\contentsline {chapter}{Literat\IeC {\'u}ra}{19}{chapter.5}
-\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{20}{appendix.A}
+\contentsline {section}{\numberline {4.2}\slshape \IeC {\v S}trukt\IeC {\'u}ra jazyka pravidel}{17}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}\rmfamily Udalosti}{17}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}\rmfamily Z\IeC {\'a}vislosti}{18}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}\rmfamily V\IeC {\'y}razy}{18}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}\rmfamily Podmienky}{18}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}\rmfamily Akcie}{18}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}\rmfamily Vstavan\IeC {\'e} volania}{18}{subsection.4.2.6}
+\contentsline {chapter}{\numberline {5}\bfseries N\IeC {\'a}stroj Javasist}{19}{chapter.5}
+\contentsline {chapter}{Literat\IeC {\'u}ra}{20}{chapter.5}
+\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{21}{appendix.A}
