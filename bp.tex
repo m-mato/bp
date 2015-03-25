@@ -694,28 +694,51 @@ Rovnako za kľúčovými slovami \textit{CLASS} a \textit{METHOD} sa nachádza m
 \textit{INTERFACE}, ktoré rovńakým spôsobom ako \textit{CLASS} popisuje rozhranie. Doplnením znaku ^ na začiatok mena triedy, respektíve rozrania je možné zabezpečiť dedičnosť - prenos pravidiel na potomkov. Metódu je možné okrem samotného názvu špecifikovať aj jej návratovým typom, prípadne
 argumentami. Tieto bližšie špecifikácie niesu povinné, preto je možné načítať pravidlo do viacerých preťažených metód zároveň.
 
-Po nájdení metódy, respektíve metód, ktoré vyplívajú s definícií CLASS, METHOD, prípadne INTERFACE je do každej z nich vložený takzvaný spúšťač \textit{trigger point}.
-TODO...
+Po nájdení metódy, respektíve metód, ktoré vyplívajú s definícií CLASS, METHOD, prípadne INTERFACE je do každej z nich vložený takzvaný spúšťač \textit{trigger point}. Tento spúšťač presne identifikuje miesto v metóde, kde bude bajtkód injektovaný. Pomocou špecifikácie umiestnenia je možné zvoliť rôzne umiestenie tohto spúšťača. Defaultne je zvolené umiestnenie \textit{AT ENTRY}, čo znamená, že spúšťač bude vložený na začiatok - pred prvú~inštrukciu~\footnote{Výnimkou sú inštrukcie volajúce konštruktor predka, prípadne alternatívny konštruktor.} danej metódy. Ďalšímie možnosťami umiestnenia spúšťača sú napríklad: \textit{AT EXIT}, \textit{AT LINE}, \textit{AT READ}, \footnote{AT WRITE}. Tieto definície vkladajú spúšťač na koniec metódy, prípadne pred operáciu čítania / zápisu do premennej. Tabuľka všetkých možností umiestnení je uvedená v: TODO...
 
 \subsection{Závislosti}
+Skript definujúci  pravidlo jazyka \textit{Byteman} je možné obohatiť o takzvané závislosti pravidiel (\textit{Rule Bindings}). Tieto závislosti počítajú hodnoty premenných, ktoré môžu byť použité v ďalšom tele pravidla. Sú počítane pri každom spustení pravidla. Závislosti sú definované pomocou klauzule \textit{BIND} nasledovanej názvom a prípadne typom premennej. Každej premennej je pomocou výrazu nasledujúceho za \textit{=} priradená hodnota, napríklad:
 
-Závislosti pravidiel (\textit{Rule bindings})
-TODO...
+\begin{example}{Závislosť}
+\begin{verbatim}
+RULE Bindings example
+...
+BIND thisClass = $0;
+...
+ENDRULE
+\end{verbatim}
+\end{example}
+
+Vytvára premennú thisClass, korej bude automaticky odvodený typ a priradzjue jej hodnotu reprezentujúcu metódu tohto pravidla.
 
 \subsection{Výrazy}
+Výrazy (\textit{Rule expressions}) sa nachádzajú na pravej strane definície závislosti. Existujú dva základné typy výrazov:
+\begin{itemize}
+\item Jednoduché výrazy ako napríklad: referencie na predošlé závislosti, referencie na lokálne premenné v okolí spúšťača, vstavané operátory ako napríkald: \textit{\$!, \$\^, \$@, ...} a mnohé iné.
+\item Výrazy zložené z iných výrazov pomocou štandardných operátorov jazyka Java.
+operácie JVM.
+\end{itemize}
+Tabuľka zákaldných vsatavaných operátorov je uvedená v TODO...
 
-Výrazy \textit{Rule expressions}
-TODO...
-
-\subsection{Podmienky}
-
-Podmienky (\textit{Rule Conditions})
-TODO...
+Podmienkami pravidla (Rule Conditions) sú výrazy typu boolean. Tieto pravidlá nasledujúce klauzulu \textit{IF} sú overené po inicializácií závislostí.
 
 \subsection{Akcie}
 
-Akcie pravidiel (\textit{Rule Actions})
-TODO...
+Jednou z najdôležitejších súčastí pravidla sú akcie pravidiel (\textit{Rule Actions}). Sú tvorené výrazmy, návratovými klauzulami, prípadne kaluzolou
+\textit{throw}. Na začiatku definície je klauzula DO, ktorá je nasledovaná jednotlivými akciami. Každá akcia je na samostatnom riadku, odedeľuje ich bodkočiarka.
+
+\begin{example}{Akcie}
+\begin{verbatim}
+RULE Actions example
+...
+DO System.out.println("This method is:" + $0);
+   return;
+...
+ENDRULE
+\end{verbatim}
+\end{example}
+
+Tento príklad zobrazuje zjednodušené pravidlo, ktrého akciou je výpsi názvu metódy na štandardný výstup.
 
 \subsection{Vstavané volania}
 

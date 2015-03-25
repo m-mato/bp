@@ -20,9 +20,8 @@
 \contentsline {subsection}{\numberline {4.2.1}\rmfamily Udalosti}{17}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}\rmfamily Z\IeC {\'a}vislosti}{18}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}\rmfamily V\IeC {\'y}razy}{18}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}\rmfamily Podmienky}{18}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}\rmfamily Akcie}{18}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}\rmfamily Vstavan\IeC {\'e} volania}{18}{subsection.4.2.6}
-\contentsline {chapter}{\numberline {5}\bfseries N\IeC {\'a}stroj Javasist}{19}{chapter.5}
-\contentsline {chapter}{Literat\IeC {\'u}ra}{20}{chapter.5}
-\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{21}{appendix.A}
+\contentsline {subsection}{\numberline {4.2.4}\rmfamily Akcie}{19}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}\rmfamily Vstavan\IeC {\'e} volania}{19}{subsection.4.2.5}
+\contentsline {chapter}{\numberline {5}\bfseries N\IeC {\'a}stroj Javasist}{20}{chapter.5}
+\contentsline {chapter}{Literat\IeC {\'u}ra}{21}{chapter.5}
+\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{22}{appendix.A}
