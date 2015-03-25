@@ -22,5 +22,13 @@
 \BOOKMARK [2][-]{subsection.4.2.4}{ Akcie}{section.4.2}% 22
 \BOOKMARK [2][-]{subsection.4.2.5}{ Vstavan\351 volania}{section.4.2}% 23
 \BOOKMARK [0][-]{chapter.5}{N\341stroj Javasist}{}% 24
-\BOOKMARK [0][-]{chapter.5}{Literat\372ra}{}% 25
-\BOOKMARK [0][-]{appendix.A}{Tabulky}{}% 26
+\BOOKMARK [1][-]{section.5.1}{ Frozen classes}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.2}{ Class search path}{chapter.5}% 26
+\BOOKMARK [1][-]{section.5.3}{ Class Pool}{chapter.5}% 27
+\BOOKMARK [2][-]{subsection.5.3.1}{ Cascaded CP}{section.5.3}% 28
+\BOOKMARK [2][-]{subsection.5.3.2}{ Changing a class name for defining a new class}{section.5.3}% 29
+\BOOKMARK [1][-]{section.5.4}{ ClassLoaders in Javassist}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.5}{ Others}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.6}{ Bytecode level API in Javassist}{chapter.5}% 32
+\BOOKMARK [0][-]{section.5.6}{Literat\372ra}{}% 33
+\BOOKMARK [0][-]{appendix.A}{Tabulky}{}% 34

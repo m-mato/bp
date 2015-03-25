@@ -694,7 +694,7 @@ Rovnako za kľúčovými slovami \textit{CLASS} a \textit{METHOD} sa nachádza m
 \textit{INTERFACE}, ktoré rovńakým spôsobom ako \textit{CLASS} popisuje rozhranie. Doplnením znaku ^ na začiatok mena triedy, respektíve rozrania je možné zabezpečiť dedičnosť - prenos pravidiel na potomkov. Metódu je možné okrem samotného názvu špecifikovať aj jej návratovým typom, prípadne
 argumentami. Tieto bližšie špecifikácie niesu povinné, preto je možné načítať pravidlo do viacerých preťažených metód zároveň.
 
-Po nájdení metódy, respektíve metód, ktoré vyplívajú s definícií CLASS, METHOD, prípadne INTERFACE je do každej z nich vložený takzvaný spúšťač \textit{trigger point}. Tento spúšťač presne identifikuje miesto v metóde, kde bude bajtkód injektovaný. Pomocou špecifikácie umiestnenia je možné zvoliť rôzne umiestenie tohto spúšťača. Defaultne je zvolené umiestnenie \textit{AT ENTRY}, čo znamená, že spúšťač bude vložený na začiatok - pred prvú~inštrukciu~\footnote{Výnimkou sú inštrukcie volajúce konštruktor predka, prípadne alternatívny konštruktor.} danej metódy. Ďalšímie možnosťami umiestnenia spúšťača sú napríklad: \textit{AT EXIT}, \textit{AT LINE}, \textit{AT READ}, \footnote{AT WRITE}. Tieto definície vkladajú spúšťač na koniec metódy, prípadne pred operáciu čítania / zápisu do premennej. Tabuľka všetkých možností umiestnení je uvedená v: TODO...
+Po nájdení metódy, respektíve metód, ktoré vyplívajú s definícií CLASS, METHOD, prípadne INTERFACE je do každej z nich vložený takzvaný spúšťač \textit{trigger point}. Tento spúšťač presne identifikuje miesto v metóde, kde bude bajtkód injektovaný. Pomocou špecifikácie umiestnenia je možné zvoliť rôzne umiestenie tohto spúšťača. Defaultne je zvolené umiestnenie \textit{AT ENTRY}, čo znamená, že spúšťač bude vložený na začiatok - pred prvú~inštrukciu~\footnote{Výnimkou sú inštrukcie volajúce konštruktor predka, prípadne alternatívny konštruktor.} danej metódy. Ďalšímie možnosťami umiestnenia spúšťača sú napríklad: \textit{AT EXIT}, \textit{AT LINE}, \textit{AT READ}, \footnote{AT WRITE}. Tieto definície vkladajú spúšťač na koniec metódy, prípadne pred operáciu čítania / zápisu do premennej. Tabuľka všetkých možností umiestnení je uvedená v: TODOcd Documents/...
 
 \subsection{Závislosti}
 Skript definujúci  pravidlo jazyka \textit{Byteman} je možné obohatiť o takzvané závislosti pravidiel (\textit{Rule Bindings}). Tieto závislosti počítajú hodnoty premenných, ktoré môžu byť použité v ďalšom tele pravidla. Sú počítane pri každom spustení pravidla. Závislosti sú definované pomocou klauzule \textit{BIND} nasledovanej názvom a prípadne typom premennej. Každej premennej je pomocou výrazu nasledujúceho za \textit{=} priradená hodnota, napríklad:
@@ -747,6 +747,32 @@ TODO...
 Rule Helpers?
 
 \chapter{Nástroj Javasist}
+
+Priamo ako kapitola: Reading and writing bytecode, Defining a new class.
+TODO...
+
+\section{Frozen classes}
+TODO...
+
+\section{Class search path}
+TODO...
+
+\section{Class Pool}
+TODO...
+
+\subsection{Cascaded CP}
+TODO...
+
+\subsection{Changing a class name for defining a new class}
+TODO...
+
+\section{ClassLoaders in Javassist}
+TODO...
+
+\section{Others}
+TODO...
+
+\section{Bytecode level API in Javassist}
 TODO...
 
 \clearpage
