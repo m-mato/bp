@@ -1,10 +1,5 @@
 \begin{thebibliography}{LYBB13}
 
-\bibitem[Byt]{Byteman:Homepage}
-{Byteman} project description.
-\newblock \url{http://byteman.jboss.org}.
-\newblock Accessed: 2015-03-09.
-
 \bibitem[LYBB13]{Lindholm:2013:JVM:2462629}
 Tim Lindholm, Frank Yellin, Gilad Bracha, and Alex Buckley.
 \newblock {\em The Java Virtual Machine Specification, Java SE 7 Edition}.
@@ -17,15 +12,33 @@ Oracle.
 \newblock
   \url{http://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html}.
 
-\bibitem[Red]{RedHat:Byteman}
+\bibitem[Reda]{RedHat:Byteman}
 Red Hat and individual contributors.
 \newblock {\em Byteman Programmer's Guide}.
 \newblock \url{http://downloads.jboss.org/byteman/2.2.1/ProgrammersGuide.pdf}.
+
+\bibitem[Redb]{RedHat:Javassist}
+Red Hat and individual contributors.
+\newblock {\em Javassist Online API manual}.
+\newblock
+  \url{http://www.csg.ci.i.u-tokyo.ac.jp/~chiba/javassist/html/index.html}.
+
+\bibitem[RH]{Byteman:Homepage}
+Inc. Red~Hat.
+\newblock {Byteman} project description.
+\newblock \url{http://byteman.jboss.org}.
+\newblock Accessed: 2015-03-09.
 
 \bibitem[Sel95]{Sellis:ECARules}
 Timos Sellis.
 \newblock {\em Rules in Database Systems: Second International Workshop, RIDS
   '95, Glyfada, Athens, Greece, September 25 - 27, 1995. Proceedings}.
 \newblock Lecture Notes in Artificial Intelligence. Springer, 1995.
+
+\bibitem[Shi]{Chiba:Javassist}
+Shigeru Chiba.
+\newblock {\em Getting Started with Javassist}.
+\newblock
+  \url{http://www.csg.ci.i.u-tokyo.ac.jp/~chiba/javassist/tutorial/tutorial.html}.
 
 \end{thebibliography}

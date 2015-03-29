@@ -738,7 +738,8 @@ ENDRULE
 \end{verbatim}
 \end{example}
 
-Tento príklad zobrazuje zjednodušené pravidlo, ktrého akciou je výpsi názvu metódy na štandardný výstup.
+Tento príklad zobrazuje zjednodušené pravidlo, ktrého akciou je výpsi názvu metódy na štandardný výstup. Narozdiel od ECA pravidiel nástroja
+\textit{Byteman}, Javassist používa na reprezentáciu \textit{class} súboru triedu \textit{Javassist.CtClass}.
 
 \subsection{Vstavané volania}
 
@@ -746,35 +747,57 @@ Vstavané volania (\textit{Built-In Calls})
 TODO...
 Rule Helpers?
 
-\chapter{Nástroj Javasist}
+\chapter{Javasist}
 
-Priamo ako kapitola: Reading and writing bytecode, Defining a new class.
-TODO...
+Ďalším nástrojom určeným na manipuláciu s bajtkódom je \textit{Javassist}. Tento nástroj využíva na manipuláciu s bajtkódom odlišný prístup ako
+\textit{Byteman}. Narozdiel od ECA pravidie, \textit{Javassist} používa na reprezentáciu \textit{class} súboru treidu \textit{Javassist.CtClass}.
+\textit{Class} súbor je možné pomocou tejto triedy
+modifikovať~\footnote{Možnosti modofikácie triedy pomocou \textit{CtClass} popisuje kapitola TODO...} a následne modifikácie zapísať.
 
+Na modifikáciu definície triedy je nutné najskôr získať referenciu na objekt
+\textit{CtClass} z objektu \textit{ClassPool} pomocou jeho metódy
+\textit{get()}.
+
+\begin{example}{Získanie objektu \textit{CtClass}}
+\begin{verbatim}
+ClassPool pool = ClassPool.getDefault();
+CtClass cc = pool.get("test.Rectangle");
+\end{verbatim}
+\end{example}
+
+Vo vyššie uvedenoum príklade je objekt typu \textit{CtClass}, ktorý reprezentuje triedu \textit{test.Rectangle} vrátený objektom \textit{ClassPool} a uložený do premennej \textit{cc}. Samotný objekt \textit{ClassPool} vrátila metóda \textit{getDefault}, ktorá prehľadáva defaultnú systémovú cestu. Z implementačného pohľadu je \textit{ClassPool} hešovacia tabuľka objektov
+\textit{CtClass}, ktorá používa mená tried ako kľúče. Metóda \textit{get()} v
+\textit{ClassPool} prehľadáva túto hešovaciu tabuľku, aby našla objekty typu
+\textit{CtClass} príslušný danému kľúču~\cite{Chiba:Javassist}.
+
+Ďalšou možnosťou ovplivňovania správania sa aplikácie je pridanie novo definovanej triedy. \textit{Javassist} túto funkcionalitu umožňuje pomocou metódy \textit{makeClass()} volanej na objekte typu \textit{ClasssPool}.
+
+\begin{example}{Definícia novej triedy}
+\begin{verbatim}
+ClassPool pool = ClassPool.getDefault();
+CtClass cc = pool.makeClass("Point");
+\end{verbatim}
+\end{example}
+
+V tomto prípade pomocou kontajnera \textit{pool} definovaná nová trieda
+\textit{Point}. 
+
+Modifikácie vykonané v bajtkóde načítaných, prípadne novo vytvorených objektov sa prejavia ihenď po zavolaní metódy \textit{writeFile()} triedy
+\textit{CtClass}. Táto metóda preloží objekt \textit{CtClass} do \textit{class} súboru, ktorý zapíše na disk. \textit{Javassist} taktiež poskytuje metódu \textit{toBytecide()}, ktorá vráti modifikované inštrukcie bajtkódu do poľa typu \textit{byte}~\cite{Chiba:Javassist}.
+ 
 \section{Frozen classes}
 TODO...
 
-\section{Class search path}
+\section{ClassLoadery v Javassist}
 TODO...
 
-\section{Class Pool}
-TODO...
-
-\subsection{Cascaded CP}
-TODO...
-
-\subsection{Changing a class name for defining a new class}
-TODO...
-
-\section{ClassLoaders in Javassist}
-TODO...
-
-\section{Others}
+\section{Modifikácie}
 TODO...
 
 \section{Bytecode level API in Javassist}
 TODO...
 
+\nocite{RedHat:Javassist}
 \clearpage
 \addcontentsline{toc}{chapter}{Literatúra} 
 \bibliographystyle{alpha} 

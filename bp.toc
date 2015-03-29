@@ -1,35 +1,31 @@
 \select@language {slovak}
-\contentsline {chapter}{\numberline {1}\bfseries \IeC {\'U}vod}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}\slshape Cie\IeC {\v l} pr\IeC {\'a}ce}{4}{section.1.1}
-\contentsline {section}{\numberline {1.2}\slshape \IeC {\v C}lenenie pr\IeC {\'a}ce}{4}{section.1.2}
-\contentsline {chapter}{\numberline {2}\bfseries Bajtk\IeC {\'o}d}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}\slshape \IeC {\v S}trukt\IeC {\'u}ra \textit {class} s\IeC {\'u}boru}{5}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}\rmfamily Reprezent\IeC {\'a}cia d\IeC {\'a}tov\IeC {\'y}ch typov}{7}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}\rmfamily Premenn\IeC {\'e} tried a in\IeC {\v s}tanci\IeC {\'\i }}{8}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}\rmfamily Met\IeC {\'o}dy}{9}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}\rmfamily Atrib\IeC {\'u}ty}{10}{subsection.2.1.4}
-\contentsline {section}{\numberline {2.2}\slshape In\IeC {\v s}trukcie JVM}{10}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}\rmfamily D\IeC {\'a}tov\IeC {\'e} typy}{11}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}\rmfamily Architekt\IeC {\'u}ra a in\IeC {\v s}truk\IeC {\v c}n\IeC {\'a} sada}{11}{subsection.2.2.2}
-\contentsline {chapter}{\numberline {3}\bfseries Classloadery}{14}{chapter.3}
-\contentsline {subsection}{\numberline {3.0.3}\rmfamily Dynamick\IeC {\'e} na\IeC {\v c}\IeC {\'\i }tavanie tried}{14}{subsection.3.0.3}
-\contentsline {subsection}{\numberline {3.0.4}\rmfamily Znovuna\IeC {\v c}\IeC {\'\i }tanie triedy}{14}{subsection.3.0.4}
-\contentsline {chapter}{\numberline {4}\bfseries Byteman}{16}{chapter.4}
-\contentsline {section}{\numberline {4.1}\slshape Byteman Agent}{17}{section.4.1}
-\contentsline {section}{\numberline {4.2}\slshape \IeC {\v S}trukt\IeC {\'u}ra jazyka pravidel}{18}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}\rmfamily Udalosti}{18}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}\rmfamily Z\IeC {\'a}vislosti}{19}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}\rmfamily V\IeC {\'y}razy}{19}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}\rmfamily Akcie}{20}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}\rmfamily Vstavan\IeC {\'e} volania}{20}{subsection.4.2.5}
-\contentsline {chapter}{\numberline {5}\bfseries N\IeC {\'a}stroj Javasist}{21}{chapter.5}
+\contentsline {chapter}{\numberline {1}\bfseries \IeC {\'U}vod}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}\slshape Cie\IeC {\v l} pr\IeC {\'a}ce}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}\slshape \IeC {\v C}lenenie pr\IeC {\'a}ce}{3}{section.1.2}
+\contentsline {chapter}{\numberline {2}\bfseries Bajtk\IeC {\'o}d}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}\slshape \IeC {\v S}trukt\IeC {\'u}ra \textit {class} s\IeC {\'u}boru}{4}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}\rmfamily Reprezent\IeC {\'a}cia d\IeC {\'a}tov\IeC {\'y}ch typov}{6}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}\rmfamily Premenn\IeC {\'e} tried a in\IeC {\v s}tanci\IeC {\'\i }}{7}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}\rmfamily Met\IeC {\'o}dy}{8}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}\rmfamily Atrib\IeC {\'u}ty}{9}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}\slshape In\IeC {\v s}trukcie JVM}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}\rmfamily D\IeC {\'a}tov\IeC {\'e} typy}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}\rmfamily Architekt\IeC {\'u}ra a in\IeC {\v s}truk\IeC {\v c}n\IeC {\'a} sada}{10}{subsection.2.2.2}
+\contentsline {chapter}{\numberline {3}\bfseries Classloadery}{13}{chapter.3}
+\contentsline {subsection}{\numberline {3.0.3}\rmfamily Dynamick\IeC {\'e} na\IeC {\v c}\IeC {\'\i }tavanie tried}{13}{subsection.3.0.3}
+\contentsline {subsection}{\numberline {3.0.4}\rmfamily Znovuna\IeC {\v c}\IeC {\'\i }tanie triedy}{13}{subsection.3.0.4}
+\contentsline {chapter}{\numberline {4}\bfseries Byteman}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}\slshape Byteman Agent}{16}{section.4.1}
+\contentsline {section}{\numberline {4.2}\slshape \IeC {\v S}trukt\IeC {\'u}ra jazyka pravidel}{17}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}\rmfamily Udalosti}{17}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}\rmfamily Z\IeC {\'a}vislosti}{18}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}\rmfamily V\IeC {\'y}razy}{18}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}\rmfamily Akcie}{19}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}\rmfamily Vstavan\IeC {\'e} volania}{19}{subsection.4.2.5}
+\contentsline {chapter}{\numberline {5}\bfseries Javasist}{20}{chapter.5}
 \contentsline {section}{\numberline {5.1}\slshape Frozen classes}{21}{section.5.1}
-\contentsline {section}{\numberline {5.2}\slshape Class search path}{21}{section.5.2}
-\contentsline {section}{\numberline {5.3}\slshape Class Pool}{21}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}\rmfamily Cascaded CP}{21}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}\rmfamily Changing a class name for defining a new class}{21}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}\slshape ClassLoaders in Javassist}{21}{section.5.4}
-\contentsline {section}{\numberline {5.5}\slshape Others}{21}{section.5.5}
-\contentsline {section}{\numberline {5.6}\slshape Bytecode level API in Javassist}{22}{section.5.6}
-\contentsline {chapter}{Literat\IeC {\'u}ra}{23}{section.5.6}
-\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{24}{appendix.A}
+\contentsline {section}{\numberline {5.2}\slshape ClassLoadery v Javassist}{21}{section.5.2}
+\contentsline {section}{\numberline {5.3}\slshape Modifik\IeC {\'a}cie}{21}{section.5.3}
+\contentsline {section}{\numberline {5.4}\slshape Bytecode level API in Javassist}{21}{section.5.4}
+\contentsline {chapter}{Literat\IeC {\'u}ra}{22}{section.5.4}
+\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{23}{appendix.A}
