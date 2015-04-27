@@ -1,0 +1,37 @@
+
+RULE detect throw, method <init>, class ExampleFileSystemView
+	CLASS ExampleFileSystemView
+	METHOD <init>
+	AT THROW ALL
+	BIND exception:Throwable= $^
+	IF true
+	DO System.out.println("Detected athrow, exception: " + exception)
+ENDRULE
+
+RULE detect throw, method createNewFolder, class ExampleFileSystemView
+	CLASS ExampleFileSystemView
+	METHOD createNewFolder
+	AT THROW ALL
+	BIND exception:Throwable= $^
+	IF true
+	DO System.out.println("Detected athrow, exception: " + exception)
+ENDRULE
+
+RULE detect throw, method getRoots, class ExampleFileSystemView
+	CLASS ExampleFileSystemView
+	METHOD getRoots
+	AT THROW ALL
+	BIND exception:Throwable= $^
+	IF true
+	DO System.out.println("Detected athrow, exception: " + exception)
+ENDRULE
+
+RULE detect throw, method getSystemDisplayName, class ExampleFileSystemView
+	CLASS ExampleFileSystemView
+	METHOD getSystemDisplayName
+	AT THROW ALL
+	BIND exception:Throwable= $^
+	IF true
+	DO System.out.println("Detected athrow, exception: " + exception)
+ENDRULE
+
