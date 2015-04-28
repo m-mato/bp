@@ -695,7 +695,7 @@ Rovnako za kľúčovými slovami \textit{CLASS} a \textit{METHOD} sa nachádza m
 \textit{INTERFACE}, ktoré rovńakým spôsobom ako \textit{CLASS} popisuje rozhranie. Doplnením znaku ^ na začiatok mena triedy, respektíve rozrania je možné zabezpečiť dedičnosť - prenos pravidiel na potomkov. Metódu je možné okrem samotného názvu špecifikovať aj jej návratovým typom, prípadne
 argumentami. Tieto bližšie špecifikácie niesu povinné, preto je možné načítať pravidlo do viacerých preťažených metód zároveň.
 
-Po nájdení metódy, respektíve metód, ktoré vyplívajú s definícií CLASS, METHOD, prípadne INTERFACE je do každej z nich vložený takzvaný spúšťač \textit{trigger point}. Tento spúšťač presne identifikuje miesto v metóde, kde bude bajtkód injektovaný. Pomocou špecifikácie umiestnenia je možné zvoliť rôzne umiestenie tohto spúšťača. Defaultne je zvolené umiestnenie \textit{AT ENTRY}, čo znamená, že spúšťač bude vložený na začiatok - pred prvú~inštrukciu~\footnote{Výnimkou sú inštrukcie volajúce konštruktor predka, prípadne alternatívny konštruktor.} danej metódy. Ďalšímie možnosťami umiestnenia spúšťača sú napríklad: \textit{AT EXIT}, \textit{AT LINE}, \textit{AT READ}, \footnote{AT WRITE}. Tieto definície vkladajú spúšťač na koniec metódy, prípadne pred operáciu čítania / zápisu do premennej. Tabuľka všetkých možností umiestnení je uvedená v: TODOcd Documents/...
+Po nájdení metódy, respektíve metód, ktoré vyplívajú s definícií CLASS, METHOD, prípadne INTERFACE je do každej z nich vložený takzvaný spúšťač \textit{trigger point}. Tento spúšťač presne identifikuje miesto v metóde, kde bude bajtkód injektovaný. Pomocou špecifikácie umiestnenia je možné zvoliť rôzne umiestenie tohto spúšťača. Defaultne je zvolené umiestnenie \textit{AT ENTRY}, čo znamená, že spúšťač bude vložený na začiatok - pred prvú~inštrukciu~\footnote{Výnimkou sú inštrukcie volajúce konštruktor predka, prípadne alternatívny konštruktor.} danej metódy. Ďalšímie možnosťami umiestnenia spúšťača sú napríklad: \textit{AT EXIT}, \textit{AT LINE}, \textit{AT READ}, \textit{AT WRITE}. Tieto definície vkladajú spúšťač na koniec metódy, prípadne pred operáciu čítania, alebo zápisu do premennej. Tabuľka všetkých možností umiestnení je uvedená v: TODO....
 
 \subsection{Závislosti}
 Skript definujúci  pravidlo jazyka \textit{Byteman} je možné obohatiť o takzvané závislosti pravidiel (\textit{Rule Bindings}). Tieto závislosti počítajú hodnoty premenných, ktoré môžu byť použité v ďalšom tele pravidla. Sú počítane pri každom spustení pravidla. Závislosti sú definované pomocou klauzule \textit{BIND} nasledovanej názvom a prípadne typom premennej. Každej premennej je pomocou výrazu nasledujúceho za \textit{=} priradená hodnota, napríklad:
@@ -715,7 +715,7 @@ Vytvára premennú thisClass, korej bude automaticky odvodený typ a priradzjue 
 \subsection{Výrazy}
 Výrazy (\textit{Rule expressions}) sa nachádzajú na pravej strane definície závislosti. Existujú dva základné typy výrazov:
 \begin{itemize}
-\item Jednoduché výrazy ako napríklad: referencie na predošlé závislosti, referencie na lokálne premenné v okolí spúšťača, vstavané operátory ako napríkald: \textit{\$!, \$\^, \$@, ...} a mnohé iné.
+\item Jednoduché výrazy ako napríklad: referencie na predošlé závislosti, referencie na lokálne premenné v okolí spúšťača, vstavané operátory ako napríkald: \textit{\$!, \$\^, \$@, …} a mnohé iné.
 \item Výrazy zložené z iných výrazov pomocou štandardných operátorov jazyka Java.
 operácie JVM.
 \end{itemize}
@@ -846,7 +846,64 @@ Dôležitou súčasťou ukážkového programu je skript \textit{loadScripts.sh}
 Po vygenerovaní a načítaní pravidiel program reaguje na každú volanú výnimku zadanej triedy, respektíve tried a pri detekcii na ňu upozorní. Pre účely tejto práce používam ako demonštračný príklad program \textit{fileChooser}~\footnote{Tento demonštračný príklad je súčasťou balíka Java Development Kit Demos and Samples.}. V reálnom prostredí by bolo možné detekciu volania výnimiek využiť napríklad v aplikačných serveroch, kde nieje volanie niektorých z nich vždy viditeľné.
 
 \section{Detekcia nesprávneho ošetrenia výnimiek}
-TODO...
+Nasledujúci príklad sa zaoberá detekciou nesprávne ošetrených výnimiek. V prípade zachytenia výnimky catch blokom by mal program na túto situáciu vždy nejakým spôsobom reagovať (napríklad: logovaním udalosti, volaním inej výnimky, riadeným pádom programu, …). Prázdne \textit{catch} bloky sú preto vo väčšine prípadov nesprávnym ošetrením danej výnimky.
+
+Detekcia nesprávneho ošetrenia výnimiek je vhodným demonštaračným príkladom pre ukážku funkcionality knižnice \textit{Javassist}. Keďže ide o ukážku nástroja \textit{Javassist} projektom je Java aplikácia vo formáte \textit{Maven}. Program postupne prechádza všetky metódy a konštruktory triedy, ktorú monitoruje. Pri nájdení prázdného catch bloku uloží informácie o jeho polohe do logu a na záver vypíše získané údaje.Výstup môže vyzerať napríklad nasledovne:
+
+\begin{example}{Výstup aplikácie po kontorle triedy example.tables.JDBCAdapter}
+\begin{verbatim}
+- Class JDBCAdapter -
+Apr 28, 2015 6:15:18 PM application.CatchBlockTracer trace
+INFO: -> Suspicious catch block found on line: 116 in method:
+      example.tables.JDBCAdapter.executeQuery(java.lang.String)
+Apr 28, 2015 6:15:18 PM application.CatchBlockTracer trace
+INFO: -> Suspicious catch block found on line: 266 in method:
+      example.tables.JDBCAdapter.setValueAt(java.lang.Object,…)
+Apr 28, 2015 6:15:18 PM application.CatchBlockTracer trace
+INFO: -> Suspicious catch block found on line: 81 in method:
+      example.tables.JDBCAdapter(java.lang.String,…)
+Apr 28, 2015 6:15:18 PM application.CatchBlockTracer trace
+INFO: -> Suspicious catch block found on line: 79 in method:
+      example.tables.JDBCAdapter(java.lang.String,…)
+SUMMARY: 4 suspicious catch blocks found in class JDBCAdapter
+\end{verbatim}
+\end{example}
+
+V tomto výstupe vidíme, že boli nájdené 4 nesprávne ošetrené výnimky na riadkoch: 79, 81, 166, 266.
+
+\section{Štruktúra a funkčná logika aplikácie}
+
+Aplikačnú logiku som rozdelil medzi štyri triedy: \textit{Tracer}, \textit{CatchBlockTracer}, \textit{CBDetector} a \textit{CBIndicesHandler}. 
+
+Trieda \textit{Tracer} slúži na spustenie samotnej aplikácie pre ľubovoľnú triedu \textit{<C>}. Obsahuje metódu \textit{traceCatchBlocks(Class classToTrace)}, ktorej argumentom je objekt reprezentujúcie \textit{<C>}. Táto metóda prevedie triedu na objekt typu \textit{CtClass} a následne z neho získa všetky metódy a konštruktory v podobe polí tried \textit{CtMethod} a \textit{CtConstrucor}. Následne za pomoci triedy \textit{CatchBlockTracer} získa informácie o všetkých prázdnych \textit{catch} blokoch týchto metód a konštruktorov. 
+
+Ako bolo uvedené v predchádzajúcom odseku, trieda \textit{CatchblockTracer} je určená na spracovanie objektov \textit{CtMethod} a \textit{CtConstructor}. Hlavnou metódou triedy je \textit{trace(final CtBehavior cm)}. Táto metóda má argument typu CtBehaviour, ktorého potomkami sú práve triedy \textit{CtMethod} a \textit{CtConstructor}. Uchováva si informácie o pozícií cathc blokov v podobe mapy, ktorej kľúčom je index prvej inštrukcie cathc bloku v bajtkóde a hodnotou je pozícia catch bloku v zdrojovm súbore. Túto mapu získava za pomoci tried CBDetector a CBIndicesHandler. Po získaní údajov o polohe všetkých catch blokov v danej metóde je každý z nich skontrolovaný metódou \textit{isEmpty}. V prípade preukázania nesprávne ošetrenej výnimky je sú informácie o catch bloku uložené a logované. 
+
+Mechanizmus kontroly prázdneho catch bloku prebieha pomocou nízkoúrovňového rozhrania knižnice \textit{Javassist} pre prácu s bajtkódom. V bajtkóde je každý catch blok reprezentovaný vo znázornenej na obrázku \ref{fig:catch}.
+
+\begin{figure}[h]
+  \centering
+   \includegraphics[width=\textwidth]{catch.png}
+  \caption{Grafické znázornenie reprezentácie \textit{catch} bloku v bajtkóde}
+  \label{fig:catch}
+\end{figure}
+
+Na začiatku je na zásobník vložená referencia na objekt výnimky. Nasleduje telo \textit{catch} bloku. Inštrukcia po poslednom \textit{catch} bloku má index <i>.V prípde, že aktuálny \textit{catch} blok nieje posledným v rade je za jeho telo umiestnená inštrukcia \textit{goto}, ktorá odkazuje na index inštrukcie <i>. V prípade posledného \textit{catch} nasleduje index <i> ihenď po jeho tele.
+Metóda \textit{isEmpty} preto kontroluje či telo catch bloku obsahuje iba inštrukciu skoku na index <i>, prípadne či je tele catch bloku úple prázdne. 
+
+Poslednými triedami na spodnej časti hierarchie v abstarkcii získavania polohy catch blokov sú \textit{CBDetector} a \textit{CBIndicesHandler}. Slúžia na získanie mapy indexov catch blokov pre zadanú metódu, prípadne konštruktor. Dôležitým nástorjom na samotné vyhľadávanie catch blokov je metóda \textit{CtBehavior.instrument(ExprEditor)}. Argumentom tejto metódy je práve objekt triedy \textit{CBIndicesHandler}, keďže \textit{CBIndicesHandler} je potomkom triedy \textit{ExprEditor}.
+
+\section{Testovacie príklady}
+
+Okrem samotnej aplikácie sa v projekte nachádzajú aj dva balíky \textit{example.simple} a \textit{example.tables}, na ktorých je možné funkcionalitu aplikácie testovať. Každý z balíkov obsahuje vlastnú spustiteľnú triedu \textit{Demo}, ktorá po spustení volá metódu \textit{application.Tracer.traceCatchBlocks} hlavnej aplikácie na jednotlivých testovacích triedach balíka. 
+
+Balík \textit{example.simple} obsahuje dve testovacie triedy, ktoré som vytvoril pre overenie samotnej funkčnosti aplikácie v balíku \textit{application}. Po spustení aplikácia upozorní na nesprávne ošetrene'\textit{catch} bloky v triede \textit{PersonFactory}.
+
+Balík \textit{example.tables} obsahuje komplexnejšie testovacie triedy prevzaté z balíka Java Devlopment Kit Demos and Samples. Výstupom spustenia triedy \textit{Demo} je kontrola tried \textit{JDBCAdapter}, \textit{OldJTable} a \textit{TableExample}. Na nesprávne ošetrené výnimky je tentokrát sú tentokrát upozornené metódy a konštruktor triedy \textit{JDBCAdapter}.
+
+Triedy v testovacích balíkoch je možné ľubovoľne modifikovať pre jednoduché toestovanie funkcionality aplikácie. V prípade potreby testovania aplikácie na novej triede je nutné zavolať metódu \textit{application.Tracer.traceCatchBlocks} s argumentom špecifikujúcim danú triedu.
+
+
 
 \section{Zlepšenie a zprehľadnenie produkčného kódu}
 TODO...
