@@ -585,6 +585,7 @@ vytvoriť novú inštanciu \textit{class loaderu}. %Štruktúra implementácie v
 ! PRÍKLAD POUŽITIA CLASSLOADERA - TODO ... !
 
 \chapter{Byteman}
+\label{chap:Byteman}
 \textit{Byteman} je nástroj manipulujúci s bajtkódom určný na zásah do bajtkódu Java aplikácií počas načítavania JVM, alebo za behu programu. 
 Používa sa najmä na zjednodušenie trasovania a testovania aplikácií. Umožňuje 
 používateľovi pridávať novú funkcionalitu do ktorejkoľvek časti programu.
@@ -796,6 +797,64 @@ TODO...
 
 \section{Bytecode level API in Javassist}
 TODO...
+
+\chapter{Porovnanie}
+TODO...
+
+\chapter{Praktické ukážky}
+Dôležitou súčasťou bakalárskej práce sú praktické ukážky. Každý z príkladov je navrhnutý pre jeden z nástrojov \textit{Byteman}, respektíve \textit{Javassist}. Konkrétne ukazujú základné možnosti jeho využitia pre vývoj a trasovanie programov Jave. Ukážky pokrývajú 4 oblasti:
+
+\begin{itemize}
+\item detekcia volania výnimiek, 
+\item detekcia nesprávneho ošetrenia výnimiek
+\item zlepšenie a zpprehľadnenie produkčného kódu
+\item optimalizácia neefektívnych častí kódu
+\end{itemize}
+
+Príklady obsahujú 2 ukážky z oblasti detekcie volania a ošetrovania výnimiek a 2 ukažky, zamerané na optimalizáciu a zlepšenie kódu. V praxi sa nástroje ako
+\textit{Byteman} a \textit{Javssist} využívajú najmä v aplikačných serveroch  prípadné iných projektoch, ktorých opätovná kompilácia by bola príliš časovo a technicky náročná. V ukážkach budeme z praktických dôvodov využívať na testovanie funkcionality menšie prgramové celky a demonštračné programy.
+
+\section{Detekcia volania výnimiek}
+Prvou z ukážok je detekcia volani výnimiek spusteného programu. Ide o detekciu všetkých výniemiek, ktoré sú v poždaovanej triede volané pomocou kľúčového slova \textit{throw}. V bajtkóde je konštrukcia tohto kľúčového slova reprezentovaná inštrukciou \textit{athrow}, ktorá zavolá výnimku predtým pridanú na vrchol zásobníka a zároveň zásobník vyčistí.
+
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=0.80\textwidth]{throw.png}
+  \caption{Grafické znázornenie pridania objektu výnimky a jej následné vyvolanie pomocou inštrukcie athrow}
+  \label{fig:throw}
+\end{figure}
+
+Detekcia volaných výnimiek je vhodným príkladom na ukážku využitia nástroja \textit{Byteman}. Ako bolo uvedené v kapitole \ref{chap:Byteman}, \textit{Byteman} využíva na popis modifikácie bajtkódu ECA pravidlá. Zovšeobecnené ECA pravidlá pre tento príklad sú v nasledujúcom tvare.
+
+\begin{example}{Všeobecný formát ECA pravidla pre detekciu výniemiek metódy <m> volanej z triedy <C>}
+\begin{verbatim}
+RULE detect throw, method <m>, class <T>
+  CLASS <T>
+  METHOD <m>
+  AT THROW ALL
+  BIND exception:Throwable= $^
+  IF true
+  DO System.out.println("Detected athrow, exception: " + exception)
+ENDRULE
+\end{verbatim}
+\end{example}
+
+Klauzula \textit{RULE} udáva názov pravidla pre konkrétnu metódu a triedu. Nasledujú klauzuly \textit{CLASS} a \textit{METHOD}, ktoré špecifikujú ich názvy. V ďalšej časti pravidla sa nachádza jeho logika, ktorá popisuje zachytávanie výnimiek a reakciu na ich volanie v podobe výpisu na štandardný výstup.
+
+Dôležitou súčasťou ukážkového programu je skript \textit{loadScripts.sh}, ktorý tieto pravidlá generuje a načítava do už spustenej aplikácie~\footnote{Keďže skript pravidlá ihneď po vygenerovaní načítava, je nutné aby už pred jeho spustením bežala aplikácia ktorej výnimky bude sledovať. Táto aplikácia musí byť spustená s preínačom \textit{agent listener}, ktorý je možné pridať aj za behu do dlhodobo spustenej aplikácie. Podorbný popis spustenia aplikácie a načítania skriptov sa nachádza v README súbore programu.}. Jediným potrebným argumentom je cesta ku \textit{class} súboru triedy, ktorej pravidlá bude skript generovať. Program následne monitoruje každú metódu zadanej triedy, vrátane konštruktora. V prípade potreby je možné generovať a načítavať skritpy pre viacero tried zároveň. V tomto prípade je nutné zadať skriptu \textit{loadScripts} cesty k ich \textit{class} súborom oddelené medzerou.
+
+Po vygenerovaní a načítaní pravidiel program reaguje na každú volanú výnimku zadanej triedy, respektíve tried a pri detekcii na ňu upozorní. Pre účely tejto práce používam ako demonštračný príklad program \textit{fileChooser}~\footnote{Tento demonštračný príklad je súčasťou balíka Java Development Kit Demos and Samples.}. V reálnom prostredí by bolo možné detekciu volania výnimiek využiť napríklad v aplikačných serveroch, kde nieje volanie niektorých z nich vždy viditeľné.
+
+\section{Detekcia nesprávneho ošetrenia výnimiek}
+TODO...
+
+\section{Zlepšenie a zprehľadnenie produkčného kódu}
+TODO...
+
+\section{Optimalizácia neefektívnych častí kódu}
+TODO...
+
+
 
 \nocite{RedHat:Javassist}
 \clearpage

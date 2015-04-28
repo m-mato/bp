@@ -26,5 +26,11 @@
 \BOOKMARK [1][-]{section.5.2}{ ClassLoadery v Javassist}{chapter.5}% 26
 \BOOKMARK [1][-]{section.5.3}{ Modifik\341cie}{chapter.5}% 27
 \BOOKMARK [1][-]{section.5.4}{ Bytecode level API in Javassist}{chapter.5}% 28
-\BOOKMARK [0][-]{section.5.4}{Literat\372ra}{}% 29
-\BOOKMARK [0][-]{appendix.A}{Tabulky}{}% 30
+\BOOKMARK [0][-]{chapter.6}{Porovnanie}{}% 29
+\BOOKMARK [0][-]{chapter.7}{Praktick\351 uk\341\236ky}{}% 30
+\BOOKMARK [1][-]{section.7.1}{ Detekcia volania v\375nimiek}{chapter.7}% 31
+\BOOKMARK [1][-]{section.7.2}{ Detekcia nespr\341vneho o\235etrenia v\375nimiek}{chapter.7}% 32
+\BOOKMARK [1][-]{section.7.3}{ Zlep\235enie a zprehladnenie produkcn\351ho k\363du}{chapter.7}% 33
+\BOOKMARK [1][-]{section.7.4}{ Optimaliz\341cia neefekt\355vnych cast\355 k\363du}{chapter.7}% 34
+\BOOKMARK [0][-]{section.7.4}{Literat\372ra}{}% 35
+\BOOKMARK [0][-]{appendix.A}{Tabulky}{}% 36
