@@ -1,4 +1,4 @@
-package demo;
+package example.simple;
 
 import java.util.Objects;
 
@@ -46,9 +46,6 @@ public class Triangle {
         return Objects.equals(this.c, other.c);
     }
 
-    /*public boolean isValid() {
-        
-     }*/
     @Override
     public String toString() {
         return "Vertices of Triangle are {" + a + ", " + b + ", " + c + '}';

@@ -1,4 +1,4 @@
-package demo;
+package example.simple;
 
 import java.util.Objects;
 
