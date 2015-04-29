@@ -1,9 +1,10 @@
-package example.simple;
+package example;
 
 import java.util.Objects;
 
 /**
  * Class Triangle - should use private attributes and get / set methods.
+ * Purposely contains public attributes and do not provides get and set methods.
  *
  * @author Matej Majdis
  */

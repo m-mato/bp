@@ -1,6 +1,9 @@
 package application;
 
 /**
+ * Class AccCreator. Creates get and set methods - String templates.
+ *
+ * Should note be used by any class outside this package.
  *
  * @author Matej Majdis
  */

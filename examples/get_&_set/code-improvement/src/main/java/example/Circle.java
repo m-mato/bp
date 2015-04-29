@@ -1,4 +1,4 @@
-package example.simple;
+package example;
 
 import java.util.Objects;
 

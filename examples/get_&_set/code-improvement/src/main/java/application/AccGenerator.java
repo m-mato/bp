@@ -14,14 +14,10 @@ import javassist.bytecode.DuplicateMemberException;
 import javassist.tools.reflect.CannotReflectException;
 
 /**
- * Class AccGenerator This class generates get and set methods for field and
- class declared in constructor
-
- If you want to change tested classes (default - package demo.*) you have to
- change cDir constant and also constants in class Demo
-
- Constant cDir should be path to directory containing class file of class in
- class in constructor - CLASS_WITH_FIELDS.
+ * Class AccGenerator. This class generates get and set methods for field and
+ * class declared in constructor - C1.
+ *
+ * Should not be used by any classes outside this package.
  *
  * @author Matej Majdis
  */
@@ -44,7 +40,7 @@ class AccGenerator {
         this.fieldType = field.getType().getName();
     }
 
-    public void generateGetter() throws DuplicateMemberException {        
+    public void generateGetter() throws DuplicateMemberException {
         String getTemplate = AccCreator.makeGetTemplate(fieldName, fieldType, cl.getTypeName());
 
         try {
@@ -62,7 +58,7 @@ class AccGenerator {
 
     public void generateSetter() throws DuplicateMemberException {
         String setTemplate = AccCreator.makeSetTemplate(fieldName, fieldType, cl.getTypeName());
-        
+
         try {
             CtMethod method = CtNewMethod.make(setTemplate, cc);
             cc.addMethod(method);
