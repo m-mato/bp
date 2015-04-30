@@ -19,7 +19,7 @@ Popis funcionality jednotlivých tried je v JavaDocu.
 SPUSTENIE PROGRAMU NA DEMO TRIEDACH:
 
 1) Pred každým / po každom spustení programu (prepisuje class súbory) je nutné
-   rebuildnuť projekt, aby sa dostal do pôvodného stavu.
+   rebuildnuť balík demo, aby sa dostal do pôvodného stavu.
 
 2) Spustením metódy main triedy application.Demo sa prepíšu class súbory treid 
    demo.Main a demo.Triangle nasledovne:
