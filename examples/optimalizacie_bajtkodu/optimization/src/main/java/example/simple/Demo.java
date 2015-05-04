@@ -11,8 +11,8 @@ public class Demo {
 
     public static void main(String[] args) {
 
-        //Running test method before optimalization
-        System.out.println("Test results before optimalization: ");
+        //Running test method before optimization
+        System.out.println("Test results before optimization: ");
         ArithmeticExample.make();
 
         //Initializing optimizer
@@ -24,7 +24,7 @@ public class Demo {
         optimizer.optimizeClass(ArithmeticExample.class.getName());
 
         //Running test optimized method again to check it was not brokenn
-        System.out.println("Test results after optimalization: ");
+        System.out.println("Test results after optimization: ");
         ArithmeticExample.make();
 
     }
