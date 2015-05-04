@@ -815,6 +815,7 @@ Príklady obsahujú 2 ukážky z oblasti detekcie volania a ošetrovania výnimi
 \textit{Byteman} a \textit{Javssist} využívajú najmä v aplikačných serveroch  prípadné iných projektoch, ktorých opätovná kompilácia by bola príliš časovo a technicky náročná. V ukážkach budeme z praktických dôvodov využívať na testovanie funkcionality menšie prgramové celky a demonštračné programy.
 
 \section{Detekcia volania výnimiek}
+
 Prvou z ukážok je detekcia volani výnimiek spusteného programu. Ide o detekciu všetkých výniemiek, ktoré sú v poždaovanej triede volané pomocou kľúčového slova \textit{throw}. V bajtkóde je konštrukcia tohto kľúčového slova reprezentovaná inštrukciou \textit{athrow}, ktorá zavolá výnimku predtým pridanú na vrchol zásobníka a zároveň zásobník vyčistí.
 
 \begin{figure}[H]
@@ -846,6 +847,7 @@ Dôležitou súčasťou ukážkového programu je skript \textit{loadScripts.sh}
 Po vygenerovaní a načítaní pravidiel program reaguje na každú volanú výnimku zadanej triedy, respektíve tried a pri detekcii na ňu upozorní. Pre účely tejto práce používam ako demonštračný príklad program \textit{fileChooser}~\footnote{Tento demonštračný príklad je súčasťou balíka Java Development Kit Demos and Samples.}. V reálnom prostredí by bolo možné detekciu volania výnimiek využiť napríklad v aplikačných serveroch, kde nieje volanie niektorých z nich vždy viditeľné.
 
 \section{Detekcia nesprávneho ošetrenia výnimiek}
+
 Nasledujúci príklad sa zaoberá detekciou nesprávne ošetrených výnimiek. V prípade zachytenia výnimky catch blokom by mal program na túto situáciu vždy nejakým spôsobom reagovať (napríklad: logovaním udalosti, volaním inej výnimky, riadeným pádom programu, …). Prázdne \textit{catch} bloky sú preto vo väčšine prípadov nesprávnym ošetrením danej výnimky.
 
 Detekcia nesprávneho ošetrenia výnimiek je vhodným demonštaračným príkladom pre ukážku funkcionality knižnice \textit{Javassist}. Keďže ide o ukážku nástroja \textit{Javassist} projektom je Java aplikácia vo formáte \textit{Maven}. Program postupne prechádza všetky metódy a konštruktory triedy, ktorú monitoruje. Pri nájdení prázdného catch bloku uloží informácie o jeho polohe do logu a na záver vypíše získané údaje.Výstup môže vyzerať napríklad nasledovne:
@@ -871,7 +873,7 @@ SUMMARY: 4 suspicious catch blocks found in class JDBCAdapter
 
 V tomto výstupe vidíme, že boli nájdené 4 nesprávne ošetrené výnimky na riadkoch: 79, 81, 166, 266.
 
-\section{Štruktúra a funkčná logika aplikácie}
+\subsection{Štruktúra a funkčná logika aplikácie}
 
 Aplikačnú logiku som rozdelil medzi štyri triedy: \textit{Tracer}, \textit{CatchBlockTracer}, \textit{CBDetector} a \textit{CBIndicesHandler}. 
 
@@ -893,7 +895,7 @@ Metóda \textit{isEmpty} preto kontroluje či telo catch bloku obsahuje iba inš
 
 Poslednými triedami na spodnej časti hierarchie v abstarkcii získavania polohy catch blokov sú \textit{CBDetector} a \textit{CBIndicesHandler}. Slúžia na získanie mapy indexov catch blokov pre zadanú metódu, prípadne konštruktor. Dôležitým nástorjom na samotné vyhľadávanie catch blokov je metóda \textit{CtBehavior.instrument(ExprEditor)}. Argumentom tejto metódy je práve objekt triedy \textit{CBIndicesHandler}, keďže \textit{CBIndicesHandler} je potomkom triedy \textit{ExprEditor}.
 
-\section{Testovacie príklady}
+\subsection{Testovacie príklady}
 
 Okrem samotnej aplikácie sa v projekte nachádzajú aj dva balíky \textit{example.simple} a \textit{example.tables}, na ktorých je možné funkcionalitu aplikácie testovať. Každý z balíkov obsahuje vlastnú spustiteľnú triedu \textit{Demo}, ktorá po spustení volá metódu \textit{application.Tracer.traceCatchBlocks} hlavnej aplikácie na jednotlivých testovacích triedach balíka. 
 
@@ -903,15 +905,106 @@ Balík \textit{example.tables} obsahuje komplexnejšie testovacie triedy prevzat
 
 Triedy v testovacích balíkoch je možné ľubovoľne modifikovať pre jednoduché toestovanie funkcionality aplikácie. V prípade potreby testovania aplikácie na novej triede je nutné zavolať metódu \textit{application.Tracer.traceCatchBlocks} s argumentom špecifikujúcim danú triedu.
 
-
-
 \section{Zlepšenie a zprehľadnenie produkčného kódu}
-TODO...
+
+Program prispievajúci k zlepšeniu produkčného kódu sa špecializuje na náhradu priamych volaní atribútov generovanými \textit{get} a \textit{set} metódami. Vo všeobecnosti aplikácia manipuluje s bajtkódom dvoch tried. Triada <C1> obsahuje atribúty, ku ktorím však neexistujú prístupové \textit{get} a \textit{set} metódy, atribúty sú teda používané priamo. Trieda <C2> zapisuje, respektíve číta obsah týchto atribútov. Takáto implementácia porušuje záklaný princíp zapúzdrenia, ktorý by mal byť dodržaný za každých okolností. Projetk pod názvom \textit{code-improvement} preto slúži na generovanie prístupových metód k atribútom triedy <C1> a následnú náhradu priamych volaní týmito metódami v triede <C2>.
+
+Aplikácia manipuluje s bajtkódom a \textit{class} súbormi požadovaných tried. Zmeny sa preto neprejavia v zdrojovom kóde. Tiež by nemali nijako ovplyvniť vnútornú logiku modifikovaných tried. Okrem informácií zobrazených na štandardnom výstupe je zmeny možné pozorovať aj v \textit{class} súboroch daných tried~\footnote{Class súbory je možné zobraziť v čitateľnej podoba nepríklad prostrerdníctvom nástroja \textit{javap} príkazom \textit{[javap -c <path>]}.}.
+
+\subsection{Štruktúra a funkčná logika aplikácie}
+Aplikácia sa nazýva \textit{code-improvement} je Java projektom typu \textit{Maven}. Demnonštruje využitie nástroja \textit{Javassist}. Projekt je tvorený dvoma balíkmi: \textit{application} a \textit{example}. Balík \textit{application} obsahuje progaram nahradzujúci priame voalania atribútov prístupovými metódami, ktorého zákldná funkcionalita bola načrtnutá v predchádzajúci odsekoch. Balík \textit{example} je jednoduchým testovacím príkladom pre kontorlu funkčnosti tried balíka \textit{application}.
+
+TODO DIAGRAM...
+
+Hlavným balíkom zabazpečujúci fungovanie programu je teda \textit{application}. Funkcionalitu som tentokrát rozložil medzi 3 triedy: \textit{FieldChecker}, \textit{AccGenerator} a \textit{AccCreator}.
+
+Trieda \textit{FieldChecker} je jedinou triedou, ktorá slúži na prístup k aplikácií. Po vytvorení objektu \textit{FieldChcecker} pre triedy <C1> a <C2> dôjde volaním metódy \textit{FieldChecker.fixFieldsAccess()} k manipulácií s bajtkódom tried <C1> a <C2> spôsobom popísaním v prvom odseku tejto kapitoly. Táto metóda je teda len prístupovým bodom, ktorý využíva funkcionalitu ostatných metód a tried balíka \textit{application}.
+
+Program postupne iteruje cez všetky atribúty triedy <C1>. Pre každý atribút vytvoria triedy \textit{AccGenerator} a následne \textit{AccCreator} prístupové \textit{get} a \textit{set} metódy. Akonáhle sú tieto metódy úspešne načítané do bajtkódu tiredy <C1>, vykoná metóda \textit{replaceFieldAccess()} náhradu priameho volania atribútu prístupovými metódami.
+Využíva k tom najmä nástroj \textit{CodeConverter} knižnice \textit{Jvassist}.
+
+TODO OBRAZOK...
+
+Za generovanie a načítanie prístupových metód je zodpovedná trieda \textit{AccGenerator} a jej pomocná trieda \textit{AccCreator}. Táto pomocná trieda slúži na generovanie konkrétnych šablón prístpových metód pre zadaný atribút. Šablóny sa následne trieda \textit{AccGenerator} pokúsi načítať do triedy <C1>.
+
+
+TODO MECHANIZMUS...
+
+\subsection{Testovací príklad}
+Balík \textit{example} obsahuje jednoduchý príklad na otestovanie vyššie popísanej funcionality. Spustiteľnou triedou tohot príkladu je tireda \textit{example.Demo}. Po jej spustení sa program pokúsi:
+
+\begin{enumerate}
+\item Vytvoriť a inicializovať triedu \textit{application.FieldChecker}.
+\item Vykonať modifikáciu tried \textit{example.Initializer} a \textit{exmple.Triangle} (nedodržiavajú princíp zapúzdrenia) volaním metódy \textit{fixFieldsAccess()}.
+\item Skontrolovať funkčnosť modifikovaných tried ich použitím.
+\end{enumerate}
+
+V prípade úspešnej modifikácie by mal výstup vyzerať nasledovne:
+
+\begin{example}{Výstup testovacieho príkladu pre aplikáciu \textit{code-improvement}}
+\begin{verbatim}
++ Getter for field: [a] in class [example.Triangle] was
+  successfully created
++ Setter for field: [a] in class [example.Triangle] was
+  successfully created
+-> Read and write operations replaced for field
+   [Triangle.a] in class [example.Initializer]
+
++ Getter for field: [b] in class [example.Triangle] was
+  successfully created
++ Setter for field: [b] in class [example.Triangle] was
+  successfully created
+-> Read and write operations replaced for field
+   [Triangle.b] in class [example.Initializer]
+
++ Getter for field: [c] in class [example.Triangle] was
+  successfully created
++ Setter for field: [c] in class [example.Triangle] was
+  successfully created
+-> Read and write operations replaced for field
+   [Triangle.c] in class [example.Initializer]
+
+-------------------------------
+Trying to use modified classes: 
+
+Created: Circle {radius is 5.0Vertex centre: [0.0, 0.0]}
+Created: Vertices of Triangle are {Vertex A: [-1.0, -1.0],
+         Vertex B: [1.0, -1.0], Vertex C: [1.0, 1.0]}
+
+Get and set methods successfully tested.
+\end{verbatim}
+\end{example}
+
+Ak modifikácie neprebehla, napríklad v prípade opätovného spustenia na rovnakých triedach, vypýše program hlášku, ktorá upozorňuje užívateľa, že triedy, ktoré zadal už boli v minulosti upravené.
+
+Program je možné aplikovať na ľubovoľné triedy definované v konštruktore triedy \textit{application.FieldChecker}~\footnote{V prípade, že ide o triedy mimo projektu \textit{code-improvement} je potrebné zadať do argument konštruktora aj cestu k balíku obsahujúcemu \textit{class súboroy triedy <C2>}}
 
 \section{Optimalizácia neefektívnych častí kódu}
+Posledný z príkladov sa zaoberá optimalizáciou neefektívne generovaných častí bajtkódu. Vo všeobecnosti vykonáva na bajtkóde mnoho optimalizácií JVM. Existuje však mnoho druhov ďalších úprav, pomocou ktorých je možné bajtkód výrazne zefektívniť.
+
+Jednými z najčastejšie sa vyskytujúcich inštrukcií sú inštrukcie typu \textit{store} a \textit{load}. Ich úlohou je vkladanie, respektíve výber položiek zo zásobníka. Pri opakovanej modifikácií jednej premennej teda vzniká veľké množstvo nadbytočných operácií zápisu a čítania jej hodnoty. Vhodnou optimalizáciou je preto odstránenie nadbytočných inštrukcií.
+
+Cieľom tohto programu je identifikovať a odstrániť nadbitočné inštrukcie čítania a zápisu v príade aritmetických operácií na premenných typu \textit{double}. 
+
+TODO Obrazok pred a po...
+
+Keďže vyžaduje priamu prácu s bajtkódom a jeho modifikáciu je táto optimalizácia vhodným príkladom pre demonštráciu funkcionality oboch rozhraní knižnice \textit{Javassist}.
+
+\subsection{Štruktúra a funkčná logika aplikácie}
+Triedy popisujúce logiku aplikácie sa opäť nachádzajú v balíku \textit{application}. Program sa skladá z troch tried: \textit{ArithmeticOptimizer}, \textit{MethodModifier} a \textit{InstructionVerifier}. Triedou pre prístup k programu je \textit{ArithmeticOptimizer}. Zvyšné triedy sú prístupné len v rámci balíka \textit{application}, mimo neho by nemali byť nijako používané.
+
+Kľúčovou triedou je teda \textit{ArithmeticOptimizer} a jej metóda \textit{optimizeClass(String classNameToOpt)}. Po inicializácií a jej volaní program iteruje cez všetky metódy triedy definovanej argumentom \textit{classNameToOpt}.Každá metóda je následne optimalizovaná pomocou triedy \textit{MethodModifier}. Na záver je prepísaný \textit{class} súbor danej triedy a poskytnutá sumarizácie zmien.
+
+Ako bolo uvedené vyššie trieda \textit{MethodModifier} slúži na priamu optimalizáciu zadanej metódy. Táto metóda je reprezentovaná pomocou triedy \textit{MethodInfo}, ktorá knižnici \textit{Javassist} slúži ako popis rovnomenného atribútu \textit{class} súboru. Najdôležitejšou metódu triedy \textit{MethodModifier} je \textit{optimize()}. Táto metóda prechádza všetky inštrukcie bajtkódu a v prípade nájdenéo nadbytočného páru \textit{dstore}, \textit{dload} tieto inštrukcie odstráni.
+
+Identifikácie nadbytočných inštrukcí čítania a zápisuprebieha nasledovne:
 TODO...
 
+Ako nástroj na identifikáciu typu inštrukcie slúži programu trieda \textit{instructionVerifier}. Obsahuje metódy určujúce inštrukcie \textit{dstore} a \textit{dload}. Pomocou týchto metód je možné takisto získať hodnotu argumentu spomínanýhc inštrukcií. Metóda \textit{isArithmetic(int op)} rozhoduje, či inštrukcia definovaná argumentom \textit{op} reprezentuje aritmetickú operáciu.
 
+Balík \textit{example} obsahuje dva príklady na ktorých je možné aplikáciu testovať. Každý z príkladov má spustiteľnú triedu \textit{Demo}, ktorá sa pokúsi optimalizovať vlastnú testovaciu triedu. Balík \textit{example.simple} optimalizuje jednoduchú triedu \textit{ArithmeticExample}, ktorá vykonáva aritmetické operácie. Balík \textit{example.model} je príklad podobný demonštračnému príkladu úlohy z predchádzajúcej kapitoly. Podrobné fungovanie testovacích príkladov je uvedené v \textit{Javadocu} a komentároch~\footnote{Podrobnosti o uvedených príkladoch sú uvedené v \textit{readme} súbore projektu.}.
+
+Aplikáciu je takisto možné spustiť na ľubovoľnej triede vhodnej na optimalizáciu aritmetických operácií volaním metódy \textit{application.ArithmeticOptimizer.optimizeClass(String classNameToOpt)}.
 
 \nocite{RedHat:Javassist}
 \clearpage
