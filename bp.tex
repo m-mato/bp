@@ -113,6 +113,8 @@ TODO...
 TODO...
 
 \chapter{Bajtkód}
+\label{chap:bytecode}
+
 Po preklade zdrojových kódov prekladačom \textit{javac} je každej
 triede, prípadne rozhraniu programu priradený jeden \textit{class} súbor
 popisujúci jej funkcionalitu.
@@ -604,35 +606,8 @@ akciu~\cite{Sellis:ECARules}.} založený na Jave. Tieto ECA pravidlá
 používa na špecifikáciu kde, kedy a ako má byť pôvodný Java kód transformovaný
 aby modifikoval operáciu~\cite{RedHat:Byteman}.
 
-Primárne bol \textit{Byteman} určený na podoru testovania multivláknových a
-multi-JVM aplikácií za použitia techniky nazývanej
-\textit{fault~injection~\footnote{TODO...}}. Zahŕňa preto funkcionalitu, ktorá 
-bola navrhnutá na riešenie problémov súvisiacich s týmto typom testovania.
-\textit{Byteman} poskytuje podporu pre automatizáciu v štyroch hlavných 
-oblastiach:
-
-\begin{itemize}
-\item trasovanie špecifických väzieb kódu a zobrazovanie stavu 
-aplikácie, prípadne JVM,
-\item narúšanie normálneho priebehu zmenou stavov, volanie nenaplánovaných
-metód, vynucovanie návratových volaní, prípadne vyhadzovanie neočakávaných 
-výnimiek,
-\item organizácia časovania aktivít vykonaných nezávislými vláknami aplikácie,
-\item monitorovanie a zhromažďovanie štatistík, sumarizujúcich aplikáciu a
-operácie JVM.
-\end{itemize}
-
-V súčasnosti je \textit{Byteman} využívaný oveľa širšie ako nástroj na
-testovanie~\cite{RedHat:Byteman}. 
-
-Najjednoduchším použitím \textit{Bytemana} je vkladanie kódu, ktorý trasuje 
-správanie sa aplikácie. Táto metóda môže byť využitá na monitorovanie,
-alebo ladenie, ako aj na úpravu kódu pri testovaní a overenie, správneho 
-fungovania aplikácie. Pri vkladaní kódu na veľmi špecifické miesta je možné
-vyhnúť sa režijným nákaldom, ktoré často rastú pri ladení, alebo trasovaní 
-proguktu~\cite{Byteman:Homepage}.
-
 \section{Byteman Agent}
+
 Aby mohol \textit{Byteman} manipulovať s programom, musí na ňom bežať
 \textit{Byteman Agent}, ktorý konfiguruje JVM pre prácu s pravidlami
 jeho jazyka.
@@ -681,9 +656,7 @@ ENDRULE
 \end{verbatim}
 \end{example}
 
-Každá z definícií, ktorú je možné v pravidle použiť patrí do niektorej z kategórií: Udalosti, Závislosti, Výrazy, Podmienky, Akcie, Vstavané volania. Tieto kategórie a jednotlivé definície popisujú nasledujúce podkapitoy.
-Definície musia byť zároveň zadané v správnom poradí pričom prvou je vždy
-\textit{RULE} a poslednou \textit{ENDRULE}.
+Definície musia byť zadané v správnom poradí pričom prvou je vždy \textit{RULE} a poslednou \textit{ENDRULE}. Základnými kategóriami pre rozdelenie definícií pravidiel sú: Udalosti, Závislosti, Výrazy, Podmienky, Akcie a iné. Všetky dôležité kategórie a definície sú popísané v nasledujúcich podkapitolách.
 
 \subsection{Udalosti}
 Udalosti pravidiel (\textit{Rule Events}) identifikujú umiestneneie pravidla v
@@ -728,7 +701,7 @@ Podmienkami pravidla (Rule Conditions) sú výrazy typu boolean. Tieto pravidlá
 Jednou z najdôležitejších súčastí pravidla sú akcie pravidiel (\textit{Rule Actions}). Sú tvorené výrazmy, návratovými klauzulami, prípadne kaluzolou
 \textit{throw}. Na začiatku definície je klauzula DO, ktorá je nasledovaná jednotlivými akciami. Každá akcia je na samostatnom riadku, odedeľuje ich bodkočiarka.
 
-\begin{example}{Akcie}
+\begin{example}{Príklad použitia akcie}
 \begin{verbatim}
 RULE Actions example
 ...
@@ -742,18 +715,42 @@ ENDRULE
 Tento príklad zobrazuje zjednodušené pravidlo, ktrého akciou je výpsi názvu metódy na štandardný výstup. Narozdiel od ECA pravidiel nástroja
 \textit{Byteman}, Javassist používa na reprezentáciu \textit{class} súboru triedu \textit{Javassist.CtClass}.
 
-\subsection{Vstavané volania}
+\section{Použitie}
 
-Vstavané volania (\textit{Built-In Calls})
-TODO...
-Rule Helpers?
+Primárne bol \textit{Byteman} určený na podoru testovania multivláknových a
+multi-JVM aplikácií za použitia techniky nazývanej
+\textit{fault~injection~\footnote{TODO...}}. Zahŕňa preto funkcionalitu, ktorá 
+bola navrhnutá na riešenie problémov súvisiacich s týmto typom testovania.
+\textit{Byteman} poskytuje podporu pre automatizáciu v štyroch hlavných 
+oblastiach:
+
+\begin{itemize}
+\item trasovanie špecifických väzieb kódu a zobrazovanie stavu 
+aplikácie, prípadne JVM,
+\item narúšanie normálneho priebehu zmenou stavov, volanie nenaplánovaných
+metód, vynucovanie návratových volaní, prípadne vyhadzovanie neočakávaných 
+výnimiek,
+\item organizácia časovania aktivít vykonaných nezávislými vláknami aplikácie,
+\item monitorovanie a zhromažďovanie štatistík, sumarizujúcich aplikáciu a
+operácie JVM.
+\end{itemize}
+
+V súčasnosti je \textit{Byteman} využívaný oveľa širšie ako nástroj na
+testovanie~\cite{RedHat:Byteman}. 
+
+Najjednoduchším použitím \textit{Bytemana} je vkladanie kódu, ktorý trasuje 
+správanie sa aplikácie. Táto metóda môže byť využitá na monitorovanie,
+alebo ladenie, ako aj na úpravu kódu pri testovaní a overenie, správneho 
+fungovania aplikácie. Pri vkladaní kódu na veľmi špecifické miesta je možné
+vyhnúť sa režijným nákaldom, ktoré často rastú pri ladení, alebo trasovaní 
+proguktu~\cite{Byteman:Homepage}.
 
 \chapter{Javasist}
 
 Ďalším nástrojom určeným na manipuláciu s bajtkódom je \textit{Javassist}. Tento nástroj využíva na manipuláciu s bajtkódom odlišný prístup ako
 \textit{Byteman}. Narozdiel od ECA pravidie, \textit{Javassist} používa na reprezentáciu \textit{class} súboru treidu \textit{Javassist.CtClass}.
 \textit{Class} súbor je možné pomocou tejto triedy
-modifikovať~\footnote{Možnosti modofikácie triedy pomocou \textit{CtClass} popisuje kapitola TODO...} a následne modifikácie zapísať.
+modifikovať~\footnote{Možnosti modofikácie triedy pomocou \textit{CtClass} popisuje kapitola \ref{sec:mod}.} a následne modifikácie zapísať.
 
 Na modifikáciu definície triedy je nutné najskôr získať referenciu na objekt
 \textit{CtClass} z objektu \textit{ClassPool} pomocou jeho metódy
@@ -783,26 +780,30 @@ CtClass cc = pool.makeClass("Point");
 V tomto prípade pomocou kontajnera \textit{pool} definovaná nová trieda
 \textit{Point}. 
 
+\section{Modifikácie}
+
+\label{sec:mod}
+Objekt \textit{CtClass} zahŕňa množstvo metód na modifikáciu triedy ktorú reprezentuje. Výhodou použitia ťohot nástroja spočíva aj v kompatibilte s rozhraním \textit{Java~reflection~\footnote{TODO...}}. \textit{CtClass} poskytuje metódy \textit{getName()}, \textit{getSuperClass()}, \textit{getMethods} a mnohé iné. Taktiež obsahuje metódy pre úpravu definície triedy. Povoľuje pridanie nového atribútu, konštruktora a metódy, prípadne modifikáciu tela existujúcej meódy~\cite{Chiba:Javassist}.
+
+\subsection{Rozhranie pre prácu z bajtkódom}
+
+Okrem štandartného rozhrania popísaného v predchádzajúcich odsekoch poskytuje \textit{Javassist} aj rozhranie pre priamu prácu s bajtkódom požadovanej triedy, respektíve metódy.
+
+Rozhranie priamo upravuje zadaný \textit{class} súbor. Napríklad metóda \textit{getClassFile()} triedy \textit{CtClass} vracia objekt typu \textit{ClassFile}, reprezentujúci daný súbor. Podobne metóda \textit{getMethodInfo()} triedy \textit{CtMethod} vytvára objekt \textit{MethodInfo} predstavujúci štruktúru \textit{method\_info} daného \textit{class} súboru. Rozhranie používa notáciu JVM popísanú v kapitole \ref{chap:bytecode} a špecifikácií~JVM~\cite{Lindholm:2013:JVM:2462629}.
+
+\section{Zápis do \textit{class} súboru}
+
 Modifikácie vykonané v bajtkóde načítaných, prípadne novo vytvorených objektov sa prejavia ihenď po zavolaní metódy \textit{writeFile()} triedy
 \textit{CtClass}. Táto metóda preloží objekt \textit{CtClass} do \textit{class} súboru, ktorý zapíše na disk. \textit{Javassist} taktiež poskytuje metódu \textit{toBytecide()}, ktorá vráti modifikované inštrukcie bajtkódu do poľa typu \textit{byte}~\cite{Chiba:Javassist}.
- 
-\section{Frozen classes}
-TODO...
 
-\section{ClassLoadery v Javassist}
-TODO...
-
-\section{Modifikácie}
-TODO...
-
-\section{Bytecode level API in Javassist}
+\section{Použitie}
 TODO...
 
 \chapter{Porovnanie}
 TODO...
 
 \chapter{Praktické ukážky}
-Dôležitou súčasťou bakalárskej práce sú praktické ukážky. Každý z príkladov je navrhnutý pre jeden z nástrojov \textit{Byteman}, respektíve \textit{Javassist}. Konkrétne ukazujú základné možnosti jeho využitia pre vývoj a trasovanie programov Jave. Ukážky pokrývajú 4 oblasti:
+Dôležitou súčasťou bakalárskej práce sú praktické ukážky. Každý z príkladov je navrhnutý pre jeden z nástrojov \textit{Byteman}, respektíve \textit{Javassist}.Konkrétne ukazujú základné možnosti jeho využitia pre vývoj a trasovanie programov Jave. Ukážky pokrývajú 4 oblasti:
 
 \begin{itemize}
 \item detekcia volania výnimiek, 

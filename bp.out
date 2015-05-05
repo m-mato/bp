@@ -20,12 +20,12 @@
 \BOOKMARK [2][-]{subsection.4.2.2}{ Z\341vislosti}{section.4.2}% 20
 \BOOKMARK [2][-]{subsection.4.2.3}{ V\375razy}{section.4.2}% 21
 \BOOKMARK [2][-]{subsection.4.2.4}{ Akcie}{section.4.2}% 22
-\BOOKMARK [2][-]{subsection.4.2.5}{ Vstavan\351 volania}{section.4.2}% 23
+\BOOKMARK [1][-]{section.4.3}{ Pou\236itie}{chapter.4}% 23
 \BOOKMARK [0][-]{chapter.5}{Javasist}{}% 24
-\BOOKMARK [1][-]{section.5.1}{ Frozen classes}{chapter.5}% 25
-\BOOKMARK [1][-]{section.5.2}{ ClassLoadery v Javassist}{chapter.5}% 26
-\BOOKMARK [1][-]{section.5.3}{ Modifik\341cie}{chapter.5}% 27
-\BOOKMARK [1][-]{section.5.4}{ Bytecode level API in Javassist}{chapter.5}% 28
+\BOOKMARK [1][-]{section.5.1}{ Modifik\341cie}{chapter.5}% 25
+\BOOKMARK [2][-]{subsection.5.1.1}{ Rozhranie pre pr\341cu z bajtk\363dom}{section.5.1}% 26
+\BOOKMARK [1][-]{section.5.2}{ Z\341pis do class s\372boru}{chapter.5}% 27
+\BOOKMARK [1][-]{section.5.3}{ Pou\236itie}{chapter.5}% 28
 \BOOKMARK [0][-]{chapter.6}{Porovnanie}{}% 29
 \BOOKMARK [0][-]{chapter.7}{Praktick\351 uk\341\236ky}{}% 30
 \BOOKMARK [1][-]{section.7.1}{ Detekcia volania v\375nimiek}{chapter.7}% 31

@@ -15,18 +15,18 @@
 \contentsline {subsection}{\numberline {3.0.3}\rmfamily Dynamick\IeC {\'e} na\IeC {\v c}\IeC {\'\i }tavanie tried}{14}{subsection.3.0.3}
 \contentsline {subsection}{\numberline {3.0.4}\rmfamily Znovuna\IeC {\v c}\IeC {\'\i }tanie triedy}{14}{subsection.3.0.4}
 \contentsline {chapter}{\numberline {4}\bfseries Byteman}{16}{chapter.4}
-\contentsline {section}{\numberline {4.1}\slshape Byteman Agent}{17}{section.4.1}
-\contentsline {section}{\numberline {4.2}\slshape \IeC {\v S}trukt\IeC {\'u}ra jazyka pravidel}{18}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}\rmfamily Udalosti}{18}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}\rmfamily Z\IeC {\'a}vislosti}{19}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.1}\slshape Byteman Agent}{16}{section.4.1}
+\contentsline {section}{\numberline {4.2}\slshape \IeC {\v S}trukt\IeC {\'u}ra jazyka pravidel}{17}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}\rmfamily Udalosti}{17}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}\rmfamily Z\IeC {\'a}vislosti}{18}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}\rmfamily V\IeC {\'y}razy}{19}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}\rmfamily Akcie}{20}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}\rmfamily Vstavan\IeC {\'e} volania}{20}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.4}\rmfamily Akcie}{19}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}\slshape Pou\IeC {\v z}itie}{20}{section.4.3}
 \contentsline {chapter}{\numberline {5}\bfseries Javasist}{21}{chapter.5}
-\contentsline {section}{\numberline {5.1}\slshape Frozen classes}{22}{section.5.1}
-\contentsline {section}{\numberline {5.2}\slshape ClassLoadery v Javassist}{22}{section.5.2}
-\contentsline {section}{\numberline {5.3}\slshape Modifik\IeC {\'a}cie}{22}{section.5.3}
-\contentsline {section}{\numberline {5.4}\slshape Bytecode level API in Javassist}{22}{section.5.4}
+\contentsline {section}{\numberline {5.1}\slshape Modifik\IeC {\'a}cie}{22}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}\rmfamily Rozhranie pre pr\IeC {\'a}cu z bajtk\IeC {\'o}dom}{22}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}\slshape Z\IeC {\'a}pis do \textit {class} s\IeC {\'u}boru}{22}{section.5.2}
+\contentsline {section}{\numberline {5.3}\slshape Pou\IeC {\v z}itie}{22}{section.5.3}
 \contentsline {chapter}{\numberline {6}\bfseries Porovnanie}{23}{chapter.6}
 \contentsline {chapter}{\numberline {7}\bfseries Praktick\IeC {\'e} uk\IeC {\'a}\IeC {\v z}ky}{24}{chapter.7}
 \contentsline {section}{\numberline {7.1}\slshape Detekcia volania v\IeC {\'y}nimiek}{24}{section.7.1}
