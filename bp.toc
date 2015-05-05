@@ -28,15 +28,18 @@
 \contentsline {section}{\numberline {5.2}\slshape Z\IeC {\'a}pis do \textit {class} s\IeC {\'u}boru}{22}{section.5.2}
 \contentsline {section}{\numberline {5.3}\slshape Pou\IeC {\v z}itie}{22}{section.5.3}
 \contentsline {chapter}{\numberline {6}\bfseries Porovnanie}{23}{chapter.6}
-\contentsline {chapter}{\numberline {7}\bfseries Praktick\IeC {\'e} uk\IeC {\'a}\IeC {\v z}ky}{24}{chapter.7}
-\contentsline {section}{\numberline {7.1}\slshape Detekcia volania v\IeC {\'y}nimiek}{24}{section.7.1}
-\contentsline {section}{\numberline {7.2}\slshape Detekcia nespr\IeC {\'a}vneho o\IeC {\v s}etrenia v\IeC {\'y}nimiek}{26}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{27}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}\rmfamily Testovacie pr\IeC {\'\i }klady}{28}{subsection.7.2.2}
-\contentsline {section}{\numberline {7.3}\slshape Zlep\IeC {\v s}enie a zpreh\IeC {\v l}adnenie produk\IeC {\v c}n\IeC {\'e}ho k\IeC {\'o}du}{29}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{29}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}\rmfamily Testovac\IeC {\'\i } pr\IeC {\'\i }klad}{30}{subsection.7.3.2}
-\contentsline {section}{\numberline {7.4}\slshape Optimaliz\IeC {\'a}cia neefekt\IeC {\'\i }vnych \IeC {\v c}ast\IeC {\'\i } k\IeC {\'o}du}{31}{section.7.4}
-\contentsline {subsection}{\numberline {7.4.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{32}{subsection.7.4.1}
-\contentsline {chapter}{Literat\IeC {\'u}ra}{33}{subsection.7.4.1}
-\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{34}{appendix.A}
+\contentsline {section}{\numberline {6.1}\slshape Vlastnosti n\IeC {\'a}stroja \textit {Byteman}}{23}{section.6.1}
+\contentsline {section}{\numberline {6.2}\slshape Vlastnosti kni\IeC {\v z}nice \textit {Javassist}}{23}{section.6.2}
+\contentsline {section}{\numberline {6.3}\slshape Zhrnutie}{24}{section.6.3}
+\contentsline {chapter}{\numberline {7}\bfseries Praktick\IeC {\'e} uk\IeC {\'a}\IeC {\v z}ky}{25}{chapter.7}
+\contentsline {section}{\numberline {7.1}\slshape Detekcia volania v\IeC {\'y}nimiek}{25}{section.7.1}
+\contentsline {section}{\numberline {7.2}\slshape Detekcia nespr\IeC {\'a}vneho o\IeC {\v s}etrenia v\IeC {\'y}nimiek}{27}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{28}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}\rmfamily Testovacie pr\IeC {\'\i }klady}{29}{subsection.7.2.2}
+\contentsline {section}{\numberline {7.3}\slshape Zlep\IeC {\v s}enie a zpreh\IeC {\v l}adnenie produk\IeC {\v c}n\IeC {\'e}ho k\IeC {\'o}du}{30}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{30}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}\rmfamily Testovac\IeC {\'\i } pr\IeC {\'\i }klad}{31}{subsection.7.3.2}
+\contentsline {section}{\numberline {7.4}\slshape Optimaliz\IeC {\'a}cia neefekt\IeC {\'\i }vnych \IeC {\v c}ast\IeC {\'\i } k\IeC {\'o}du}{32}{section.7.4}
+\contentsline {subsection}{\numberline {7.4.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{33}{subsection.7.4.1}
+\contentsline {chapter}{Literat\IeC {\'u}ra}{34}{subsection.7.4.1}
+\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{35}{appendix.A}

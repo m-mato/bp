@@ -800,7 +800,44 @@ Modifikácie vykonané v bajtkóde načítaných, prípadne novo vytvorených ob
 TODO...
 
 \chapter{Porovnanie}
-TODO...
+Každý zo spomínaných nástrojov pristupuje k maniplulácií s bajtkódom odlišným spôsobom. Zatiaľ čo \textit{Byteman} využíva jazyk ECA pravidiel, ktoré načítava pomocou progamu \textit{java agent}, \textit{Javassist} je knižnicou jazyka Java. Oba nástroje majú svoje výhody a nevýhody. Najjednoznačnejšie z nich sú popísané v nasledujúcich sekciách.
+
+\section{Vlastnosti nástroja \textit{Byteman}}
+
+Výhodami použitia nástroja \textit{Byteman} sú:
+
+\begin{itemize}
+\item Prehľadnosť jazyka: Jazyk ECA pravidiel použitý nástorjom \textit{Javassist} je veľmi prehľadný a dobre zapametateľný. 
+\item Možnosť automatického generovania skriptov: Vďaka jednoznačnej štruktúre jazyka a jeho skriptov je možné pravidlá pomerne jednoducho generovať automaticky.
+\end{itemize}
+
+Na druhej strane má tento nástroj aj nevýhody:
+
+\begin{itemize}
+\item Nutnosť manipulácie s programom \textit{java agent} v spustenej aplikácií.
+\item Obmedzená funkcionalita: Jednou z najvačších nevýhod nástorja \textit{Byteman} je nemožnosť editovania pôvodného kódu. \textit{Bytemen} slúži ako nástoroj na pridávanie novej funkcionality, nijakým spôsobom však nedokáže editovať, prípadne odstrániť funkcionalitu pôvodnú. 
+\end{itemize}
+
+\section{Vlastnosti knižnice \textit{Javassist}}
+
+Manipulácia s bajtkódom pomocou knižnice \textit{Javassist} má nasledujúce výhody:
+
+\begin{itemize}
+\item Jednoduchá manipulácia: Keďže je \textit{Javassist} knižnicou jazyka Java je manipulácia s ním pomerne nenáročná.
+\item Dvojité aplikačné rozhranie: \textit{Javasist} poskytuje, na rozdiel od nástorja \textit{Byteman}, okrem základného rozhrnanie aj nízkoúrovňové rozhranie pre priamu manipuláciu s bajtkódom.
+\item Široké uplatnenie: Na rozdiel od nástroja \textit{Byteman}, funkcionalita knižnice \textit{Javassist} poskytuje aj nástroje na úpravu existujúceho kódu.
+\end{itemize}
+
+Takisto tento nástorj má svoje slabé stránky:
+
+\begin{itemize}
+\item Mohutnosť aplikácie: Pri jednoduchých trasovacích úlohách by mohlo mať použitie knižnice \textit{Javassist} za následok značné časové oneskorenie.
+\item Nemožnosť automatizácie: Vzhľadom na povahu tejto knižnice nieje možné automatické generovanie zdrojového kódu jazyka Java pre manipuláciu s bajtkódom.
+\end{itemize}
+
+\section{Zhrnutie}
+
+Z vyššie uvedeých vlastností nástrojov \textit{Byteman} a \textit{Javassist} vyplýva ich uplatennie v praxy. Vo väčšine aplikácií pre manipuláciu s bajtkódom spôsbom, ktorý edituje pôvodnú funkcionalitu je nutné použitie knižnice \textit{Javassist}. Pre úpravy správania sa programov napríklad v prípade trasovania aplikácií, je vhodnou alternatívou nástroj \textit{Byteman}.
 
 \chapter{Praktické ukážky}
 Dôležitou súčasťou bakalárskej práce sú praktické ukážky. Každý z príkladov je navrhnutý pre jeden z nástrojov \textit{Byteman}, respektíve \textit{Javassist}.Konkrétne ukazujú základné možnosti jeho využitia pre vývoj a trasovanie programov Jave. Ukážky pokrývajú 4 oblasti:
