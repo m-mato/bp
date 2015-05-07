@@ -1,7 +1,5 @@
 \select@language {slovak}
 \contentsline {chapter}{\numberline {1}\bfseries \IeC {\'U}vod}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}\slshape Cie\IeC {\v l} pr\IeC {\'a}ce}{4}{section.1.1}
-\contentsline {section}{\numberline {1.2}\slshape \IeC {\v C}lenenie pr\IeC {\'a}ce}{4}{section.1.2}
 \contentsline {chapter}{\numberline {2}\bfseries Bajtk\IeC {\'o}d}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}\slshape \IeC {\v S}trukt\IeC {\'u}ra \textit {class} s\IeC {\'u}boru}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}\rmfamily Reprezent\IeC {\'a}cia d\IeC {\'a}tov\IeC {\'y}ch typov}{7}{subsection.2.1.1}
@@ -11,7 +9,7 @@
 \contentsline {section}{\numberline {2.2}\slshape In\IeC {\v s}trukcie JVM}{10}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}\rmfamily D\IeC {\'a}tov\IeC {\'e} typy}{11}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}\rmfamily Architekt\IeC {\'u}ra a in\IeC {\v s}truk\IeC {\v c}n\IeC {\'a} sada}{11}{subsection.2.2.2}
-\contentsline {chapter}{\numberline {3}\bfseries Classloadery}{14}{chapter.3}
+\contentsline {chapter}{\numberline {3}\bfseries Zav\IeC {\'a}dza\IeC {\v c}e tried}{14}{chapter.3}
 \contentsline {subsection}{\numberline {3.0.3}\rmfamily Dynamick\IeC {\'e} na\IeC {\v c}\IeC {\'\i }tavanie tried}{14}{subsection.3.0.3}
 \contentsline {subsection}{\numberline {3.0.4}\rmfamily Znovuna\IeC {\v c}\IeC {\'\i }tanie triedy}{14}{subsection.3.0.4}
 \contentsline {chapter}{\numberline {4}\bfseries Byteman}{16}{chapter.4}
@@ -21,12 +19,11 @@
 \contentsline {subsection}{\numberline {4.2.2}\rmfamily Z\IeC {\'a}vislosti}{18}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}\rmfamily V\IeC {\'y}razy}{19}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}\rmfamily Akcie}{19}{subsection.4.2.4}
-\contentsline {section}{\numberline {4.3}\slshape Pou\IeC {\v z}itie}{20}{section.4.3}
-\contentsline {chapter}{\numberline {5}\bfseries Javasist}{21}{chapter.5}
+\contentsline {section}{\numberline {4.3}\slshape Pou\IeC {\v z}itie}{19}{section.4.3}
+\contentsline {chapter}{\numberline {5}\bfseries Javassist}{21}{chapter.5}
 \contentsline {section}{\numberline {5.1}\slshape Modifik\IeC {\'a}cie}{22}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}\rmfamily Rozhranie pre pr\IeC {\'a}cu z bajtk\IeC {\'o}dom}{22}{subsection.5.1.1}
 \contentsline {section}{\numberline {5.2}\slshape Z\IeC {\'a}pis do \textit {class} s\IeC {\'u}boru}{22}{section.5.2}
-\contentsline {section}{\numberline {5.3}\slshape Pou\IeC {\v z}itie}{22}{section.5.3}
 \contentsline {chapter}{\numberline {6}\bfseries Porovnanie}{23}{chapter.6}
 \contentsline {section}{\numberline {6.1}\slshape Vlastnosti n\IeC {\'a}stroja \textit {Byteman}}{23}{section.6.1}
 \contentsline {section}{\numberline {6.2}\slshape Vlastnosti kni\IeC {\v z}nice \textit {Javassist}}{23}{section.6.2}

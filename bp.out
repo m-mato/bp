@@ -1,44 +1,41 @@
 \BOOKMARK [0][-]{chapter.1}{\332vod}{}% 1
-\BOOKMARK [1][-]{section.1.1}{ Ciel pr\341ce}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{ Clenenie pr\341ce}{chapter.1}% 3
-\BOOKMARK [0][-]{chapter.2}{Bajtk\363d}{}% 4
-\BOOKMARK [1][-]{section.2.1}{ \227trukt\372ra class s\372boru}{chapter.2}% 5
-\BOOKMARK [2][-]{subsection.2.1.1}{ Reprezent\341cia d\341tov\375ch typov}{section.2.1}% 6
-\BOOKMARK [2][-]{subsection.2.1.2}{ Premenn\351 tried a in\235tanci\355}{section.2.1}% 7
-\BOOKMARK [2][-]{subsection.2.1.3}{ Met\363dy}{section.2.1}% 8
-\BOOKMARK [2][-]{subsection.2.1.4}{ Atrib\372ty}{section.2.1}% 9
-\BOOKMARK [1][-]{section.2.2}{ In\235trukcie JVM}{chapter.2}% 10
-\BOOKMARK [2][-]{subsection.2.2.1}{ D\341tov\351 typy}{section.2.2}% 11
-\BOOKMARK [2][-]{subsection.2.2.2}{ Architekt\372ra a in\235trukcn\341 sada}{section.2.2}% 12
-\BOOKMARK [0][-]{chapter.3}{Classloadery}{}% 13
-\BOOKMARK [1][-]{subsection.3.0.3}{ Dynamick\351 nac\355tavanie tried}{chapter.3}% 14
-\BOOKMARK [2][-]{subsection.3.0.4}{ Znovunac\355tanie triedy}{subsection.3.0.3}% 15
-\BOOKMARK [0][-]{chapter.4}{Byteman}{}% 16
-\BOOKMARK [1][-]{section.4.1}{ Byteman Agent}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.2}{ \227trukt\372ra jazyka pravidel}{chapter.4}% 18
-\BOOKMARK [2][-]{subsection.4.2.1}{ Udalosti}{section.4.2}% 19
-\BOOKMARK [2][-]{subsection.4.2.2}{ Z\341vislosti}{section.4.2}% 20
-\BOOKMARK [2][-]{subsection.4.2.3}{ V\375razy}{section.4.2}% 21
-\BOOKMARK [2][-]{subsection.4.2.4}{ Akcie}{section.4.2}% 22
-\BOOKMARK [1][-]{section.4.3}{ Pou\236itie}{chapter.4}% 23
-\BOOKMARK [0][-]{chapter.5}{Javasist}{}% 24
-\BOOKMARK [1][-]{section.5.1}{ Modifik\341cie}{chapter.5}% 25
-\BOOKMARK [2][-]{subsection.5.1.1}{ Rozhranie pre pr\341cu z bajtk\363dom}{section.5.1}% 26
-\BOOKMARK [1][-]{section.5.2}{ Z\341pis do class s\372boru}{chapter.5}% 27
-\BOOKMARK [1][-]{section.5.3}{ Pou\236itie}{chapter.5}% 28
-\BOOKMARK [0][-]{chapter.6}{Porovnanie}{}% 29
-\BOOKMARK [1][-]{section.6.1}{ Vlastnosti n\341stroja Byteman}{chapter.6}% 30
-\BOOKMARK [1][-]{section.6.2}{ Vlastnosti kni\236nice Javassist}{chapter.6}% 31
-\BOOKMARK [1][-]{section.6.3}{ Zhrnutie}{chapter.6}% 32
-\BOOKMARK [0][-]{chapter.7}{Praktick\351 uk\341\236ky}{}% 33
-\BOOKMARK [1][-]{section.7.1}{ Detekcia volania v\375nimiek}{chapter.7}% 34
-\BOOKMARK [1][-]{section.7.2}{ Detekcia nespr\341vneho o\235etrenia v\375nimiek}{chapter.7}% 35
-\BOOKMARK [2][-]{subsection.7.2.1}{ \227trukt\372ra a funkcn\341 logika aplik\341cie}{section.7.2}% 36
-\BOOKMARK [2][-]{subsection.7.2.2}{ Testovacie pr\355klady}{section.7.2}% 37
-\BOOKMARK [1][-]{section.7.3}{ Zlep\235enie a zprehladnenie produkcn\351ho k\363du}{chapter.7}% 38
-\BOOKMARK [2][-]{subsection.7.3.1}{ \227trukt\372ra a funkcn\341 logika aplik\341cie}{section.7.3}% 39
-\BOOKMARK [2][-]{subsection.7.3.2}{ Testovac\355 pr\355klad}{section.7.3}% 40
-\BOOKMARK [1][-]{section.7.4}{ Optimaliz\341cia neefekt\355vnych cast\355 k\363du}{chapter.7}% 41
-\BOOKMARK [2][-]{subsection.7.4.1}{ \227trukt\372ra a funkcn\341 logika aplik\341cie}{section.7.4}% 42
-\BOOKMARK [0][-]{subsection.7.4.1}{Literat\372ra}{}% 43
-\BOOKMARK [0][-]{appendix.A}{Tabulky}{}% 44
+\BOOKMARK [0][-]{chapter.2}{Bajtk\363d}{}% 2
+\BOOKMARK [1][-]{section.2.1}{ \227trukt\372ra class s\372boru}{chapter.2}% 3
+\BOOKMARK [2][-]{subsection.2.1.1}{ Reprezent\341cia d\341tov\375ch typov}{section.2.1}% 4
+\BOOKMARK [2][-]{subsection.2.1.2}{ Premenn\351 tried a in\235tanci\355}{section.2.1}% 5
+\BOOKMARK [2][-]{subsection.2.1.3}{ Met\363dy}{section.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.1.4}{ Atrib\372ty}{section.2.1}% 7
+\BOOKMARK [1][-]{section.2.2}{ In\235trukcie JVM}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.2.1}{ D\341tov\351 typy}{section.2.2}% 9
+\BOOKMARK [2][-]{subsection.2.2.2}{ Architekt\372ra a in\235trukcn\341 sada}{section.2.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Zav\341dzace tried}{}% 11
+\BOOKMARK [1][-]{subsection.3.0.3}{ Dynamick\351 nac\355tavanie tried}{chapter.3}% 12
+\BOOKMARK [2][-]{subsection.3.0.4}{ Znovunac\355tanie triedy}{subsection.3.0.3}% 13
+\BOOKMARK [0][-]{chapter.4}{Byteman}{}% 14
+\BOOKMARK [1][-]{section.4.1}{ Byteman Agent}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{ \227trukt\372ra jazyka pravidel}{chapter.4}% 16
+\BOOKMARK [2][-]{subsection.4.2.1}{ Udalosti}{section.4.2}% 17
+\BOOKMARK [2][-]{subsection.4.2.2}{ Z\341vislosti}{section.4.2}% 18
+\BOOKMARK [2][-]{subsection.4.2.3}{ V\375razy}{section.4.2}% 19
+\BOOKMARK [2][-]{subsection.4.2.4}{ Akcie}{section.4.2}% 20
+\BOOKMARK [1][-]{section.4.3}{ Pou\236itie}{chapter.4}% 21
+\BOOKMARK [0][-]{chapter.5}{Javassist}{}% 22
+\BOOKMARK [1][-]{section.5.1}{ Modifik\341cie}{chapter.5}% 23
+\BOOKMARK [2][-]{subsection.5.1.1}{ Rozhranie pre pr\341cu z bajtk\363dom}{section.5.1}% 24
+\BOOKMARK [1][-]{section.5.2}{ Z\341pis do class s\372boru}{chapter.5}% 25
+\BOOKMARK [0][-]{chapter.6}{Porovnanie}{}% 26
+\BOOKMARK [1][-]{section.6.1}{ Vlastnosti n\341stroja Byteman}{chapter.6}% 27
+\BOOKMARK [1][-]{section.6.2}{ Vlastnosti kni\236nice Javassist}{chapter.6}% 28
+\BOOKMARK [1][-]{section.6.3}{ Zhrnutie}{chapter.6}% 29
+\BOOKMARK [0][-]{chapter.7}{Praktick\351 uk\341\236ky}{}% 30
+\BOOKMARK [1][-]{section.7.1}{ Detekcia volania v\375nimiek}{chapter.7}% 31
+\BOOKMARK [1][-]{section.7.2}{ Detekcia nespr\341vneho o\235etrenia v\375nimiek}{chapter.7}% 32
+\BOOKMARK [2][-]{subsection.7.2.1}{ \227trukt\372ra a funkcn\341 logika aplik\341cie}{section.7.2}% 33
+\BOOKMARK [2][-]{subsection.7.2.2}{ Testovacie pr\355klady}{section.7.2}% 34
+\BOOKMARK [1][-]{section.7.3}{ Zlep\235enie a zprehladnenie produkcn\351ho k\363du}{chapter.7}% 35
+\BOOKMARK [2][-]{subsection.7.3.1}{ \227trukt\372ra a funkcn\341 logika aplik\341cie}{section.7.3}% 36
+\BOOKMARK [2][-]{subsection.7.3.2}{ Testovac\355 pr\355klad}{section.7.3}% 37
+\BOOKMARK [1][-]{section.7.4}{ Optimaliz\341cia neefekt\355vnych cast\355 k\363du}{chapter.7}% 38
+\BOOKMARK [2][-]{subsection.7.4.1}{ \227trukt\372ra a funkcn\341 logika aplik\341cie}{section.7.4}% 39
+\BOOKMARK [0][-]{subsection.7.4.1}{Literat\372ra}{}% 40
+\BOOKMARK [0][-]{appendix.A}{Tabulky}{}% 41

@@ -6,6 +6,11 @@ Tim Lindholm, Frank Yellin, Gilad Bracha, and Alex Buckley.
 \newblock Addison-Wesley Professional, 1st edition, 2013.
 \newblock \url{http://docs.oracle.com/javase/specs/jvms/se7/html/}.
 
+\bibitem[Ora]{Oracle:JavaReflection}
+Oracle.
+\newblock {\em Java Reflection API}.
+\newblock \url{http://docs.oracle.com/javase/tutorial/reflect/index.html}.
+
 \bibitem[Ora11]{Oracle:ClassLoader}
 Oracle.
 \newblock {\em Class ClassLoader documentation}, 7th edition, 2011.
@@ -28,6 +33,12 @@ Inc. Red~Hat.
 \newblock {Byteman} project description.
 \newblock \url{http://byteman.jboss.org}.
 \newblock Accessed: 2015-03-09.
+
+\bibitem[Roe11]{Roebuck:2011:STH:2031364}
+Kevin Roebuck.
+\newblock {\em Software Testing: High-impact Strategies - What You Need to Know
+  Definitions, Adoptions, Impact, Benefits, Maturity, Vendors}.
+\newblock Tebbo, 2011.
 
 \bibitem[Sel95]{Sellis:ECARules}
 Timos Sellis.
