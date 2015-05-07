@@ -43,13 +43,12 @@
 \end{ThesisDeclaration}
 
 \begin{ThesisAbstract}
-Cieľom tejto práce bola analýza vlastností, spolu s implementáciou sady 
+Cieľom tejto práce je analýza vlastností, spolu s implementáciou sady 
 príkladov pre nástroje, \textit{Byteman} a \textit{Javassist}. Teoretická časť 
 práce popisuje bajtkód, \textit{Java Virtual Machine}, načítavanie pomocou 
 zavádzačov tried a vlastnosti spomínaných nástrojov. Praktická časť zahŕňa  
-ukážky, ktoré demonštrujú funkcionalitu nástrojov v oblastiach detekcie volania 
-výnimiek, detekcia nesprávne ošetrených výnimiek, zlepšenia produkčného kódu a 
-optimalizácie neefektívnych častí kódu.
+ukážky, ktoré demonštrujú funkcionalitu nástrojov v rôznych oblastiach 
+vývoja a testovania softvéru.
 \end{ThesisAbstract}
 
 \begin{ThesisKeyWords}
@@ -115,19 +114,20 @@ testovaní a trasovaní programov.
   \label{fig:jvm}
 \end{figure}
 
-Cieľom tejto práce je popis vlastností a implementácia príkladov používajúcich 
+Práca sa zaoberá popisom vlastností a implementáciou príkladov používajúcich 
 nástroje určené na modifikáciu \textit{class} súborov. Konkrétne nástroje 
 spomínané a používané v tejto práci sú \textit{Byteman} a \textit{Javassist}.
 
-Práca je rozdelená na dva logické celky. Kapitoly dva až šesť tvoria teoretickú 
-časť ktorá popisuje: bajtkód, \textit{Java Virtual Machine}, zavádzače tried, 
-vlastnosti samotných nástrojov \textit{Byteman a Javassist} a ich porovnanie. 
+Dokument sa skladá z dvoch logických celkov. Kapitoly dva až šesť tvoria
+teoretickú časť ktorá popisuje: bajtkód, \textit{Java Virtual Machine},
+zavádzače tried, vlastnosti samotných nástrojov \textit{Byteman a Javassist}
+a ich porovnanie. 
 
-Kapitola sedem sa venuje praktickým ukážkam vytvoreným vrámci bakalárskej 
-práce. Sekcie podkapitoly sa zaoberajú príkladmi, ktoré pokrývajú oblasti 
-detekcie volania výnimiek, detekcie nesprávne ošetrených výnimiek, zlepšenia 
-produkčného kódu a optimalizácie neefektívnych častí kódu. Každá z ukážok 
-demonštruje funkcionalitu jedného zo spomínaných nástrojov.
+Kapitola sedem sa venuje praktickým ukážkam, ktoré boli vytvorené vrámci
+bakalárskej práce. Sekcie podkapitoly sa zaoberajú príkladmi, ktoré pokrývajú
+oblasti detekcie volania výnimiek, detekcie nesprávne ošetrených výnimiek,
+zlepšenia produkčného kódu a optimalizácie neefektívnych častí kódu. Každá z
+ukážok demonštruje funkcionalitu jedného zo spomínaných nástrojov.
 
 \chapter{Bajtkód}
 \label{chap:bytecode}
@@ -763,7 +763,6 @@ referencie na lokálne premenné v okolí spúšťača, vstavané operátory (
 Java.
 %operácie JVM.
 \end{itemize}
-Tabuľka základných vstavaných operátorov je uvedená v TODO...
 
 Podmienkami pravidla (Rule Conditions) sú výrazy typu boolean. Tieto pravidlá 
 nasledujúce klauzulu \textit{IF} sú overené po inicializácií závislostí.
@@ -1349,13 +1348,50 @@ pokúsi optimalizovať vlastnú testovaciu triedu. Balík \textit{example.simple
 optimalizuje jednoduchú triedu \textit{ArithmeticExample}, ktorá vykonáva 
 aritmetické operácie. Balík \textit{example.model} je príklad podobný 
 demonštračnému príkladu úlohy z predchádzajúcej kapitoly. Podrobné fungovanie 
-testovacích príkladov je uvedené v \textit{Javadocu} a komentároch~\footnote{
-Podrobnosti o uvedených príkladoch sú uvedené aj v \textit{README} súbore 
-projektu.}.
+testovacích príkladov je uvedené v \textit{Javadocu} a
+komentároch~\footnote{Podrobnosti o uvedených príkladoch sú uvedené aj
+v \textit{README} súbore projektu.}.
 
 Aplikáciu je takisto možné spustiť na ľubovoľnej triede vhodnej na 
 optimalizáciu aritmetických operácií volaním metódy \textit{application.
 ArithmeticOptimizer.optimizeClass(String classNameToOpt)}.
+
+\chapter{Záver}
+
+Hlavným cieľom práce bola analýza, porovnanie a implementácia sady príkladov
+nástrojov určených na manipuláciu s bajtkódom jazyka Java. Nástrojmi použitými
+v tejto práci boli \textit{Byteman} a \textit{Javassist}. 
+
+Problematika manipulácie s bajtkódom má veľmi široké uplatnenie v mnohých
+odvetviach vývoja a testovania softvéru. Demonštračné príklady boli preto
+orientované na štyri vybrané oblasti:
+
+\begin{itemize}
+\item detekcia volania výnimiek,
+\item detekcia nesprávneho ošetrenia výnimiek,
+\item zlepšenie produkčného kódu,
+\item optimalizácia neefektívnych častí kódu.
+\end{itemize}
+
+Analýzou vlastností spomínaných nástrojov vyplynuli možnosti ich funkcionality
+a následné uplatnenie v príkladoch. 
+
+Z vlastností nástroja \textit{Byteman} vyplýva, obmedzenie jeho použitia u
+obmedzenej množiny aplikácií. Tento nástroj nieje možné využiť na 
+editovanie pôvodného bajtkódu. Jeho funkcionalita je týmto obmedzená
+na pridávanie vlastného kódu. Uplatnenie bolo možné v prípade
+detekcie volania výnimiek spustenej aplikácie. Pri používaní sa nástroj javí
+stabilný a veľmi dobre ovládateľný.
+
+Knižnica \textit{Javassist} bola vďaka svojej rozsiahlej funkcionalite použitá
+takmer vo všetkých príkladoch. Manipulácia s týmto nástrojom bola o niečo
+náročnejšia. Výsledné príklady sú však badateľne využiteľnejšie. Najmä
+programy v oblasti zlepšenia a optimalizácie kódu by bolo po rozpracovaní možné
+použiť v praxi.
+
+Vo väčšine projektov, ktoré manipulujú s bajtkódom je možné použiť knižnicu
+\textit{Javassist}. Nástroj \textit{Byteman} je však vhodnou alternatívou najmä
+v oblastiach trasovania a testovania programov.
 
 \nocite{RedHat:Javassist}
 \clearpage
