@@ -22,7 +22,7 @@
 \contentsline {section}{\numberline {4.3}\slshape Pou\IeC {\v z}itie}{19}{section.4.3}
 \contentsline {chapter}{\numberline {5}\bfseries Javassist}{21}{chapter.5}
 \contentsline {section}{\numberline {5.1}\slshape Modifik\IeC {\'a}cie}{22}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}\rmfamily Rozhranie pre pr\IeC {\'a}cu z bajtk\IeC {\'o}dom}{22}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.1}\rmfamily Rozhranie pre pr\IeC {\'a}cu s bajtk\IeC {\'o}dom}{22}{subsection.5.1.1}
 \contentsline {section}{\numberline {5.2}\slshape Z\IeC {\'a}pis do \textit {class} s\IeC {\'u}boru}{22}{section.5.2}
 \contentsline {chapter}{\numberline {6}\bfseries Porovnanie}{23}{chapter.6}
 \contentsline {section}{\numberline {6.1}\slshape Vlastnosti n\IeC {\'a}stroja \textit {Byteman}}{23}{section.6.1}
@@ -37,7 +37,7 @@
 \contentsline {subsection}{\numberline {7.3.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{30}{subsection.7.3.1}
 \contentsline {subsection}{\numberline {7.3.2}\rmfamily Testovac\IeC {\'\i } pr\IeC {\'\i }klad}{31}{subsection.7.3.2}
 \contentsline {section}{\numberline {7.4}\slshape Optimaliz\IeC {\'a}cia neefekt\IeC {\'\i }vnych \IeC {\v c}ast\IeC {\'\i } k\IeC {\'o}du}{32}{section.7.4}
-\contentsline {subsection}{\numberline {7.4.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{33}{subsection.7.4.1}
-\contentsline {chapter}{\numberline {8}\bfseries Z\IeC {\'a}ver}{34}{chapter.8}
-\contentsline {chapter}{Literat\IeC {\'u}ra}{35}{chapter.8}
-\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{36}{appendix.A}
+\contentsline {subsection}{\numberline {7.4.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{32}{subsection.7.4.1}
+\contentsline {chapter}{\numberline {8}\bfseries Z\IeC {\'a}ver}{35}{chapter.8}
+\contentsline {chapter}{Literat\IeC {\'u}ra}{36}{chapter.8}
+\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{37}{appendix.A}
