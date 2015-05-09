@@ -8,7 +8,7 @@
 \contentsline {subsection}{\numberline {2.1.4}\rmfamily Atrib\IeC {\'u}ty}{10}{subsection.2.1.4}
 \contentsline {section}{\numberline {2.2}\slshape In\IeC {\v s}trukcie JVM}{10}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}\rmfamily D\IeC {\'a}tov\IeC {\'e} typy}{11}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}\rmfamily Architekt\IeC {\'u}ra a in\IeC {\v s}truk\IeC {\v c}n\IeC {\'a} sada}{11}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}\rmfamily Architekt\IeC {\'u}ra a in\IeC {\v s}truk\IeC {\v c}n\IeC {\'a} sada}{12}{subsection.2.2.2}
 \contentsline {chapter}{\numberline {3}\bfseries Zav\IeC {\'a}dza\IeC {\v c}e tried}{14}{chapter.3}
 \contentsline {subsection}{\numberline {3.0.3}\rmfamily Dynamick\IeC {\'e} na\IeC {\v c}\IeC {\'\i }tavanie tried}{14}{subsection.3.0.3}
 \contentsline {subsection}{\numberline {3.0.4}\rmfamily Znovuna\IeC {\v c}\IeC {\'\i }tanie triedy}{14}{subsection.3.0.4}
@@ -33,12 +33,12 @@
 \contentsline {section}{\numberline {7.2}\slshape Detekcia nespr\IeC {\'a}vneho o\IeC {\v s}etrenia v\IeC {\'y}nimiek}{27}{section.7.2}
 \contentsline {subsection}{\numberline {7.2.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{28}{subsection.7.2.1}
 \contentsline {subsection}{\numberline {7.2.2}\rmfamily Testovacie pr\IeC {\'\i }klady}{29}{subsection.7.2.2}
-\contentsline {section}{\numberline {7.3}\slshape Zlep\IeC {\v s}enie a zpreh\IeC {\v l}adnenie produk\IeC {\v c}n\IeC {\'e}ho k\IeC {\'o}du}{30}{section.7.3}
+\contentsline {section}{\numberline {7.3}\slshape Zlep\IeC {\v s}enie a zpreh\IeC {\v l}adnenie produk\IeC {\v c}n\IeC {\'e}ho k\IeC {\'o}du}{29}{section.7.3}
 \contentsline {subsection}{\numberline {7.3.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{30}{subsection.7.3.1}
 \contentsline {subsection}{\numberline {7.3.2}\rmfamily Testovac\IeC {\'\i } pr\IeC {\'\i }klad}{31}{subsection.7.3.2}
 \contentsline {section}{\numberline {7.4}\slshape Optimaliz\IeC {\'a}cia neefekt\IeC {\'\i }vnych \IeC {\v c}ast\IeC {\'\i } k\IeC {\'o}du}{32}{section.7.4}
-\contentsline {subsection}{\numberline {7.4.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{33}{subsection.7.4.1}
-\contentsline {chapter}{\numberline {8}\bfseries Z\IeC {\'a}ver}{36}{chapter.8}
-\contentsline {chapter}{Literat\IeC {\'u}ra}{37}{chapter.8}
-\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{38}{appendix.A}
-\contentsline {chapter}{\numberline {B}\bfseries Obsah CD}{44}{appendix.B}
+\contentsline {subsection}{\numberline {7.4.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{32}{subsection.7.4.1}
+\contentsline {chapter}{\numberline {8}\bfseries Z\IeC {\'a}ver}{35}{chapter.8}
+\contentsline {chapter}{Literat\IeC {\'u}ra}{36}{chapter.8}
+\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{37}{appendix.A}
+\contentsline {chapter}{\numberline {B}\bfseries Obsah CD}{43}{appendix.B}

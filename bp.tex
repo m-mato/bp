@@ -15,7 +15,7 @@
 \thesisyear{2015}
 \thesisadvisor{RNDr. Adam Rambousek}
 \thesislang{sk}
-\newcommand\q[1]{\quotedblbase #1\textquotedblleft}%
+\newcommand\qt[1]{\quotedblbase #1\textquotedblleft}%
 \newenvironment{example}[1]
 {
 \vspace{3mm}
@@ -159,10 +159,10 @@ zo 4. až 6. kapitoly špecifikácie JVM~\cite{Lindholm:2013:JVM:2462629}.}
 Táto štruktúra jednoznačne identifikuje konkrétnu triedu, 
 prípadne rozhranie, definuje jej premenné a metódy.
 
-Nasledujúci popis definuje sadu dátových typov použitých v texte. Typy
+Nasledujúci popis určuje sadu dátových typov použitých v texte. Typy
 \textit{u1}, \textit{u2}, a \textit{u4} reprezentujú neznamienkové jedno, 
 dvoj, alebo štvor-bajtové číslo. Pre znázornenie \textit{class} súboru je 
-použitá pseudo-štruktúra notácie jazyka C. Obsah štruktúry je popísaný ako 
+použitá pseudo-štruktúra v notácií jazyka C. Obsah štruktúry je popísaný ako 
 zoznam po sebe nasledujúcich položiek.
 
 \begin{example}{Formát \textit{ClassFile} štruktúry}
@@ -189,35 +189,36 @@ ClassFile {
 \end{example}
 
 Konštanta \textit{magic} identifikuje formát súboru \textit{class},
-jej hodnota je 0xCAFEBABE.
+jej hodnota je vždy rovná \textit{0xCAFEBABE}.
 
 Položky \textit{minor\_version} a \textit{major\_version}
 určujú verziu \textit{class} súboru. Napríklad \textit{minor\_version} s
 hodnotou \textit{m} a \textit{major\_version} s hodnotou \textit{M} indikujú
 verziu s hodnotou \textit{M.m}.
 
-Hodnota položky \textit{constant\_pool\_count} je rovná počtu záznamov
-v \textit{constant\_pool[]} plus jeden.
+Hodnota položky \textit{constant\_pool\_count} je rovná množstvu záznamov
+v \textit{constant\_pool[]}, plus jeden.
 
 Úložisko záznamov \textit{constant\_pool[]} (v podobe poľa štruktúr)
-zahŕňa rôzne konštanty: mená tried,  mená rozhraní, názvy premenných a iné. 
-Každý záznam poľa sa skladá zo značky (\textit{tag}) a indexu
-(\textit{name\_index}). Značka určuje typ záznamu. Tabuľka značiek je uvedená
-v prílohe \ref{tab:tab1}. Pomocou unikátneho indexu je možné odkazovať sa na
-záznamy v ďalších častiach bajtkódu. Existuje niekoľko typov
-štruktúr~\footnote{Všetky štruktúry \textit{constant\_pool[]} sú popísane v
-špecifikácií JVM~\cite{Lindholm:2013:JVM:2462629}.} reprezentujúcich rôzne
-druhy záznamov. Napríklad štruktúra \textit{CONSTANT\_String\_info}
-reprezentuje objekty typu \textit{String}, zatiaľ čo štruktúry
+obsahuje rôzne dôležité konštanty: mená tried,  mená rozhraní, názvy 
+premenných a iné. Každý záznam spomínaného poľa pozostáva zo značky
+(\textit{tag}) a indexu (\textit{name\_index}). Značka určuje typ záznamu. 
+Tabuľka všetkých značiek je uvedená v prílohe \ref{tab:tab1}. Pomocou 
+unikátneho indexu je následne možné odkazovať sa na záznamy v ďalších častiach 
+bajtkódu. Existuje niekoľko typov štruktúr~\footnote{Všetky štruktúry \textit{
+constant\_pool[]} sú popísane v špecifikácií
+JVM~\cite{Lindholm:2013:JVM:2462629}.}
+reprezentujúcich rôzne druhy ich záznamov. Napríklad štruktúra
+\textit{CONSTANT\_String\_info} reprezentuje objekty typu \textit{String}, 
+zatiaľ čo ďalšie podobné štruktúry ako napríklad
 \textit{CONSTANT\_Methodref\_info} a 
-\textit{CONSTANT\_InterfaceMethodref\_info} reprezentujú metódy aktuálnej 
-triedy.
+\textit{CONSTANT\_InterfaceMethodref\_info} reprezentujú metódy 
+triedy, prípadne rozhrania.
 
-Hodnota \textit{access\_flags} popisuje oprávnenia prístupu k
+Hodnota \textit{access\_flags} ukladá oprávnenia prístupu k
 informáciám a vlastnosti tejto triedy pomocou
 indikátorov. Napríklad nastavenie indikátora \textit{ACC\_INTERFACE} znamená,
-že \textit{class} súbor popisuje rozhranie. Tabuľka indikátorov je uvedená v
-prílohe \ref{tab:tab2}.
+že \textit{class} súbor popisuje rozhranie. Tabuľka indikátorov je uvedená v prílohe \ref{tab:tab2}.
 
 Položka \textit{this\_class} obsahuje index položky poľa 
 \textit{constant\_pool[]} odkazujúci na štruktúru
@@ -226,15 +227,15 @@ Položka \textit{this\_class} obsahuje index položky poľa
 udáva triedu, alebo rozhranie.}. Reprezentuje triedu, respektíve
 rozhranie, definované týmto \textit{class} súborom.
 
-Hodnotou \textit{super\_class} je taktiež index \textit{constant\_pool[]}
+Hodnotou \textit{super\_class} je taktiež index poľa \textit{constant\_pool[]}
 odkazujúci na štruktúru typu \textit{CONSTANT\_Class\_info}. Reprezentuje
 priamu nadtriedu triedy definovanej aktuálnym \textit{class} súborom. V 
 prípade, že ide o súbor popisujúci rozhranie, index odkazuje na triedu
 \textit{Object}. Trieda \textit{Object} má ako jediná hodnotu
 \textit{super\_class} nulovú.
 
-Počet rozhraní, ktoré trieda implementuje, vyjadruje položka
-\textit{interface\_count}, v prípade rozhrania je táto položka rovná počtu
+Počet prípadných rozhraní, ktoré daná trieda implementuje, vyjadruje položka
+\textit{interface\_count}. V prípade rozhrania je táto položka rovná počtu
 jeho priamych nadrozhraní.
 
 Pole \textit{interfaces[]} obsahuje indexy \textit{constant\_pool[]},
@@ -264,10 +265,10 @@ Hodnota \textit{attributes\_count} je rovná počtu atribútov poľa
 Pole \textit{attributes[]} obsahuje štruktúry typu \textit{attribute\_info}.
 Atribútmi štruktúry \textit{ClassFile} sú napríklad: \textit{SourceFile},
 \textit{Deprecated}, \textit{InnerClasses} a iné. Atribút \textit{SourceFile} 
-slúži na reprezentáciu mena \textit{class} súboru. Pole \textit{attributes[]}
-\textit{class} súboru môže obsahovať maximálne jeden takýto atribút. Atribút
+slúži na reprezentáciu mena \textit{class} súboru. Spomínané pole môže 
+obsahovať maximálne jeden takýto atribút. Atribút
 \textit{Deprecated} môže byť použitý v prípade, že bola daná trieda nahradená
-(\textit{deprecated}). Pri volaní takejto triedy môže prekladač upozorniť 
+(\textit{deprecated}). Pri jej volaní môže prekladač upozorniť 
 užívateľa, že sa odkazuje na nahradenú triedu~\footnote{Rovnakým spôsobom je
 možné atribút \textit{Deprecated} aplikovať aj na premenné a metódy.}. Vo
 všeobecnosti sa štruktúre \textit{attribute\_info} venuje
@@ -287,23 +288,25 @@ s kódovaním \textit{UTF-8}. Delíme ich na:
 \item dátové typy metód.
 \end{itemize}
 
-Primitívnym dátovým typom (\textit{byte}, \textit{integer}, …) je priradený
-popis v podobe znaku (\textit{B}, \textit{I}, …). Napríklad premenná typu
-\textit{int} je reprezentovaná znakom: \textit{I}.
+Primitívnym dátovým typom (\textit{byte}, \textit{int}, \textit{boolean}, …) 
+je priradený popis v podobe znaku (\textit{B}, \textit{I}, …). Napríklad 
+premenná typu \textit{int} je reprezentovaná znakom: \textit{I}.
 
 Referenčné dátové typy reprezentuje popis v tvare: \textit{L<classname>;}, kde 
 \textit{classname} je meno triedy, alebo rozhrania daného referenčného
-dátového typu. Premenná typu \textit{Object} je interpretovaná ako
+dátového typu. Premenná typu \textit{Object} je interpretovaná ako:
 \textit{java/lang/Object;}. 
 
 Identifikačný reťazec jednorozmerného poľa typu \textit{T} sa značí
 \textit{[T}, pričom počet znakov \textit{[} je rovný dimenzii poľa. Napríklad
-premenná typu: \textit{double d[][][]} generuje reťazec: \textit{[[[D}.
+trojrozmerné pole typu double : \textit{double d[][][]} generuje reťazec:
+\textit{[[[D}.
 
 Reťazec dátového typu metódy sa skladá z reťazcov pre dátový typ parametrov,
 ohraničených v zátvorkách \textit{(P*)} a reťazca pre dátový typ návratovej
-hodnoty \textit{R}. Tvar reťazca dátového typu metódy je potom \textit{(P*)R}.
-V prípade návratovej hodnoty \textit{null} je reťazcom návratovej hodnoty znak
+hodnoty \textit{R}. Univerzálny tvar reťazca je potom:
+\textit{(P*)R}.
+V prípade hodnoty \textit{null} je reťazcom návratovej hodnoty znak
 \textit{V}. Napríklad metódu \textit{boolean long pow (int n, int k)}
 reprezentuje reťazec: \textit{(II)J}, v prípade metódy
 \textit{Object method(byte b)} by šlo o reťazec:
@@ -329,8 +332,8 @@ field_info {
 \end{example}
 
 Položka \textit{access\_flags} je indikátorom oprávnenia prístupu k danej
-premennej. Mená indikátorov spolu s ich interpretáciou a hodnotou sú uvedené v
-prílohe \ref{tab:tab4}.
+premennej. Mená všetkých indikátorov spolu s ich interpretáciou a hodnotou sú 
+uvedené v prílohe \ref{tab:tab4}.
      
 Dvojbajtová hodnota \textit{name\_index} je index \textit{constant\_pool[]},
 reprezentujúci meno premennej.
@@ -339,23 +342,24 @@ Podobne ako \textit{name\_index}, aj \textit{descriptor\_index} je dvojbajtová
 položka odkazujúca sa na štruktúru v \textit{constant\_pool}. Na rozdiel od
 mena premennej však popisuje dátový typ premennej.
 
-Položka \textit{attributes\_count} vyjadruje počet atribútov v poli
-\textit{attributes[]}.
+Položka \textit{attributes\_count} vyjadruje počet všetkých atribútov 
+uložených v poli \textit{attributes[]}.
 
 Pole \textit{attributes[]} môže obsahovať ľubovoľné množstvo atribútov
 popisujúcich premennú. Štruktúra reprezentujúca atribút je daná všeobecným
 predpisom \textit{attribute\_info}. Atribúty premenných musia byť
 reprezentované jednou zo štruktúr \textit{ConstantValue}, \textit{Synthetic},
 \textit{Signature}, \textit{Deprecated}, \textit{RuntimeVisibleAnnotations},
-alebo \textit{RuntimeInvisibleAnnotations}. Atribút \textit{ConstantValue}
-popisuje konštantné statické premenné. \textit{Synthetic} je používaný u
-položiek, ktoré sa nevyskytujú v zdrojovom kóde. Štruktúrou
-\textit{attribute\_info} sa zaoberá podkapitola \ref{sec:attributes}.
+prípadne \textit{RuntimeInvisibleAnnotations}. Atribút s menom
+\textit{ConstantValue} popisuje konštantné statické premenné.
+\textit{Synthetic} je používaný u položiek, ktoré sa nevyskytujú v zdrojovom 
+kóde. Podrobne sa štruktúrou \textit{attribute\_info} zaoberá
+podkapitola~\ref{sec:attributes}.
 
 \subsection{Metódy}
 \label{sec:methods}
 Každá metóda triedy, prípadne rozhrania, je v poli \textit{methods[]} uložená
-pomocou štruktúry \textit{method\_info}. Štruktúra \textit{method\_info} má
+pomocou štruktúry \textit{method\_info}. Táto štruktúra má
 nasledujúci formát:
 
 \begin{example}{Formát \textit{method\_info}}
@@ -376,32 +380,30 @@ vlastností metódy. Tabuľka indikátorov \textit{access\_flags} štruktúry
 
 Položky \textit{name\_index} a \textit{descriptor\_index} sú podobne ako u
 \textit{field\_info} indexmi do \textit{constant\_pool}. Tieto indexy
-v \textit{constant\_pool} odkazujú na štruktúry popisujúce meno a dátový typ
-metódy. Reprezentácia dátových typov je popísaná v podkapitole
-\ref{sec:descriptors}.
+v \textit{constant\_pool} odkazujú na štruktúry charakterizujúce meno a dátový typ metódy. Reprezentáciu dátových typov popisuje
+podkapitola~\ref{sec:descriptors}.
 
-Hodnotou položky \textit{attributes\_count} je počet atribútov
-poľa \textit{attributes[]}.
+Hodnotoa položky \textit{attributes\_count} vyjadruje presný počet atribútov
+v poli \textit{attributes[]}.
 
-Pole \textit{attributes[]} zahŕňa dodatočné atribúty (položky) danej metódy.
-Každá položka poľa je reprezentovaná všeobecným predpisom
-\textit{attributes\_info}. Počet štruktúr v poli nie je obmedzený, každá
-položka však musí byť jednou zo štruktúr: \textit{Code}, \textit{Exceptions},
+Pole \textit{attributes[]} obsahuje dodatočné atribúty danej metódy.
+Jednotlivé položky poľa sú reprezentované elementárnym predpisom
+\textit{attributes\_info}. Každá
+z položiek je jednou zo štruktúr: \textit{Code}, \textit{Exceptions},
 \textit{Synthetic},\textit{Signature}, \textit{Deprecated},
 \textit{RuntimeVisibleAnnotations}, \textit{RuntimeInvisibleAnnotations},
 \textit{RuntimeVisibleParameterAnnotations},
 \textit{RuntimeInvisibleParameterAnnotations},
-alebo \textit{AnnotationDefault}.
+prípadne \textit{AnnotationDefault}.
 Atribút \textit{Code} je jedným z najdôležitejších. Obsahuje inštrukcie
-bajtkódu popisujúce fungovanie metódy. Okrem metód deklarovaných ako
-abstraktná, alebo natívna, musí každá z metód obsahovať práve jeden atribút
+bajtkódu popisujúce fungovanie metódy. Okrem abstraktných a natívnych metód, musí každá z nich obsahovať práve jeden atribút typu
 \textit{Code}. Atribút \textit{Exceptions} zahŕňa indexy výnimiek, ktoré
-metóda volá. Popisom formátu štruktúry \textit{attributes\_info} sa
+metóda volá. Bližším popisom základného formátu štruktúry \textit{attributes\_info} sa
 zaoberá nasledujúca podkapitola.
 
 \subsection{Atribúty}
 \label{sec:attributes}
-Pojem atribút v tejto podkapitole vyjadruje atribúty používané v poli
+Pojem atribút tejto podkapitoly vyjadruje práve atribúty používané v poli
 \textit{attributes[]} štruktúr \textit{field\_info}, \textit{method\_info} a
 \textit{Code\_attributes}. Všeobecný predpis všetkých atribútov je vyjadrený
 štruktúrou \textit{attribute\_info}. Existuje niekoľko základných
@@ -423,20 +425,19 @@ attribute_info {
 \end{example}
 
 Položka \textit{attributes\_name\_index} je indexom do \textit{constant\_pool},
-odkazujúcim na meno atribútu. Tento proces sa nazýva kontrola formátu
-(\textit{format checking}). Prvé štyri bajty musia obsahovať tzv. magickú
-konštantu \textit{magic}. Všetky rozoznané atribúty musia mať správnu dĺžku.
+odkazujúcim na meno atribútu. Štvorbajtová položka \textit{attribute\_length} 
+je rovná hodnote vyjadrujúcej dĺžku následných informácií, koré sú uložené v 
+štruktúre \textit{info[attribute\_length]}. Informácie sa líšia na základe 
+odlišnej funkcionality a využitia jednotlivých atribútov.
 
 \section{Inštrukcie JVM}
-Po načítaní \textit{class} súboru sa JVM najskôr uistí, že je súbor
-v správnom formáte popísanom v kapitole \ref{sec:classFile}. Štvorbajtová
-položka \textit{attribute\_length} je rovná hodnote vyjadrujúcej
-dĺžku následných informácií uložených v štruktúre
-\textit{info[attribute\_length]}.
-Informácie sa líšia na základe odlišnej funkcionality a využitia jednotlivých
-atribútov. \textit{Class} súbor nesmie byť skrátený, ani obsahovať nadbytočné
-bajty. Takisto úložisko \textit{constant\_pool} nesmie obsahovať žiadne
-nerozoznateľné informácie.
+Po načítaní \textit{class} súboru sa JVM najskôr uistí, že je daný
+súbor v správnom formáte popísanom v kapitole \ref{sec:classFile}. Tento 
+proces sa nazýva kontrola formátu (\textit{format checking}). Prvé štyri bajty 
+musia vždy obsahovať magickú konštantu \textit{magic}. Všetky rozoznané 
+atribúty musia mať správnu dĺžku. \textit{Class} súbor nesmie byť skrátený, 
+ani obsahovať nadbytočné bajty. Podobne úložisko \textit{constant\_pool} 
+nesmie obsahovať žiadne nerozoznateľné informácie. 
 
 Inštrukcie bajtkódu načítanej metódy sú uložené v poli \textit{code[]}
 atribútu \textit{Code}, štruktúry \textit{method\_info} daného \textit{class}
@@ -522,7 +523,7 @@ Inštrukcie \textit{iload\_1} a \textit{iload\_2} pridajú do zásobníka operan
 (ďalej len zásobník) hodnoty lokálnych premenných na indexoch 1 a 2. V tomto 
 prípade ide o parametre \textit{intOne} a \textit{intTwo}. 
 
-\begin{figure}[H]
+\begin{figure}[h]
   \begin{minipage}{0.55\textwidth}
      \includegraphics[width=0.825\textwidth]{iload_1.png}
   \end{minipage}
@@ -535,7 +536,7 @@ prípade ide o parametre \textit{intOne} a \textit{intTwo}.
 \end{figure}
 
 Vo všeobecnosti môžeme túto inštrukciu chápať ako \textit{xload} s predponou
-\textit{x}, označujúcou ľubovoľný primitívny dátový typ (napríklad: 
+\textit{x}, označujúcou primitívny dátový typ (napríklad: 
 \textit{lload} pre long, \textit{fload} pre float). Existujú dva tvary, volania
 tejto inštrukcie: 
 
@@ -561,7 +562,7 @@ Táto hodnota je následne vrátená inštrukciou \textit{ireturn}. Inštrukcie
 \textit{iconst\_<n>, a ireturn} sú taktiež dostupné vo variantách s predponou 
 ľubovoľného primitívneho dátového typu.
 
-Dôkladný popis všetkých inštrukcií, vrátane ich parametrov, možno nájsť v 
+Dôkladný popis všetkých inštrukcií, vrátane ich parametrov, je uvedený v 
 špecifikácií JVM~\cite{Lindholm:2013:JVM:2462629}.
 
 \chapter{Zavádzače tried} 
@@ -569,12 +570,12 @@ Dôkladný popis všetkých inštrukcií, vrátane ich parametrov, možno nájs�
 Zavádzač je objekt zodpovedný za načítavanie tried. V JVM je reprezentovaný 
 abstraktnou triedou \textit{ClassLoader}. Pomocou mena \textit{class} súboru by
 mal zavádzač nájsť a generovať obsah, definujúci danú triedu. Každá
-trieda obsahuje referenciu na objekt typu \textit{ClassLoader}, ktorý ju
-definoval.~\cite{Oracle:ClassLoader}
+trieda obsahuje referenciu na konkrétny objekt typu \textit{ClassLoader}, 
+ktorý ju definoval.~\cite{Oracle:ClassLoader}
 
 Zvyčajne je trieda do JVM načítaná len v prípade, že je potrebná. Načítané sú 
 zároveň všetky triedy, na ktoré sa odkazuje. Pomocou zavádzačov je
-možné za behu programu dynamicky načítať ďalšie triedy, prípadne načítať nové 
+možné za behu programu dynamicky načítať ďalšie triedy, prípadne nové 
 inštancie pôvodných tried.
 
 Pri štandardnom načítaní triedy niektorá z implementácií triedy 
@@ -587,18 +588,18 @@ vlastného zavádzača.
 \end{enumerate}
 
 \subsection{Dynamické načítavanie tried}
-K načítaniu novej triedy \textit{MyClass} do spusteného programu je potrebný 
-zavádzač. Získať ho je možné pomocou príkazu 
+K načítaniu novej triedy, napríklad \textit{MyClass}, do spusteného programu 
+je potrebný objekt zavádzača. Získať ho je možné pomocou volania metódy 
 \textit{MyClass.class.getClassLoader();}.
 Novú triedu reprezentovanú súborom \textit{class} následne vráti metóda 
 \textit{loadClass(class)} zavádzača.
 
 \subsection{Znovunačítanie triedy}
-Dynamické znovunačítanie triedy je komplikovanejšie. Vstavané implementácie 
-triedy \textit{ClassLoader} vždy kontrolujú, či trieda už nebola do JVM
-načítaná. Preto nie je možné žiadnu triedu načítať dvakrát pomocou vstavaných
-zavádzačov. Je nutné navrhnúť vlastnú implementáciu. Nasledujúci príklad 
-znázorňuje formu implementácie vlastného zavádzača.
+Dynamické znovunačítanie triedy je mierne komplikovanejšie. Vstavané 
+implementácie triedy \textit{ClassLoader} vždy kontrolujú, či trieda už nebola 
+do JVM načítaná. Preto nie je možné žiadnu triedu načítať dvakrát pomocou 
+vstavaných zavádzačov. Je nutné navrhnúť vlastnú implementáciu. Nasledujúci 
+príklad znázorňuje formu implementácie vlastného zavádzača.
 
 \begin{example}{Príklad zavádzača tried pre načítanie \textit{class} súborov zo
 serveru}
@@ -634,12 +635,12 @@ znovunačítaní triedy vytvoriť jeho novú inštanciu.
 Java aplikácií počas načítavania JVM, alebo za behu programu. 
 Používa sa najmä na zjednodušenie trasovania a testovania aplikácií. Umožňuje 
 používateľovi pridávať novú funkcionalitu do ktorejkoľvek časti programu.
-Funguje bez nutnosti prepisovania a opätovnej kompilácie pôvodnej aplikácie.
+Funguje bez nutnosti prepisovania a opätovnej kompilácie.
 
-\textit{Byteman} modifikuje bajtkód aplikácie za behu programu. Preto môže  
-zmeniť Java kód, popisujúci časť tried JVM ako napríklad \textit{String},
-\textit{Thread} a podobne. Vďaka tejto funkcionalite je taktiež možné
-napríklad trasovanie správania sa JVM.
+Modifikácia bajtkódu aplikácie je vykonávaná za behu programu. Preto je 
+dovolená zmena Java kódu, popisujúceho časť tried JVM ako napríklad
+\textit{String}, \textit{Thread} a podobne. Vďaka tejto funkcionalite je 
+taktiež možné napríklad trasovanie správania sa JVM.
 
 \textit{Byteman} používa jednoduchý jazyk
 ECA~pravidiel~\footnote{ECA (\textit{event-condition-action}) pravidlá 
@@ -647,7 +648,7 @@ pozostávajú z udalosti, podmienky a akcie. Význam pravidla znamená: Ak nasta
 udalosť, skontroluj podmienku a v prípade, že platí, vykonaj
 akciu~\cite{Sellis:ECARules}.} založený na Jave. Tieto ECA pravidlá
 používa na špecifikáciu kde, kedy a ako má byť pôvodný Java kód transformovaný,
-aby modifikoval operáciu~\cite{RedHat:Byteman}.
+aby modifikoval danú triedu, prípadne rozhranie~\cite{RedHat:Byteman}.
 
 \section{Byteman Agent}
 
@@ -672,14 +673,16 @@ pridávať a odoberať ľubovoľné pravidlá.
 
 \textit{Byteman} je nastavený, aby neinjektoval kód tried JVM. Pri zmene tried
 ako \textit{String a Thread} je preto nutné zmeniť túto vlastnosť
-nastavením \textit{system property org.jboss.byteman.transform.all}. Zároveň je
+nastavením prepínača
+[\textit{system property org.jboss.byteman.transform.all}]. Zároveň je
 nutné zaistiť, aby bol \textit{Byteman Agent} načítaný (rovnako ako tieto 
 triedy) defaultným (\textit{bootstrap}) zavádzačom.
 
-Agenta je možné inštalovať taktiež do spustených aplikácií, \footnote{Typicky
-ide o dlho bežiace aplikácie ako napríklad aplikačný server JBoss} bez nutnosti
-ich opätovného spustenia. Slúži na to skript \textit{bminstall.sh}.
-\textit{Byteman} je následne možné využiť ako nástroj na kontrolu správania sa 
+Agenta je možné inštalovať taktiež do spustených aplikácií~\footnote{Typicky
+ide o dlho bežiace aplikácie ako napríklad aplikačný server JBoss}, bez 
+nutnosti ich opätovného spustenia. Slúži na to skript \textit{bminstall.sh}.
+\textit{Byteman} je následne možné využiť ako nástroj na podrobnú kontrolu 
+správania sa 
 programu~\cite{RedHat:Byteman}. 
 
 \section{Štruktúra jazyka pravidel}
@@ -702,51 +705,51 @@ ENDRULE
 Definície musia byť zadané v správnom poradí, pričom prvou je vždy
 \textit{RULE} a poslednou \textit{ENDRULE}. Základnými kategóriami pre
 rozdelenie definícií pravidiel sú: Udalosti, Závislosti, Výrazy, Podmienky,
-Akcie a iné. Všetky dôležité kategórie a definície sú popísané v ďalších
-podkapitolách.
+Akcie a iné. Všetky dôležité kategórie a definície sú popísané v nasledujúcich
+sekciách kapitoly.
 
 \subsection{Udalosti}
-Udalosti pravidiel (\textit{Rule Events}) identifikujú umiestnenie pravidla v
-metóde, ktorá sa nachádza v cieľovej triede.
+Udalosti pravidla (\textit{Rule Events}) identifikujú jeho umiestnenie v
+metóde, nachádzajúcej sa v cieľovej triede.
 
-Kľúčové slovo \textit{RULE} musí nasledovať meno pravidla, ktoré je ľubovoľným 
+Kľúčové slovo \textit{RULE}, nasledované menom pravidla, je ľubovoľným 
 textovým reťazcom, pričom musí obsahovať medzeru. Kvôli rozlišovaniu 
 jednotlivých pravidiel by mali byť tieto mená unikátne.
 
-Rovnako definície \textit{CLASS} a \textit{METHOD} nasledujú mená triedy a 
-metódy, do ktorej bude pravidlo načítané. Meno triedy môže byť špecifikované aj
-bez cesty k balíku, v ktorom sa nachádza. V takomto prípade, Byteman 
-spracováva každú triedu s týmto menom, ktorá je do JVM načítaná. Definíciu 
-\textit{CLASS} je možné nahradiť kľúčovým slovom
+Rovnako definície \textit{CLASS} a \textit{METHOD} sú nasledované menami 
+triedy a metódy, do ktorej bude pravidlo načítané. Meno triedy, prípadne 
+rozhrania je možné špecifikovať aj bez cesty k balíku, v ktorom sa nachádza. V 
+takomto prípade, Byteman spracováva každú triedu s daným menom, ktorá je do 
+JVM načítaná. Definíciu \textit{CLASS} je možné nahradiť kľúčovým slovom
 \textit{INTERFACE}, ktoré funguje rovnakým spôsobom ako \textit{CLASS}, no 
-popisuje rozhranie. Doplnením znaku ~\^~ na začiatok mena triedy, respektíve 
-rozhrania, je možné zabezpečiť dedičnosť - prenos pravidiel na potomkov.
+popisuje rozhranie. Doplnením znaku \^~na začiatok mena, je možné zabezpečiť 
+dedičnosť, t.j. prenos pravidiel na potomkov.
 Metódu je možné okrem samotného názvu špecifikovať aj jej návratovým typom, 
 prípadne argumentami. Tieto bližšie špecifikácie nie sú povinné, preto je 
 možné načítať pravidlo do viacerých preťažených metód zároveň.
 
-Po nájdení metódy, respektíve metód, ktoré vyplývajú z definícií CLASS, METHOD,
-prípadne INTERFACE, je do každej z nich vložený takzvaný spúšťač
-\textit{triggerpoint}. Tento spúšťač presne identifikuje miesto v metóde, kde
-bude bajtkód injektovaný. Pomocou špecifikácie je možné zvoliť rôzne 
-umiestenie tohto spúšťača. Defaultne je zvolené umiestnenie \textit{AT ENTRY}, 
-čo zaistí, vloženie spúšťača na začiatok -
-pred prvú~inštrukciu~\footnote{Výnimkou sú inštrukcie volajúce konštruktor 
-predka, prípadne alternatívny 
-konštruktor.} danej metódy. Ďalšími možnosťami umiestnenia spúšťača sú 
-napríklad: \textit{AT EXIT}, \textit{AT LINE}, \textit{AT READ},
-\textit{AT WRITE}. Tieto definície vkladajú spúšťač na koniec metódy, prípadne 
-pred operáciu čítania, alebo zápisu do premennej. Tabuľka všetkých možností 
-umiestnení sa nachádza v prílohe \ref{tab:tab6}.
+Po nájdení metódy, respektíve metód, ktoré boli určené definíciami typu
+\textit{CLASS}, \textit{METHOD}, prípadne \textit{INTERFACE}, je do každej z 
+nich vložený spúšťač \textit{(triggerpoint)}. Tento spúšťač presne 
+identifikuje miesto v metóde, kde bude bajtkód injektovaný. Pomocou 
+špecifikácie je možné zvoliť rôzne pozície jeho umiestnenia v triede. 
+Predvolenou hodnotou je \textit{AT ENTRY}, čo zaistí vloženie spúšťača na 
+začiatok, teda pred prvú~inštrukciu~\footnote{Výnimkou sú inštrukcie volajúce 
+konštruktor predka, prípadne alternatívny konštruktor.} danej metódy. Ďalšími 
+možnosťami umiestnenia tohto spúšťača sú napríklad: \textit{AT EXIT},
+\textit{AT LINE}, \textit{AT READ}, \textit{AT WRITE}. Tieto definície 
+vkladajú spúšťač na koniec metódy, prípadne pred operáciu čítania, alebo 
+zápisu do premennej. Tabuľka všetkých možností umiestnení sa nachádza v
+prílohe \ref{tab:tab6}.
 
 \subsection{Závislosti}
 Skript definujúci  pravidlo jazyka \textit{Byteman} je možné obohatiť o 
-takzvané závislosti pravidiel (\textit{Rule Bindings}). Tieto závislosti 
-počítajú hodnoty premenných, ktoré môžu byť použité v ďalšom tele pravidla. Sú 
-počítané pri každom spustení pravidla. Závislosti sú definované pomocou 
-klauzule \textit{BIND}, nasledovanej názvom a prípadne typom premennej. Každej 
-premennej je pomocou výrazu nasledujúceho za \textit{=} priradená hodnota, 
-napríklad:
+závislosti pravidiel (\textit{Rule Bindings}). Tieto závislosti 
+počítajú hodnoty niektorých premenných, ktoré môžu byť použité v ďalšom tele 
+pravidla. Sú počítané pri každom spustení pravidla. Závislosti sú definované 
+pomocou klauzule \textit{BIND}, nasledovanej názvom a prípadne typom premennej.
+Každej premennej je pomocou výrazu nasledujúcim znamienko \qt{\textit{=}} 
+priradená špecifická hodnota, napríklad:
 
 \begin{example}{Závislosť}
 \begin{verbatim}
@@ -758,23 +761,21 @@ ENDRULE
 \end{verbatim}
 \end{example}
 
-Vytvára premennú \textit{thisClass}, ktorej bude automaticky odvodený typ a 
-priraďuje jej hodnotu reprezentujúcu metódu tohto pravidla.
+Vytvára premennú \textit{thisClass}, ktorej bude automaticky odvodený dátový typ a priraďuje jej hodnotu reprezentujúcu metódu tohto pravidla.
 
 \subsection{Výrazy}
 Výrazy (\textit{Rule expressions}) sa nachádzajú na pravej strane definície 
 závislosti. Existujú dva základné typy výrazov:
 \begin{itemize}
-\item Jednoduché výrazy, ako napríklad: referencie na predošlé závislosti, 
-referencie na lokálne premenné v okolí spúšťača, vstavané operátory
-(\textit{\$!, \$\^, \$@, …}) a mnohé iné.
+\item Jednoduché výrazy ako: referencie na predošlé závislosti, 
+vstavané operátory (\textit{\$!, \$\^, \$@, …}), referencie na lokálne premenné v okolí spúšťača a mnohé iné.
 \item Výrazy zložené z iných výrazov pomocou štandardných operátorov jazyka 
 Java.
 %operácie JVM.
 \end{itemize}
 
-Podmienkami pravidla (Rule Conditions) sú výrazy typu boolean. Tieto pravidlá 
-nasledujúce klauzulu \textit{IF} sú overené po inicializácií závislostí.
+Podmienkami pravidla (Rule Conditions) sú výrazy typu \textit{boolean}.
+Tieto pravidlá nasledované klauzulu \textit{IF} sú overené po inicializácií závislostí.
 
 \subsection{Akcie}
 Jednou z najdôležitejších súčastí pravidla sú akcie pravidiel (\textit{Rule 
@@ -806,27 +807,28 @@ označuje techniku pre zlepšenie pokrytia testov vyvolaním chyby. Odstraňuje
 najmä chyby, ktoré by sa inak vyskytovali len
 zriedka.~\cite{Roebuck:2011:STH:2031364}}. Zahŕňa preto 
 funkcionalitu, ktorá bola navrhnutá na riešenie problémov súvisiacich s týmto 
-typom testovania. \textit{Byteman} poskytuje podporu pre automatizáciu v 
+typom testovania. \textit{Byteman} poskytuje podporu automatizácie v 
 štyroch hlavných 
 oblastiach:
 
 \begin{itemize}
-\item trasovanie špecifických väzieb kódu a zobrazovanie stavu 
+\item trasovanie špecifických väzieb kódu a zobrazovanie stavu danej
 aplikácie, prípadne JVM,
-\item narúšanie normálneho priebehu zmenou stavov, volanie nenaplánovaných
+\item narúšanie normálneho priebehu zmenou stavov, volanie neplánovaných
 metód, vynucovanie návratových volaní, prípadne vyvolávanie neočakávaných 
 výnimiek,
-\item organizácia časovania aktivít vykonaných nezávislými vláknami aplikácie,
+\item organizácia časovania aktivít vykonávaných nezávislými vláknami 
+aplikácie,
 \item monitorovanie a zhromažďovanie štatistík, pre sumarizáciu aplikácie a
 operácií JVM.
 \end{itemize}
 
-V súčasnosti je \textit{Byteman} využívaný oveľa širšie ako nástroj na
+V súčasnosti je \textit{Byteman} využívaný oveľa širšie pôvodný ako nástroj na
 testovanie~\cite{RedHat:Byteman}. 
 
 Najjednoduchším použitím \textit{Bytemana} je vkladanie kódu, ktorý trasuje 
-správanie sa aplikácie. Táto metóda môže byť využitá na monitorovanie,
-alebo ladenie, ako aj na úpravu kódu pri testovaní a overenie, správneho 
+správanie sa aplikácie. Zároveň môže byť využitý na monitorovanie,
+alebo ladenie, ako aj na úpravu kódu pri testovaní a overenie správneho 
 fungovania aplikácie. Pri vkladaní kódu na veľmi špecifické miesta je možné
 vyhnúť sa režijným nákladom, ktoré často rastú pri ladení, alebo trasovaní 
 produktu~\cite{Byteman:Homepage}.
@@ -837,7 +839,7 @@ produktu~\cite{Byteman:Homepage}.
 Tento nástroj využíva na manipuláciu s bajtkódom odlišný prístup ako
 \textit{Byteman}. Narozdiel od ECA pravidiel, \textit{Javassist} používa na 
 reprezentáciu \textit{class} súborov triedu \textit{Javassist.CtClass}.
-\textit{Class} súbor je možné pomocou tejto triedy
+Súbory je možné pomocou tejto triedy
 modifikovať~\footnote{Možnosti modifikácie triedy pomocou \textit{CtClass} 
 popisuje kapitola \ref{sec:mod}.} a následne modifikácie zapísať.
 
@@ -872,14 +874,14 @@ CtClass cc = pool.makeClass("Point");
 \end{verbatim}
 \end{example}
 
-V tomto prípade je pomocou kontajnera \textit{pool} definovaná nová trieda
-\textit{Point}. 
+V tomto prípade je pomocou získaného kontajnera \textit{pool} definovaná nová 
+trieda \textit{Point}. 
 
 \section{Modifikácie}
 \label{sec:mod}
-Objekt \textit{CtClass} zahŕňa množstvo metód na modifikáciu triedy, ktorú 
-reprezentuje. Výhodoa použitia tohto nástroja spočíva aj v kompatibilite s 
-rozhraním \textit{Java~Reflection}~\footnote{\textit{Java Reflection} je 
+Objekt \textit{CtClass} implementuje množstvo metód určených na modifikáciu triedy, 
+ktorú reprezentuje. Výhodou použitia tohto nástroja spočíva aj v kompatibilite 
+s rozhraním \textit{Java~Reflection}~\footnote{\textit{Java Reflection} je 
 rozhranie bežne používané programami, ktoré vyžadujú schopnosť modifikácie 
 správania sa spustenej Java aplikácie.~\cite{Oracle:JavaReflection}}.
 \textit{CtClass} poskytuje metódy \textit{getName()}, \textit{getSuperClass()},
@@ -892,13 +894,14 @@ Okrem štandardného rozhrania popísaného v predchádzajúcich odsekoch poskyt
 \textit{Javassist} aj rozhranie pre priamu prácu s bajtkódom požadovanej 
 triedy, respektíve metódy.
 
-Rozhranie priamo upravuje zadaný \textit{class} súbor. Napríklad metóda 
+Rozhranie pracuje priamo s bajtkódom \textit{class} súboru. Napríklad metóda 
 \textit{getClassFile()} triedy \textit{CtClass} vracia objekt typu 
 \textit{ClassFile}, reprezentujúci daný súbor. Podobne metóda 
-\textit{getMethodInfo()} triedy \textit{CtMethod} vytvára objekt 
+\textit{getMethodInfo()} triedy \textit{CtMethod} vracia objekt typu
 \textit{MethodInfo}, predstavujúci štruktúru \textit{method\_info} daného 
 \textit{class} súboru. Rozhranie používa notáciu JVM popísanú v kapitole 
-\ref{chap:bytecode} a špecifikácii~JVM~\cite{Lindholm:2013:JVM:2462629}.
+\ref{chap:bytecode} a podrobne v
+špecifikácii~JVM~\cite{Lindholm:2013:JVM:2462629}.
 
 \section{Zápis do \textit{class} súboru}
 Modifikácie vykonané v bajtkóde načítaných, prípadne novo vytvorených 
@@ -913,8 +916,7 @@ typu \textit{byte}~\cite{Chiba:Javassist}.
 Každý zo spomínaných nástrojov pristupuje k manipulácií s bajtkódom odlišným 
 spôsobom. Zatiaľ čo \textit{Byteman} využíva jazyk ECA pravidiel, ktoré 
 načítava pomocou takzvaného agenta, \textit{Javassist} je knižnicou jazyka 
-Java. Oba nástroje majú svoje výhody a nevýhody. Najjednoznačnejšie z nich sú 
-popísané v nasledujúcich sekciách.
+Java. Táto kapitola oba nástroje stručne hodnotí a porovnáva:
 
 \section{Vlastnosti nástroja \textit{Byteman}}
 Výhodami použitia nástroja \textit{Byteman} sú:
@@ -927,19 +929,19 @@ jazyka a jeho skriptov je možné pravidlá pomerne jednoducho generovať
 automaticky.
 \end{itemize}
 
-Na druhej strane má tento nástroj aj nevýhody:
+Na druhej strane má tento nástroj aj nevýhody. Najvýraznejšími z nich sú nasledujúce:
 
 \begin{itemize}
-\item Nutnosť manipulácie s programom \textit{java agent} v spustenej 
-aplikácii.
-\item Obmedzená funkcionalita: Jednou z najväčších nevýhod nástroja 
+\item Nutnosť manipulácie s vstavaným programom \textit{java agent} spustenej
+aplikácie.
+\item Obmedzená funkcionalita: Najväčšou nevýhodou nástroja 
 \textit{Byteman} je nemožnosť editovania pôvodného kódu. \textit{Byteman} slúži
 ako nástroj na pridávanie novej funkcionality, nijakým spôsobom však nedokáže 
 editovať, prípadne odstrániť funkcionalitu pôvodnú. 
 \end{itemize}
 
 \section{Vlastnosti knižnice \textit{Javassist}}
-Manipulácia s bajtkódom pomocou knižnice \textit{Javassist} má nasledujúce 
+Použitie knižnice \textit{Javassist} má nasledujúce 
 výhody:
 
 \begin{itemize}
@@ -952,7 +954,7 @@ priamu manipuláciu s bajtkódom.
 knižnice \textit{Javassist} poskytuje aj nástroje na úpravu existujúceho kódu.
 \end{itemize}
 
-Takisto tento nástoj má svoje slabé stránky:
+Takisto tento nástroj má niekoľko slabých stránok, niesú však výraznými prekážkami v následnej manipulácií s ním:
 
 \begin{itemize}
 \item Mohutnosť aplikácie: Pri jednoduchých úlohách by mohlo mať použitie 
@@ -964,8 +966,8 @@ bajtkódom.
 
 \section{Zhrnutie}
 Z vyššie uvedených vlastností nástrojov \textit{Byteman} a \textit{Javassist} 
-vyplývajú možnosti ich uplatenia. Vo väčšine aplikácií pre manipuláciu s 
-bajtkódom spôsobom, ktorý edituje pôvodnú funkcionalitu, je nutné použitie 
+vyplývajú možnosti ich využitia. Vo väčšine aplikácií pre manipuláciu s 
+bajtkódom spôsobom, ktorý modifikuje pôvodnú funkcionalitu, je nutné použitie 
 knižnice \textit{Javassist}. Pre úpravy programov, napríklad v prípade 
 trasovania správania sa aplikácií, je vhodnou alternatívou nástroj 
 \textit{Byteman}.
@@ -1003,7 +1005,7 @@ zásobníka a zároveň zásobník vyčistí.
   \centering
    \includegraphics[width=0.80\textwidth]{throw.png}
   \caption{Grafické znázornenie pridania objektu výnimky a jej následné 
-  vyvolanie pomocou inštrukcie athrow, zdroj: vlastné spracovanie}
+  vyvolanie pomocou inštrukcie \textit{athrow}, zdroj: vlastné spracovanie}
   \label{fig:throw}
 \end{figure}
 
@@ -1036,37 +1038,34 @@ Dôležitou súčasťou ukážkového programu je skript \textit{loadScripts.sh}
 tieto pravidlá generuje a načítava do už spustenej aplikácie~\footnote{Keďže 
 skript pravidlá ihneď po vygenerovaní načítava, je nutné, aby už pred jeho 
 spustením bežala aplikácia, ktorej výnimky bude sledovať. Táto aplikácia musí 
-byť spustená s prepínačom \textit{agent listener}, ktorý je možné pridať aj za 
-behu do dlhodobo spustenej aplikácie. Podrobný popis spustenia aplikácie a 
-načítania skriptov sa nachádza v \textit{README} súbore programu.}. Jediným 
+byť spustená s prepínačom \textit{agent listener}.}. Jediným 
 potrebným argumentom je cesta ku \textit{class} súboru triedy, ktorej pravidlá 
-bude skript generovať. Program následne monitoruje každú metódu zadanej triedy,
-vrátane konštruktora. V prípade potreby je možné generovať a načítavať pravidlá
+bude skript generovať. Program následne monitoruje metódy zadanej triedy,
+vrátane konštruktora. Taktiež je možné generovať a načítavať pravidlá
 pre viacero tried zároveň. V tomto prípade je nutné zadať skriptu 
 \textit{loadScripts.sh} cesty k ich \textit{class} súborom oddelené medzerou.
 
 Po vygenerovaní a načítaní pravidiel program reaguje na každú volanú výnimku 
 zadanej triedy, respektíve tried a pri detekcii na ňu upozorní. Pre účely tejto
-práce používame ako demonštračný príklad program 
-\textit{fileChooser}~\footnote{Tento demonštračný príklad je súčasťou balíka 
-Java Development Kit Demos and Samples.}. V reálnom prostredí by bolo možné 
-detekciu volania výnimiek využiť napríklad v aplikačných serveroch, kde nie je 
-volanie niektorých z nich vždy viditeľné.
+práce používame ako demonštračný príklad aplikáciu s názvom 
+\textit{fileChooser}~\footnote{Tento demonštračný príklad bol prevzatý z 
+balíka Java Development Kit Demos and Samples.}. V reálnom prostredí by bolo 
+možné detekciu volania výnimiek využiť napríklad v aplikačných serveroch, kde 
+nie je volanie niektorých z nich vždy viditeľné.
 
 \section{Detekcia nesprávneho ošetrenia výnimiek}
 Nasledujúci príklad sa zaoberá detekciou nesprávne ošetrených výnimiek. V 
-prípade zachytenia výnimky catch blokom by mal program na túto situáciu vždy 
+prípade zachytenia výnimky \textit{catch} blokom by mal program na túto 
+situáciu vždy 
 nejakým spôsobom reagovať (napríklad: logovaním udalosti, volaním inej výnimky,
 riadeným pádom programu, …). Prázdne \textit{catch} bloky sú preto vo väčšine 
 prípadov nesprávnym ošetrením danej výnimky.
 
-Detekcia nesprávneho ošetrenia výnimiek je vhodným demonštračným príkladom pre 
-ukážku funkcionality knižnice \textit{Javassist}. Keďže ide o ukážku nástroja
+Keďže ide o ukážku nástroja
 \textit{Javassist} projektom je Java aplikácia vo formáte \textit{Maven}. 
 Program postupne prechádza všetky metódy a konštruktory triedy, ktorú
-monitoruje. Pri nájdení prázdneho catch bloku uloží informácie o jeho polohe
-do logu a na záver vypíše získané údaje. Výstup môže vyzerať napríklad
-nasledovne:
+monitoruje. Pri nájdení prázdneho \textit{catch} bloku uloží informácie o jeho
+polohe do logu a na záver vypíše získané údaje.
 
 \begin{example}{Výstup aplikácie po kontrole triedy example.tables.JDBCAdapter}
 \begin{verbatim}
@@ -1091,31 +1090,33 @@ V tomto výstupe vidíme, že boli nájdené 4 nesprávne ošetrené výnimky na
 riadkoch: 79, 81, 166, 266.
 
 \subsection{Štruktúra a funkčná logika aplikácie}
-Aplikačnú logiku som rozdelil medzi štyri triedy: \textit{Tracer}, 
-\textit{CatchBlockTracer}, \textit{CBDetector} a \textit{CBIndicesHandler}. 
+Aplikačnú logiku som rozdelil medzi nasledujúce štyri triedy balíka
+\textit{application}: \textit{Tracer}, \textit{CatchBlockTracer},
+\textit{CBDetector} a \textit{CBIndicesHandler}. 
 
-Trieda \textit{Tracer} slúži na spustenie samotnej aplikácie pre ľubovoľnú 
+Trieda \textit{Tracer} slúži na spustenie aplikácie pre ľubovoľnú 
 triedu \textit{<C>}. Obsahuje metódu \textit{traceCatchBlocks(Class 
 classToTrace)}, ktorej argumentom je objekt reprezentujúci \textit{<C>}. Táto 
-metóda prevedie triedu na objekt typu \textit{CtClass} a následne z neho získa 
+metóda prevedie triedu na objekt \textit{CtClass} a následne z neho získa 
 všetky metódy a konštruktory v podobe polí tried \textit{CtMethod} a 
 \textit{CtConstructor}. Následne za pomoci triedy \textit{CatchBlockTracer} 
-získa informácie o všetkých prázdnych \textit{catch} blokoch týchto metód a 
-konštruktorov. 
+získa informácie o polohe všetkých prázdnych \textit{catch} blokov týchto 
+metód a konštruktorov. 
 
 Ako bolo uvedené v predchádzajúcom odseku, trieda \textit{CatchBlockTracer} je 
 určená na spracovanie objektov \textit{CtMethod} a \textit{CtConstructor}. 
-Hlavnou metódou triedy je \textit{trace(final CtBehavior cm)}. Táto metóda má 
-argument typu CtBehavior, ktorého potomkami sú práve triedy \textit{CtMethod} a
+Hlavnou metódou triedy je \textit{trace(final CtBehavior cm)}. Metóda má jeden 
+argument typu \textit{CtBehavior}, ktorého potomkami sú práve triedy
+\textit{CtMethod} a
 \textit{CtConstructor}. Uchováva si informácie o pozícií \textit{catch} blokov 
 v podobe mapy, ktorej kľúčom je index prvej inštrukcie \textit{catch} bloku v 
 bajtkóde a hodnotou je jeho pozícia v zdrojovom súbore. Túto mapu získava za 
 pomoci tried \textit{CBDetector} a \textit{CBIndicesHandler}. Po získaní 
-údajov o polohe všetkých \textit{catch} blokov v danej metóde je každý z nich 
+údajov o polohe všetkých blokov v danej metóde je každý z nich 
 skontrolovaný metódou \textit{isEmpty}. V prípade preukázania nesprávne 
 ošetrenej výnimky sú informácie \textit{catch} bloku uložené a logované. 
 
-Mechanizmus kontroly prázdneho catch bloku prebieha pomocou nízkoúrovňového 
+Mechanizmus kontroly prázdneho bloku prebieha pomocou nízkoúrovňového 
 rozhrania knižnice \textit{Javassist} pre prácu s bajtkódom. V bajtkóde je 
 každý \textit{catch} blok reprezentovaný vo forme znázornenej na obrázku 
 \ref{fig:catch}.
@@ -1128,30 +1129,30 @@ každý \textit{catch} blok reprezentovaný vo forme znázornenej na obrázku
   \label{fig:catch}
 \end{figure}
 
-Na začiatku je na zásobník vložená referencia na objekt výnimky. Nasleduje telo
-\textit{catch} bloku. Inštrukcia po poslednom \textit{catch} bloku má index 
-\textit{<i>}.V prípade, že aktuálny \textit{catch} blok nie je posledným v 
-rade, je za jeho telo umiestnená inštrukcia \textit{goto}, ktorá odkazuje na 
-index inštrukcie \textit{<i>}. V prípade posledného bloku nasleduje index 
-\textit{<i>} ihneď po jeho tele. Metóda \textit{isEmpty} preto kontroluje, či 
-telo \textit{catch} bloku obsahuje iba inštrukciu skoku na index \textit{<i>}, 
-prípadne či je teleo \textit{catch} bloku úplne prázdne. 
+Na začiatku je na zásobník vložená referencia na objekt danej výnimky. 
+Nasleduje telo \textit{catch} bloku. Premenná \textit{<i>} reprezentuje index 
+inštrukcie vykonávanej bezprostredne po poslednom bloku. 
+V prípade, že aktuálny \textit{catch} blok nie je posledným v 
+rade, je za jeho telo vložená inštrukcia \textit{goto}, ktorá odkazuje na 
+index inštrukcie \textit{<i>}. Metóda \textit{isEmpty} preto kontroluje, či 
+telo bloku obsahuje iba inštrukciu skoku na index \textit{<i>}, 
+prípadne či je úplne prázdne. 
 
 Poslednými triedami na spodnej časti hierarchie v abstrakcii získavania polohy 
 \textit{catch} blokov sú \textit{CBDetector} a \textit{CBIndicesHandler}. 
 Slúžia na získanie mapy indexov \textit{catch} blokov pre zadanú metódu, 
-prípadne konštruktor. Dôležitým nástrojom na samotné vyhľadávanie je metóda 
-\textit{CtBehavior.instrument(ExprEditor)}. Argumentom tejto metódy je práve 
-objekt triedy \textit{CBIndicesHandler}, keďže \textit{CBIndicesHandler} je 
-potomkom triedy \textit{ExprEditor}.
+prípadne konštruktor. Dôležitým nástrojom samotného vyhľadávania je metóda 
+triedy
+\textit{CtBehavior instrument(ExprEditor)}. Argumentom tejto metódy je práve 
+objekt triedy \textit{CBIndicesHandler}.
 
 \subsection{Testovacie príklady}
-Okrem samotnej aplikácie sa v projekte nachádzajú aj dva balíky 
+Okrem samotnej aplikácie projekt obsahuje aj dva balíky
 \textit{example.simple} a \textit{example.tables}, na ktorých je možné 
 funkcionalitu aplikácie testovať. Každý z balíkov obsahuje vlastnú spustiteľnú 
-triedu \textit{Demo}, ktorá po spustení volá metódu 
+triedu \textit{Demo}, ktorá volá metódu 
 \textit{application.Tracer.traceCatchBlocks} hlavnej aplikácie na jednotlivých 
-testovacích triedach balíka. 
+testovacích triedach. 
 
 Balík \textit{example.simple} obsahuje dve testovacie triedy, ktoré som 
 vytvoril pre overenie funkčnosti aplikácie balíka \textit{application}. Po 
@@ -1159,37 +1160,39 @@ spustení aplikácia upozorní na nesprávne ošetrenie \textit{catch} blokov v
 triede \textit{PersonFactory}.
 
 Balík \textit{example.tables} obsahuje komplexnejšie testovacie triedy, 
-prevzaté z balíka \textit{Java Development Kit Demos and Samples}. Výstupom 
+prevzaté z ukážok \textit{Java Development Kit Demos and Samples}. Výstupom 
 spustenia triedy \textit{Demo} je kontrola tried \textit{JDBCAdapter}, \textit{
 OldJTable} a \textit{TableExample}. Na nesprávne ošetrené výnimky sú tentokrát 
 upozornené metódy a konštruktor triedy \textit{JDBCAdapter}.
 
-Triedy v testovacích balíkoch je možné ľubovoľne modifikovať pre jednoduché 
+Triedy testovacích balíkov je možné ľubovoľne modifikovať pre jednoduché 
 testovanie funkcionality aplikácie. V prípade potreby testovania aplikácie na 
-novej triede je nutné volať metódu \textit{application.Tracer.traceCatchBlocks}
+novej triede je nutné volať metódu hlavného balíka \textit{application
+Tracer.traceCatchBlocks}
 s argumentom špecifikujúcim danú triedu.
 
 \section{Zlepšenie a zprehľadnenie produkčného kódu}
 Program prispievajúci k zlepšeniu produkčného kódu sa špecializuje na náhradu 
 priamych volaní atribútov generovanými \textit{get} a \textit{set} metódami. Vo
-všeobecnosti aplikácia manipuluje s bajtkódom dvoch tried. Trieda \textit{<C1>}
-obsahuje atribúty, ku ktorým však neexistujú prístupové \textit{get} a 
-\textit{set} metódy, atribúty sú teda používané priamo. Trieda \textit{<C2>} 
-zapisuje, respektíve číta obsah jednotlivých atribútov. Daná implementácia 
-porušuje základný princíp zapuzdrenia, ktorý by mal byť dodržaný za každých 
-okolností. Projekt pod názvom \textit{code-improvement} preto slúži na 
-generovanie prístupových metód k atribútom triedy \textit{<C1>} a následnú 
+všeobecnosti aplikácia manipuluje s bajtkódom dvoch tried. Prvou z tried
+je~\textit{<C1>}. Obsahuje atribúty, ku ktorým však neexistujú prístupové
+\textit{get} a \textit{set} metódy, atribúty sú teda používané priamo. Trieda
+\textit{<C2>} zapisuje a číta obsah týchto atribútov
+\textit{<C1>}. Popísaná
+implementácia porušuje základný princíp zapuzdrenia, ktorý by mal byť dodržaný 
+za každých okolností. Projekt pod názvom \textit{code-improvement} preto slúži 
+na generovanie prístupových metód k atribútom triedy \textit{<C1>} a následnú 
 náhradu priamychvolaní týmito metódami v triede \textit{<C2>}.
 
 Aplikácia manipuluje s bajtkódom a \textit{class} súbormi požadovaných tried. 
 Zmeny sa preto neprejavia v zdrojovom kóde. Rovnako by nemali nijako ovplyvniť 
 vnútornú logiku modifikovaných tried. Okrem informácií zobrazených na 
 štandardnom výstupe, je zmeny možné pozorovať aj v \textit{class} súboroch 
-tried~\footnote{Class súbory je možné zobraziť v čitateľnej podoba napríklad 
+tried~\footnote{Class súbory je možné zobraziť v čitateľnej podobe napríklad 
 prostredníctvom nástroja \textit{javap} príkazom \textit{[javap -c <path>]}.}.
 
 \subsection{Štruktúra a funkčná logika aplikácie}
-Aplikácia \textit{code-improvement} je Java projektom typu \textit{Maven}. 
+Aplikácia \textit{code-improvement} je projektom typu \textit{Maven}. 
 Demonštruje využitie nástroja \textit{Javassist}. Projekt je tvorený dvoma 
 balíkmi: \textit{application} a \textit{example}. Balík \textit{application} 
 obsahuje samotný program nahradzujúci priame volania atribútov prístupovými 
@@ -1197,7 +1200,11 @@ metódami, ktorého základná funkcionalita bola načrtnutá v predchádzajúci
 odsekoch. Balík \textit{example} je jednoduchým testovacím príkladom pre 
 kontrolu funkčnosti tried balíka \textit{application}.
 
-TODO DIAGRAM...
+------------------------
+
+TODO Diagram...
+
+------------------------
 
 Hlavným balíkom zabezpečujúcim fungovanie programu je \textit{application}. 
 Funkcionalitu som tentokrát rozložil medzi 3 triedy: \textit{FieldChecker}, 
@@ -1211,21 +1218,25 @@ prvom odseku tejto kapitoly. Metóda je preto len prístupovým bodom, ktorý
 využíva funkcionalitu ostatných metód a tried balíka \textit{application}.
 
 Program postupne iteruje cez všetky atribúty triedy \textit{<C1>}. Pre každý 
-atribút vytvorí \textit{AccGenerator} a následne \textit{AccCreator} prístupové
+z nich vytvorí \textit{AccGenerator} a následne \textit{AccCreator} prístupové
 \textit{get} a \textit{set} metódy. Akonáhle sú tieto metódy úspešne načítané 
 do bajtkódu \textit{<C1>}, vykoná metóda \textit{replaceFieldAccess()} náhradu 
 priameho volania atribútu prístupovými metódami. Využíva k tomu najmä nástroj 
 \textit{CodeConverter} knižnice \textit{Javassist}.
 
-TODO OBRAZOK...
+\textit{}
+
+----------------------------------------
+
+TODO Grafické znázornenie...
+
+-----------------------------------------
 
 Za generovanie a načítanie prístupových metód je zodpovedná trieda 
 \textit{AccGenerator} a jej pomocná trieda \textit{AccCreator}. Táto pomocná 
 trieda slúži na generovanie konkrétnych šablón prístupových metód pre zadaný 
 atribút. Šablóny sa následne trieda \textit{AccGenerator} pokúsi načítať do
 \textit{<C1>}.
-
-TODO MECHANIZMUS...
 
 \subsection{Testovací príklad}
 Balík \textit{example} obsahuje jednoduchý príklad na otestovanie vyššie 
@@ -1240,7 +1251,7 @@ popísanej funkcionality. Spustiteľnou triedou daného príkladu je
 \item Skontrolovať funkčnosť modifikovaných tried ich použitím.
 \end{enumerate}
 
-V prípade úspešnej modifikácie by mal výstup vyzerať nasledovne:
+V prípade úspešnej modifikácie požadovaných tried by mal výstup vyzerať približne nasledovne:
 
 \begin{example}{Výstup testovacieho príkladu pre aplikáciu
 \textit{code-improvement}}
@@ -1281,7 +1292,8 @@ Ak modifikácia neprebehla, napríklad v prípade opätovného spustenia na
 rovnakých triedach, vypíše program hlášku, ktorá upozorňuje užívateľa, že 
 triedy, ktoré zadal, už boli v minulosti upravené.
 
-Program je možné aplikovať na ľubovoľné triedy, definované v konštruktore
+Program je možné aplikovať na ľubovoľné triedy, následne definované v
+ konštruktore
 \textit{application.FieldChecker}~\footnote{V prípade, že ide o triedy mimo 
 projektu \textit{code-improvement} je potrebné zadať do argumentu konštruktora 
 aj cestu k balíku obsahujúcemu \textit{class} súbory triedy \textit{<C2>}.}.
@@ -1314,9 +1326,10 @@ Triedy popisujúce logiku aplikácie sa opäť nachádzajú v balíku
 \textit{ArithmeticOptimizer}. Zvyšné triedy sú prístupné len v rámci balíka 
 \textit{application}, mimo neho by nemali byť nijako používané.
 
-Kľúčovou triedou je teda \textit{ArithmeticOptimizer} a jej metóda 
-\textit{optimizeClass(String classNameToOpt)}. Po inicializácií a jej volaní 
-program iteruje cez všetky metódy triedy definovanej argumentom 
+Kľúčovou triedou programu je \textit{ArithmeticOptimizer} s prístupovou
+metódou
+\textit{optimizeClass(String classNameToOpt)}. Po jej inicializácií a spustení 
+program iteruje cez všetky metódy triedy definovanej jediným argumentom 
 \textit{classNameToOpt}. Každá metóda je následne optimalizovaná pomocou 
 triedy \textit{MethodModifier}. Na záver je prepísaný \textit{class} súbor 
 danej triedy a poskytnutá sumarizácie zmien.
@@ -1341,9 +1354,9 @@ nadbytočných inštrukcií čítania a zápisu jednej premennej \textit{<n>}:
   \label{fig:identify}
 \end{figure}
 
-Ako nástroj na identifikáciu typu inštrukcie slúži programu trieda 
+Ako nástroj na identifikáciu typu aktuálnej inštrukcie slúži programu trieda 
 \textit{InstructionVerifier}. Obsahuje metódy určujúce inštrukcie 
-\textit{dstore} a \textit{dload}. Pomocou týchto metód je možné získať aj 
+\textit{dstore} a \textit{dload}. Pomocou týchto metód je zároveň možné získať 
 hodnotu argumentu spomínaných inštrukcií. Metóda \textit{isArithmetic(int op)} 
 rozhoduje, či inštrukcia definovaná argumentom \textit{op} reprezentuje 
 aritmetickú operáciu.
@@ -1367,8 +1380,8 @@ v \textit{README} súbore projektu.}.
 \end{figure}
 
 Aplikáciu je takisto možné spustiť na ľubovoľnej triede vhodnej na 
-optimalizáciu aritmetických operácií volaním metódy \textit{application.
-ArithmeticOptimizer.optimizeClass(String classNameToOpt)}.
+optimalizáciu aritmetických operácií volaním metódy
+\textit{application.Arithmetic Optimizer.optimizeClass(String classNameToOpt)}.
 
 \chapter{Záver}
 
@@ -1391,7 +1404,7 @@ Analýzou vlastností spomínaných nástrojov vyplynuli možnosti ich funkciona
 a následné uplatnenie v príkladoch. 
 
 Z vlastností nástroja \textit{Byteman} vyplýva, obmedzenie jeho použitia u
-obmedzenej množiny aplikácií. Tento nástroj nieje možné využiť na 
+obmedzenej množiny aplikácií. Tento nástroj nie je možné využiť na 
 editovanie pôvodného bajtkódu. Jeho funkcionalita je týmto obmedzená
 na pridávanie vlastného kódu. Uplatnenie bolo možné v prípade
 detekcie volania výnimiek spustenej aplikácie. Pri používaní sa nástroj javí
