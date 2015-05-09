@@ -43,11 +43,11 @@
 \end{ThesisDeclaration}
 
 \begin{ThesisAbstract}
-Cieľom tejto práce je analýza vlastností, spolu s implementáciou sady 
+Cieľom tejto práce je analýza vlastností, spolu s implementáciou súboru
 príkladov pre nástroje, \textit{Byteman} a \textit{Javassist}. Teoretická časť 
-práce popisuje bajtkód, \textit{Java Virtual Machine}, načítavanie pomocou 
-zavádzačov tried a vlastnosti spomínaných nástrojov. Praktická časť zahŕňa  
-ukážky, ktoré demonštrujú funkcionalitu nástrojov v rôznych oblastiach 
+charakterizuje bajtkód, \textit{Java Virtual Machine (JVM)}, načítavanie tried
+pomocou zavádzačov a dôležité vlastnosti spomínaných nástrojov. Praktická časť 
+zahŕňa ukážky príkladov, ktoré demonštrujú funkcionalitu nástrojov v rôznych oblastiach 
 vývoja a testovania softvéru.
 \end{ThesisAbstract}
 
@@ -65,20 +65,21 @@ TODO...
 
 \chapter{Úvod}
 
-Java je dnes jedným z najpoužívanejších programovacích jazykov.
-Od syntakticky podobných programovacích jazykov, ako napríklad C++, alebo
+Java je v súčasnosti jedným z najpužívanejších programovacích jazykov.
+Od syntakticky veľmi podobných jazykov, ako napríklad C++, alebo
 C\# sa líši prekladom zdrojových tried do medzikódu, často označovaného ako
 bajtkód (\textit{bytecode, p-code, portable code}).
 
-Preklad a spustenie Java aplikácií prebieha v nasledujúcich fázach:
+Preklad a spustenie aplikácie v Jave štandardne prebieha v niekoľkých
+nasledujúcich fázach:
 
 \begin{enumerate}
 \item Preklad do medzikódu: Prekladač~\footnote{Najčastejšie využívaným
 prekladačom je \textit{javac}, ktorý je súčasťou JDK (Java Development
 Kit - súbor nástrojov určený na vývoj aplikácií pre platformu Java).}
-kompiluje zdrojový kód do bajtkódu. V praxi to znamená, že každej triede, alebo
-rozhraniu, je priradený súbor \textit{class}, ktorý obsahuje inštrukcie
-popisujúce fungovanie danej triedy. 
+kompiluje zdrojový kód do bajtkódu. V praxi to znamená, že každej triede, 
+prípadne rozhraniu, je priradený súbor \textit{class}, ktorý obsahuje najmä 
+inštrukcie popisujúce jej vlastnosti a funkcionalitu. 
 \item Načítanie a Interpretácia: Virtuálny
 stroj Javy (ďalej len JVM~\footnote{Java Virtual Machine, špecifikácia je
 dostupná na \url{http://docs.oracle.com/javase/specs/jvms/se7/html}}) načíta
@@ -88,21 +89,21 @@ z nasledujúcich spôsobov:
 \begin{itemize}
 \item JIT prekladač (\textit{Just In Time compiler}): Štandardne je z
 bajtkódu najskôr vygenerovaný strojový kód (\textit{machine code}) konkrétneho
-zariadenia, ktorý je následne interpretovaný - priamo vykonávaný
-procesorom.
+zariadenia (platformy), ktorý je následne interpretovaný, teda priamo 
+vykonávaný procesorom.
 \item Java interpret: Ďalším spôsobom spracovania bajtkódu je
-využitie interpreta jazyka Java, ktorý bajtkód spracováva a sám
+využitie interpreta jazyka Java, ktorý bajtkód ihneď spracováva a sám
 interpretuje.
 \end{itemize}
 \end{enumerate}
 
-Výhodou prekladu do bajtkódu je jeho prenosnosť výsledných aplikácií.
-Samotný bajtkód je platformovo nezávislý. Program teda nie je nutné 
-prispôsobovať jednotlivým operačným systémom, ktoré sa líšia len v 
+Výhodou prekladu do bajtkódu je prenosnosť výsledných aplikácií.
+Samotný bajtkód je platformovo nezávislý. Program preto nie je nutné nijako
+prispôsobovať jednotlivým operačným systémom, ktoré sa líšia výhradne v 
 implementácií JVM.
 
-\textit{Class} súbory obsahujúce bajtkód je možné za behu programu modifikovať.
-Jednotlivé triedy a rozhrania aplikácie, uložené v týchto súboroch, podľa 
+\textit{Class} súbory obsahujúce bajtkód je možné modifikovať.
+Triedy a rozhrania danej aplikácie, uložené v týchto súboroch, podľa 
 potreby načítava JVM. Vkladanie nových metód a tried na úrovni bajtkódu, pred
 načítaním \textit{class} súboru do JVM, sa nazýva injekcia bajtkódu
 (\textit{bytecode injection}, ďalej len BI). Pridávanie novej funkcionality
@@ -117,17 +118,18 @@ testovaní a trasovaní programov.
   \label{fig:jvm}
 \end{figure}
 
-Práca sa zaoberá popisom vlastností a implementáciou príkladov používajúcich 
-nástroje určené na modifikáciu \textit{class} súborov. Konkrétne nástroje 
-spomínané a používané v tejto práci sú \textit{Byteman} a \textit{Javassist}.
+Táto práca sa zaoberá popisom vlastností a implementáciou niekoľkých príkladov 
+používajúcich nástroje na modifikáciu \textit{class} súborov. 
+Konkrétne nástroje spomínané a používané v tejto práci sú \textit{Byteman} a
+\textit{Javassist}.
 
-Dokument sa skladá z dvoch logických celkov. Kapitoly dva až šesť tvoria
-teoretickú časť, ktorá popisuje: bajtkód, \textit{Java Virtual Machine},
-zavádzače tried, vlastnosti samotných nástrojov \textit{Byteman a Javassist}
-a ich porovnanie. 
+Dokument sa skladá z dvoch logických celkov. Kapitoly dva až päť tvoria
+teoretickú časť, ktorá popisuje bajtkód, \textit{Java Virtual Machine},
+zavádzače tried, vlastnosti samotných nástrojov \textit{Byteman a Javassist}. 
+Šiesta kapitola spomínané nástroje porovnáva.
 
 Kapitola sedem sa venuje praktickým ukážkam, ktoré boli vytvorené vrámci
-bakalárskej práce. Sekcie podkapitoly sa zaoberajú príkladmi, ktoré pokrývajú
+bakalárskej práce. Podkapitoly sa zaoberajú príkladmi, ktoré pokrývajú
 oblasti detekcie volania výnimiek, detekcie nesprávne ošetrených výnimiek,
 zlepšenia produkčného kódu a optimalizácie neefektívnych častí kódu. Každá z
 ukážok demonštruje funkcionalitu jedného zo spomínaných nástrojov.
@@ -137,31 +139,31 @@ ukážok demonštruje funkcionalitu jedného zo spomínaných nástrojov.
 
 Po preklade zdrojových kódov prekladačom \textit{javac} je každej
 triede, prípadne rozhraniu programu, priradený jeden \textit{class} súbor,
-popisujúci jej funkcionalitu.
+popisujúci jej vlastnosti a funkcionalitu.
 
-Pri načítavaní \textit{class} súboru dostane JVM takzvaný prúd inštrukcií
+Pri načítaní \textit{class} súboru prijme JVM takzvaný prúd inštrukcií
 bajtkódu (\textit{bytecode stream}) pre každú metódu triedy. V prípade volania
 konkrétnej metódy za behu programu, sú inštrukcie danej metódy vykonávané.
-Každá z inštrukcií bajtkódu je reprezentovaná číselnou hodnotou, nazývanou
+Každá z nich je reprezentovaná číselnou hodnotou, nazývanou
 \textit{opcode}. Zároveň má každá inštrukcia aj textovú podobu (\textit
-{mnemonic}). V \textit{class} súboroch sú inštrukcie uložené v numerickej 
+{mnemonic}). V \textit{class} súboroch sú uložené v numerickej 
 podobe.
 
-Táto kapitola popisuje formát \textit{class} súboru a následne stručne
+Táto kapitola popisuje základný formát \textit{class} súboru a následne stručne
 charakterizuje inštrukčnú sadu bajtkódu.~\footnote{Nasledujúci text vychádza 
 zo 4. až 6. kapitoly špecifikácie JVM~\cite{Lindholm:2013:JVM:2462629}.}
 
 \section{Štruktúra \textit{class} súboru}
 \label{sec:classFile}
-\textit{Class} súbor vždy pozostáva z jedinej \textit{ClassFile} štruktúry.
-Táto \textit {ClassFile} štruktúra jednoznačne identifikuje konkrétnu triedu, 
+\textit{Class} súbor vždy pozostáva z jedinej štruktúry \textit{ClassFile}.
+Táto štruktúra jednoznačne identifikuje konkrétnu triedu, 
 prípadne rozhranie, definuje jej premenné a metódy.
 
 Nasledujúci popis definuje sadu dátových typov použitých v texte. Typy
 \textit{u1}, \textit{u2}, a \textit{u4} reprezentujú neznamienkové jedno, 
 dvoj, alebo štvor-bajtové číslo. Pre znázornenie \textit{class} súboru je 
-použitá pseudo-štruktúra notácie jazyka C. Obsah štruktúry je popísaný ako po 
-sebe nasledujúce položky.
+použitá pseudo-štruktúra notácie jazyka C. Obsah štruktúry je popísaný ako 
+zoznam po sebe nasledujúcich položiek.
 
 \begin{example}{Formát \textit{ClassFile} štruktúry}
 \begin{verbatim}
@@ -1581,6 +1583,9 @@ JVM~\cite{Lindholm:2013:JVM:2462629}.
   nástroj \textit{Byteman}.~\cite{RedHat:Byteman}}
   \label{tab:tab6}
 \end{table}
+
+\chapter{Obsah CD}
+TODO - popis obsahu CD
 
 %\begin{example}{Príklad implementácie vlastného \textit{class loaderu}.}
 %\begin{verbatim}

@@ -37,7 +37,8 @@
 \contentsline {subsection}{\numberline {7.3.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{30}{subsection.7.3.1}
 \contentsline {subsection}{\numberline {7.3.2}\rmfamily Testovac\IeC {\'\i } pr\IeC {\'\i }klad}{31}{subsection.7.3.2}
 \contentsline {section}{\numberline {7.4}\slshape Optimaliz\IeC {\'a}cia neefekt\IeC {\'\i }vnych \IeC {\v c}ast\IeC {\'\i } k\IeC {\'o}du}{32}{section.7.4}
-\contentsline {subsection}{\numberline {7.4.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{32}{subsection.7.4.1}
-\contentsline {chapter}{\numberline {8}\bfseries Z\IeC {\'a}ver}{35}{chapter.8}
-\contentsline {chapter}{Literat\IeC {\'u}ra}{36}{chapter.8}
-\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{37}{appendix.A}
+\contentsline {subsection}{\numberline {7.4.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{33}{subsection.7.4.1}
+\contentsline {chapter}{\numberline {8}\bfseries Z\IeC {\'a}ver}{36}{chapter.8}
+\contentsline {chapter}{Literat\IeC {\'u}ra}{37}{chapter.8}
+\contentsline {chapter}{\numberline {A}\bfseries Tabu\IeC {\v l}ky}{38}{appendix.A}
+\contentsline {chapter}{\numberline {B}\bfseries Obsah CD}{44}{appendix.B}
