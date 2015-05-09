@@ -14,7 +14,7 @@
 \contentsline {subsection}{\numberline {3.0.4}\rmfamily Znovuna\IeC {\v c}\IeC {\'\i }tanie triedy}{14}{subsection.3.0.4}
 \contentsline {chapter}{\numberline {4}\bfseries Byteman}{16}{chapter.4}
 \contentsline {section}{\numberline {4.1}\slshape Byteman Agent}{16}{section.4.1}
-\contentsline {section}{\numberline {4.2}\slshape \IeC {\v S}trukt\IeC {\'u}ra jazyka pravidel}{17}{section.4.2}
+\contentsline {section}{\numberline {4.2}\slshape \IeC {\v S}trukt\IeC {\'u}ra jazyka pravidiel}{17}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}\rmfamily Udalosti}{17}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}\rmfamily Z\IeC {\'a}vislosti}{18}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}\rmfamily V\IeC {\'y}razy}{19}{subsection.4.2.3}
@@ -33,7 +33,7 @@
 \contentsline {section}{\numberline {7.2}\slshape Detekcia nespr\IeC {\'a}vneho o\IeC {\v s}etrenia v\IeC {\'y}nimiek}{27}{section.7.2}
 \contentsline {subsection}{\numberline {7.2.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{28}{subsection.7.2.1}
 \contentsline {subsection}{\numberline {7.2.2}\rmfamily Testovacie pr\IeC {\'\i }klady}{29}{subsection.7.2.2}
-\contentsline {section}{\numberline {7.3}\slshape Zlep\IeC {\v s}enie a zpreh\IeC {\v l}adnenie produk\IeC {\v c}n\IeC {\'e}ho k\IeC {\'o}du}{29}{section.7.3}
+\contentsline {section}{\numberline {7.3}\slshape Zlep\IeC {\v s}enie a spreh\IeC {\v l}adnenie produk\IeC {\v c}n\IeC {\'e}ho k\IeC {\'o}du}{29}{section.7.3}
 \contentsline {subsection}{\numberline {7.3.1}\rmfamily \IeC {\v S}trukt\IeC {\'u}ra a funk\IeC {\v c}n\IeC {\'a} logika aplik\IeC {\'a}cie}{30}{subsection.7.3.1}
 \contentsline {subsection}{\numberline {7.3.2}\rmfamily Testovac\IeC {\'\i } pr\IeC {\'\i }klad}{31}{subsection.7.3.2}
 \contentsline {section}{\numberline {7.4}\slshape Optimaliz\IeC {\'a}cia neefekt\IeC {\'\i }vnych \IeC {\v c}ast\IeC {\'\i } k\IeC {\'o}du}{32}{section.7.4}

@@ -4,84 +4,113 @@ README
 
 POPIS:
 
-Projekt codeImprovement je určený na demonštráciu funkcionality nástoja
-Javassist.
-Nahrádza priame volanie atribútov triedy volaním generovaných get a set metód.
-Triedy zabazpečujúce funkcionalitu aplikácie sú uložené v balíku application.
-Triedy balíka demo slúžia len na testovanie funkčnosti programu.
+Projekt code-improvement je určený na zelpšenie a zprehľadnenie produkčného
+kódu. 
+
+Aplikácia je Java projekt typu Maven. Obsahuje 2 balíky - "application"
+a "example". Balík "application" obsahuje logiku aplikácie, balík
+"example" je len jednoduchým príkladom na overenie funkčnosti programu.
+
+Program pracuje s dvoma triedami - nazvyme ich <C1> a <C2>. 
+Nahrádza priame volanie atribútov triedy <C1> v triede <C2> volaním
+"get" a "set" metód, ktoré generuje. Triedy <C1> a <C2> môžu reprezentovať tú
+istú triedu, ale aj dve rôzne v závislosti typu: <C2> číta / zapisuje do
+atribútov <C1>.
+
+Program modifikuje class súbory oboch tried nasledujúcim spôsbom:
+- Do triedy <C1> pridáva "get" a "set" metódy sprístupňujúce jej atribúty
+- Operacie priameho čítania a zápisu atribútov triedy <C1> v triede <C2> nahrádza
+  volaním generovaných "get" a "set" metód.
+Pri opakovanej aplikácií programu na už modifikované triedy nebude program nanovo
+generovať prístpové metódy - nič zaujímavé sa nestane. V prípda potreby opätovného
+generovania metód na už modifikovaných triedach je teda nutné tieto triedu predtým
+rekompilovať do pôvodného stavu.
+
+Uskutočnené zmeny sa neprejavia v zdrojovom kóde a nijako neovplivnia vnútornú
+logiku modifikovaných tried. Zmeny volania a generovane metódy je možné pozorovať
+v class súboroch tried - príkaz: javap -c [cestaClassSuboru].
 
 Postup spustenia programu je popísaný nižšie.
-Spustiteľná metóda main programu sa nachádza v triede application.Demo
+Prístupová metóda programu je "application.FieldChecker.fixFieldsAccess()".
+Triedy pre modifikáciu sú špecifikované v argumentoch konštruktora triedy
+"application.FieldChecker".
 Popis funcionality jednotlivých tried je v JavaDocu.
+
+Funkčnosť aplikácie je možné testovať spsutením triedy [example.Demo], prípadne
+aplikovať nižšie uvedený postup pre spustenie na ľubovoľneých iných
+triedach.
 
 --------------------------------------------------------------------------------
 
-SPUSTENIE PROGRAMU NA DEMO TRIEDACH:
+SPUSTENIE PROGRAMU PRE VŠEOBECNÉ TRIEDY <C1> a <C2>:
 
 1) Pred každým / po každom spustení programu (prepisuje class súbory) je nutné
-   rebuildnuť balík demo, aby sa dostal do pôvodného stavu.
+   rebuildnuť balík example, aby sa class súbory dostali do pôvodného stavu.
 
-2) Spustením metódy main triedy application.Demo sa prepíšu class súbory treid 
-   demo.Main a demo.Triangle nasledovne:
-   - do triedy demo.Triangle budú vygenerované get / set metódy pre jej atribúty
-   - zápis do atribútov triedy Triangle v demo.Main budú nahradené volaním
-     týchto set metód
+2) Predpokladajme že trieda <C1> obsahuje atribúty, ktoré sú priamo volané
+   triedou <C2>. Pre generovanie "get" a "set" metód pre atribúty a zmenu
+   priameho volania na volanie generovaných  "get" a "set" metód je potrebné:
 
-3) Po spustení metódy main triedy demo.Main ktorá bola predtým upravená
-   spustením application.Demo sa okrem štandardného výstupu vypýšu aj informačné
-   hlásenia o prepise volaní na set metódy.
+3) Vytvoriť objekt typu application.FieldChecker:
+   [FiedChecker f = new FieldChecker(<C1>, <C2>, path);]
+   Kde [path] je cesta k balíku obsahujúcemu "class" súbory triedy <C2>.
+   Ak sú triedy súčasťou projektu "code-improvement" nieje potrebné
+   argument "path" uvádzať.
+
+4) Volaním metódy [f.fixFieldsAccess()] prebehne celá logika aplikácie popísaná
+   vyššie. Informácie o pridaných metódach a modifikovaných referenciach sa
+   zobrazia na štandardný výstup.
+
+----------------------------------------------------------------------------------
+
+OVERENIE FUNKČNOSTI PROGRAMU V PRÍPADE TRIED BALÍKA EXAMPLE:
+
+Overenie správnosti zmeny je možné taktiež porovnaním zmeny class súborov.
    
-   Overenie správnosti zmeny je možné taktieť porovnaním zmeny class súborov.
+ ** Do súboru target/classes/example/Triangle.class pribudli "get" a "set"
+    metódy typu:
    
-   Do súboru target/classes/demo/Triangle.class pribudli get a set metódy typu:
+        public static example.Vertex getAStatGenerated(java.lang.Object);
+	    Code:
+	       0: aload_0
+	       1: checkcast     #18                 // class example/Triangle
+	       4: astore_1
+	       5: aload_1
+	       6: getfield      #35                 // Field example/Triangle.a:Lexample/Vertex;
+	       9: areturn
+
+	public static void setAStatGenerated(java.lang.Object, example.Vertex);
+	    Code:
+	       0: aload_0
+	       1: checkcast     #18                 // class example/Triangle
+	       4: astore_2
+	       5: aload_2
+	       6: aload_1
+	       7: putfield      #35                 // Field example/Triangle.a:Lexample/Vertex;
+	      10: return
+
    
-        public static demo.Vertex getAStatGenerated(java.lang.Object);
-         Code:
-            0: aload_0
-            1: checkcast     #18                 // class demo/Triangle
-            4: astore_1
-            5: getstatic     #92                 // Field java/lang/System.out:Ljava/io/PrintStream;
-            8: ldc           #94                 // String -> Generated getter called for field: a
-           10: invokevirtual #100                // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-           13: aload_1
-           14: getfield      #35                 // Field demo/Triangle.a:Ldemo/Vertex;
-           17: areturn
-
-       public static void setAStatGenerated(java.lang.Object, demo.Vertex);
-         Code:
-            0: aload_0
-            1: checkcast     #18                 // class demo/Triangle
-            4: astore_2
-            5: getstatic     #92                 // Field java/lang/System.out:Ljava/io/PrintStream;
-            8: ldc           #104                // String -> Generated setter called for field: a
-           10: invokevirtual #100                // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-           13: aload_2
-           14: aload_1
-           15: putfield      #35                 // Field demo/Triangle.a:Ldemo/Vertex;
-           18: return
+ ** V súbore target/classes/example/Initializer.class bol nahradený priamy zápis do atribútov:
+       8: aload_3
+       9: aload_0
+      10: putfield      #8                  // Field example/Triangle.a:Lexample/Vertex;
+      13: aload_3
+      14: aload_1
+      15: putfield      #9                  // Field example/Triangle.b:Lexample/Vertex;
+      18: aload_3
+      19: aload_2
+      20: putfield      #10                 // Field example/Triangle.c:Lexample/Vertex;
    
-   V súbore target/classes/demo/Main.class bol nahradený priamy zápis do atribútov:
-        51: ldc           #50                 // String A
-        53: ldc2_w        #51                 // double 2.0d
-        56: ldc2_w        #53                 // double 2.0d
-        59: invokespecial #44                 // Method demo/Vertex."<init>":(Ljava/lang/String;DD)V
-        62: invokestatic  #58                 // Method demo/Triangle.a:(Ljava/lang/Object;Ldemo/Vertex;)V
-        65: getstatic     #59                 // Field demo/Main.t:Ldemo/Triangle;
-        68: new           #39                 // class demo/Vertex
-   Volaním set metód:
-        51: ldc           #50                 // String A
-        53: ldc2_w        #51                 // double 2.0d
-        56: ldc2_w        #53                 // double 2.0d
-        59: invokespecial #44                 // Method demo/Vertex."<init>":(Ljava/lang/String;DD)V
-        62: invokestatic  #58                 // Method demo/Triangle.setAStatGenerated:(Ljava/lang/Object;Ldemo/Vertex;)V
-        65: getstatic     #59                 // Field demo/Main.t:Ldemo/Triangle;
-        68: new           #39                 // class demo/Vertex
+    Volaním set metód:
+       8: aload_3
+       9: aload_0
+      10: invokestatic  #47                 // Method example/Triangle.setAStatGenerated:(Ljava/lang/Object;Lexample/Vertex;)V
+      13: aload_3
+      14: aload_1
+      15: invokestatic  #50                 // Method example/Triangle.setBStatGenerated:(Ljava/lang/Object;Lexample/Vertex;)V
+      18: aload_3
+      19: aload_2
+      20: invokestatic  #53                 // Method example/Triangle.setCStatGenerated:(Ljava/lang/Object;Lexample/Vertex;)V
 
-
-4) Ďalšou možnosťou testovania funkčnosti tried application.Demo a
-   application.AccGenerator je úprava testovacích treid v balíku demo.*,
-   prípadne použitie programu na úplne iných triedach. V prípade testovania na
-   iných triedach ako demo.* je nutné použiť postup popísaný v JavaDocu triedy
-   application.Demo
 
 --------------------------------------------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.18)  10 MAY 2015 00:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.18)  10 MAY 2015 01:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -990,7 +990,7 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1627.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1627.
 
 Package rerunfilecheck Info: File `bp.out' has not changed.
-(rerunfilecheck)             Checksum: 4DB049D7CD7979A7EA9AF0EACC427C62;3033.
+(rerunfilecheck)             Checksum: 24DF995A469E101DC982CE3C838BE07E;3034.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1627.
  ) 
 Here is how much of TeX's memory you used:
@@ -1012,7 +1012,7 @@ t/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/pa
 latino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/
 uplri8a.pfb>
-Output written on bp.pdf (48 pages, 634396 bytes).
+Output written on bp.pdf (48 pages, 634411 bytes).
 PDF statistics:
  696 PDF objects out of 1000 (max. 8388607)
  564 compressed objects within 6 object streams

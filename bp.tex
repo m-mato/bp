@@ -65,7 +65,7 @@ TODO...
 
 \chapter{Úvod}
 
-Java je v súčasnosti jedným z najpužívanejších programovacích jazykov.
+Java je v súčasnosti jedným z najpoužívanejších programovacích jazykov.
 Od syntakticky veľmi podobných jazykov, ako napríklad C++, alebo
 C\# sa líši prekladom zdrojových tried do medzikódu, často označovaného ako
 bajtkód (\textit{bytecode, p-code, portable code}).
@@ -383,7 +383,7 @@ Položky \textit{name\_index} a \textit{descriptor\_index} sú podobne ako u
 v \textit{constant\_pool} odkazujú na štruktúry charakterizujúce meno a dátový typ metódy. Reprezentáciu dátových typov popisuje
 podkapitola~\ref{sec:descriptors}.
 
-Hodnotoa položky \textit{attributes\_count} vyjadruje presný počet atribútov
+Hodnota položky \textit{attributes\_count} vyjadruje presný počet atribútov
 v poli \textit{attributes[]}.
 
 Pole \textit{attributes[]} obsahuje dodatočné atribúty danej metódy.
@@ -426,7 +426,7 @@ attribute_info {
 
 Položka \textit{attributes\_name\_index} je indexom do \textit{constant\_pool},
 odkazujúcim na meno atribútu. Štvorbajtová položka \textit{attribute\_length} 
-je rovná hodnote vyjadrujúcej dĺžku následných informácií, koré sú uložené v 
+je rovná hodnote vyjadrujúcej dĺžku následných informácií, ktoré sú uložené v 
 štruktúre \textit{info[attribute\_length]}. Informácie sa líšia na základe 
 odlišnej funkcionality a využitia jednotlivých atribútov.
 
@@ -685,7 +685,7 @@ nutnosti ich opätovného spustenia. Slúži na to skript \textit{bminstall.sh}.
 správania sa 
 programu~\cite{RedHat:Byteman}. 
 
-\section{Štruktúra jazyka pravidel}
+\section{Štruktúra jazyka pravidiel}
 Pravidlá jazyka Byteman sú definované v skriptoch s príponou \textit{btm}.
 Každé pravidlo pozostáva zo sekvencie definícií. Všeobecný predpis takto
 definovaného pravidla je nasledovný:
@@ -954,7 +954,7 @@ priamu manipuláciu s bajtkódom.
 knižnice \textit{Javassist} poskytuje aj nástroje na úpravu existujúceho kódu.
 \end{itemize}
 
-Takisto tento nástroj má niekoľko slabých stránok, niesú však výraznými prekážkami v následnej manipulácií s ním:
+Takisto tento nástroj má niekoľko slabých stránok, nie sú však výraznými prekážkami v následnej manipulácií s ním:
 
 \begin{itemize}
 \item Mohutnosť aplikácie: Pri jednoduchých úlohách by mohlo mať použitie 
@@ -1171,7 +1171,7 @@ novej triede je nutné volať metódu hlavného balíka \textit{application
 Tracer.traceCatchBlocks}
 s argumentom špecifikujúcim danú triedu.
 
-\section{Zlepšenie a zprehľadnenie produkčného kódu}
+\section{Zlepšenie a sprehľadnenie produkčného kódu}
 Program prispievajúci k zlepšeniu produkčného kódu sa špecializuje na náhradu 
 priamych volaní atribútov generovanými \textit{get} a \textit{set} metódami. Vo
 všeobecnosti aplikácia manipuluje s bajtkódom dvoch tried. Prvou z tried
@@ -1182,7 +1182,7 @@ je~\textit{<C1>}. Obsahuje atribúty, ku ktorým však neexistujú prístupové
 implementácia porušuje základný princíp zapuzdrenia, ktorý by mal byť dodržaný 
 za každých okolností. Projekt pod názvom \textit{code-improvement} preto slúži 
 na generovanie prístupových metód k atribútom triedy \textit{<C1>} a následnú 
-náhradu priamychvolaní týmito metódami v triede \textit{<C2>}.
+náhradu priamych volaní týmito metódami v triede \textit{<C2>}.
 
 Aplikácia manipuluje s bajtkódom a \textit{class} súbormi požadovaných tried. 
 Zmeny sa preto neprejavia v zdrojovom kóde. Rovnako by nemali nijako ovplyvniť 
@@ -1343,7 +1343,7 @@ inštrukcie bajtkódu a v prípade nájdeného nadbytočného páru \textit{dsto
 \textit{dload} tieto inštrukcie odstráni.
 
 Program zvyčajne spracováva viac než jednu premennú pre danú metódu. Obrázok
-\ref{fig:identify} popisuje kvôli prehľadnosti proces dentifikácie
+\ref{fig:identify} popisuje kvôli prehľadnosti proces identifikácie
 nadbytočných inštrukcií čítania a zápisu jednej premennej \textit{<n>}:
 
 \begin{figure}[h]

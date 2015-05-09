@@ -48,7 +48,7 @@ POSTUP:
   sa do triedy ExampleFileSystemView aplikácie FileChooser načítajú pravidlá (skripty) Bytemana
   na detekciu výnimiek.
   Tento skript vloží pravidlo na detekciu výnimky do každej metódy tejto triedy
-  vrátane konštrukora.
+  vrátane konštruktora.
   Skript vytvára pomocný súbor rules.btm, preto je nutné mať povolený zápis do jeho adresára.
   Výstup príkazu by mal vyzerať približne nasledovne:
 	----> ExampleFileSystemView
@@ -69,7 +69,7 @@ POSTUP:
   aplikácie FileChooserDemo.
   Jedným zo spôsobov (z GUI aplikácie) je:
 	1. Zaškrtnúť položku "Use FileSystemView" v "Display Options"
-	2. Spustiť prehľadávanie súborou kliknutím na "Show FileChooser" 
+	2. Spustiť prehľadávanie súborov kliknutím na "Show FileChooser" 
 	3. Pokúsiť sa vytvoriť dva adresáre z názvom "New folder" 
   Následne aplikácia upozorní užívateľa na chybu
   V (prvom) termináli so spustenou aplikáciou FileChooser Byteman upozorní na detekovanú výnimku.
@@ -77,7 +77,7 @@ POSTUP:
 ------------------------------------------------------------------------------------------------------
 
 Týmto spôsobom je možné detekovať výnimky ľubovoľnej triedy / tried zadaných do skriptu loadScripts.sh
-V prípade viacerých tried je odďeľovačom medzera, napríklad:
+V prípade viacerých tried je oddeľovačom medzera, napríklad:
 
 	loadScripts.sh Trieda1.class Trieada2.class ...
 

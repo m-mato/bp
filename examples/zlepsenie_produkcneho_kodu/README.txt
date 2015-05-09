@@ -4,40 +4,40 @@ README
 
 POPIS:
 
-Projekt code-improvement je určený na zelpšenie a zprehľadnenie produkčného
+Projekt code-improvement je určený na zlepšenie a sprehľadnenie produkčného
 kódu. 
 
 Aplikácia je Java projekt typu Maven. Obsahuje 2 balíky - "application"
 a "example". Balík "application" obsahuje logiku aplikácie, balík
 "example" je len jednoduchým príkladom na overenie funkčnosti programu.
 
-Program pracuje s dvoma triedami - nazvyme ich <C1> a <C2>. 
+Program pracuje s dvoma triedami - nazvime ich <C1> a <C2>. 
 Nahrádza priame volanie atribútov triedy <C1> v triede <C2> volaním
 "get" a "set" metód, ktoré generuje. Triedy <C1> a <C2> môžu reprezentovať tú
 istú triedu, ale aj dve rôzne v závislosti typu: <C2> číta / zapisuje do
 atribútov <C1>.
 
-Program modifikuje class súbory oboch tried nasledujúcim spôsbom:
+Program modifikuje class súbory oboch tried nasledujúcim spôsobom:
 - Do triedy <C1> pridáva "get" a "set" metódy sprístupňujúce jej atribúty
-- Operacie priameho čítania a zápisu atribútov triedy <C1> v triede <C2> nahrádza
+- Operácie priameho čítania a zápisu atribútov triedy <C1> v triede <C2> nahrádza
   volaním generovaných "get" a "set" metód.
 Pri opakovanej aplikácií programu na už modifikované triedy nebude program nanovo
-generovať prístpové metódy - nič zaujímavé sa nestane. V prípda potreby opätovného
+generovať prístupové metódy - nič zaujímavé sa nestane. V prípade potreby opätovného
 generovania metód na už modifikovaných triedach je teda nutné tieto triedu predtým
 rekompilovať do pôvodného stavu.
 
-Uskutočnené zmeny sa neprejavia v zdrojovom kóde a nijako neovplivnia vnútornú
-logiku modifikovaných tried. Zmeny volania a generovane metódy je možné pozorovať
+Uskutočnené zmeny sa neprejavia v zdrojovom kóde a nijako neovplyvnia vnútornú
+logiku modifikovaných tried. Zmeny volania a generované metódy je možné pozorovať
 v class súboroch tried - príkaz: javap -c [cestaClassSuboru].
 
 Postup spustenia programu je popísaný nižšie.
 Prístupová metóda programu je "application.FieldChecker.fixFieldsAccess()".
 Triedy pre modifikáciu sú špecifikované v argumentoch konštruktora triedy
 "application.FieldChecker".
-Popis funcionality jednotlivých tried je v JavaDocu.
+Popis funkcionality jednotlivých tried je v JavaDocu.
 
-Funkčnosť aplikácie je možné testovať spsutením triedy [example.Demo], prípadne
-aplikovať nižšie uvedený postup pre spustenie na ľubovoľneých iných
+Funkčnosť aplikácie je možné testovať spustením triedy [example.Demo], prípadne
+aplikovať nižšie uvedený postup pre spustenie na ľubovoľných iných
 triedach.
 
 --------------------------------------------------------------------------------
@@ -58,7 +58,7 @@ SPUSTENIE PROGRAMU PRE VŠEOBECNÉ TRIEDY <C1> a <C2>:
    argument "path" uvádzať.
 
 4) Volaním metódy [f.fixFieldsAccess()] prebehne celá logika aplikácie popísaná
-   vyššie. Informácie o pridaných metódach a modifikovaných referenciach sa
+   vyššie. Informácie o pridaných metódach a modifikovaných referenciách sa
    zobrazia na štandardný výstup.
 
 ----------------------------------------------------------------------------------

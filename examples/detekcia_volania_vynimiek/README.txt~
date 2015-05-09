@@ -49,6 +49,7 @@ POSTUP:
   na detekciu výnimiek.
   Tento skript vloží pravidlo na detekciu výnimky do každej metódy tejto triedy
   vrátane konštrukora.
+  Skript vytvára pomocný súbor rules.btm, preto je nutné mať povolený zápis do jeho adresára.
   Výstup príkazu by mal vyzerať približne nasledovne:
 	----> ExampleFileSystemView
 	+ [<init>]

@@ -2,11 +2,11 @@ Nasledujúce adresáre reprezentujú jednotlivé príklady na demonštráciu
 funkcionality nástrojov Byteman a Javassist.
 
 Prílad v priečinku s názvom "detekcia_volania_vynimiek" ukazuje
-možnosti naśtroja Bytemen a jeho hlavnou súčasťou je bash skript, preto je
+možnosti nástroja Byteman a jeho hlavnou súčasťou je bash skript, preto je
 nutné spúšťať ho pod UNIX-like operačným systémom, prípadne pre platformu
 Microsoft Windows použiť nástroj Cygwin (druhá z možnosti nebola otestovaná).
-Podrobný popis spustenia tohto príkladu je uvedený v súbore READMY, ktorý
-sa nachádza v adresáry "detekcia_volania_vynimiek".
+Podrobný popis spustenia tohto príkladu je uvedený v súbore README, ktorý
+sa nachádza v adresári "detekcia_volania_vynimiek".
 
 Ostatné príklady demonštrujú použitie knižnice Javassist. Všetky 3 príklady
 sú Java projekty typu Maven, pre ktoré je pri prvom spustení nutné stiahnuť
