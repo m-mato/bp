@@ -1200,12 +1200,6 @@ metódami, ktorého základná funkcionalita bola načrtnutá v predchádzajúci
 odsekoch. Balík \textit{example} je jednoduchým testovacím príkladom pre 
 kontrolu funkčnosti tried balíka \textit{application}.
 
-------------------------
-
-TODO Diagram...
-
-------------------------
-
 Hlavným balíkom zabezpečujúcim fungovanie programu je \textit{application}. 
 Funkcionalitu som tentokrát rozložil medzi 3 triedy: \textit{FieldChecker}, 
 \textit{AccGenerator} a \textit{AccCreator}.
@@ -1224,13 +1218,14 @@ do bajtkódu \textit{<C1>}, vykoná metóda \textit{replaceFieldAccess()} náhra
 priameho volania atribútu prístupovými metódami. Využíva k tomu najmä nástroj 
 \textit{CodeConverter} knižnice \textit{Javassist}.
 
-\textit{}
-
-----------------------------------------
-
-TODO Grafické znázornenie...
-
------------------------------------------
+\begin{figure}[h]
+  \centering
+   \includegraphics[width=0.9\textwidth]{improvement.png}
+  \caption{Grafické znázornenie funkcionality tried zodpovedných za vytváranie
+  prístupových metód a následnú náhradu volaní atribútov, zdroj: vlastné 
+  spracovanie}
+  \label{fig:improvement}
+\end{figure}
 
 Za generovanie a načítanie prístupových metód je zodpovedná trieda 
 \textit{AccGenerator} a jej pomocná trieda \textit{AccCreator}. Táto pomocná 
@@ -1326,6 +1321,14 @@ Triedy popisujúce logiku aplikácie sa opäť nachádzajú v balíku
 \textit{ArithmeticOptimizer}. Zvyšné triedy sú prístupné len v rámci balíka 
 \textit{application}, mimo neho by nemali byť nijako používané.
 
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=\textwidth]{optimizer.png}
+  \caption{Znázornenie optimalizácie bajtkódu jednej z metód balíka
+  \textit{example.model}, zdroj: vlastné spracovanie}
+  \label{fig:opt}
+\end{figure}
+
 Kľúčovou triedou programu je \textit{ArithmeticOptimizer} s prístupovou
 metódou
 \textit{optimizeClass(String classNameToOpt)}. Po jej inicializácií a spustení 
@@ -1370,14 +1373,6 @@ demonštračnému príkladu úlohy z predchádzajúcej kapitoly. Podrobné fungo
 testovacích príkladov je uvedené v \textit{Javadocu} a
 komentároch~\footnote{Podrobnosti o uvedených príkladoch sú uvedené aj
 v \textit{README} súbore projektu.}.
-
-\begin{figure}[h]
-  \centering
-   \includegraphics[width=\textwidth]{optimizer.png}
-  \caption{Znázornenie optimalizácie bajtkódu jednej z metód balíka
-  \textit{example.model}, zdroj: vlastné spracovanie}
-  \label{fig:opt}
-\end{figure}
 
 Aplikáciu je takisto možné spustiť na ľubovoľnej triede vhodnej na 
 optimalizáciu aritmetických operácií volaním metódy
