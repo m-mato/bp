@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.18)  13 MAY 2015 13:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.18)  14 MAY 2015 00:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -583,14 +583,14 @@ Overfull \vbox (1.32358pt too high) has occurred while \output is active []
 
 
 [6] [7] [8]
-Overfull \hbox (1.31891pt too wide) in paragraph at lines 392--406
+Overfull \hbox (1.31891pt too wide) in paragraph at lines 393--408
 \T1/ppl/m/it/10.95 Dep-re-ca-ted\T1/ppl/m/n/10.95 , \T1/ppl/m/it/10.95 Run-ti-m
 e-Vi-sib-le-An-no-ta-ti-ons\T1/ppl/m/n/10.95 , \T1/ppl/m/it/10.95 Run-ti-me-In-
 vi-sib-le-An-no-ta-ti-ons\T1/ppl/m/n/10.95 , \T1/ppl/m/it/10.95 Run-ti-me-
  []
 
 
-Overfull \hbox (1.3298pt too wide) in paragraph at lines 392--406
+Overfull \hbox (1.3298pt too wide) in paragraph at lines 393--408
 \T1/ppl/m/it/10.95 Vi-sib-le-Pa-ra-me-te-rAn-no-ta-ti-ons\T1/ppl/m/n/10.95 , \T
 1/ppl/m/it/10.95 Run-ti-me-In-vi-sib-le-Pa-ra-me-te-rAn-no-ta-ti-ons\T1/ppl/m/n
 /10.95 , prÌ-padne
@@ -600,26 +600,26 @@ Overfull \hbox (1.3298pt too wide) in paragraph at lines 392--406
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 494.
+(hyperref)                removing `\textasciicaron' on input line 496.
 
 [11] <iload_1.png, id=343, 554.07pt x 502.87875pt>
 File: iload_1.png Graphic file (type png)
  <use iload_1.png>
-Package pdftex.def Info: iload_1.png used on input line 531.
+Package pdftex.def Info: iload_1.png used on input line 533.
 (pdftex.def)             Requested size: 163.96284pt x 148.80833pt.
 
 <iload_2.png, id=344, 557.08125pt x 501.875pt>
 File: iload_2.png Graphic file (type png)
  <use iload_2.png>
-Package pdftex.def Info: iload_2.png used on input line 534.
+Package pdftex.def Info: iload_2.png used on input line 536.
 (pdftex.def)             Requested size: 163.96284pt x 147.70723pt.
 
-Overfull \hbox (38.2177pt too wide) in paragraph at lines 530--537
+Overfull \hbox (38.2177pt too wide) in paragraph at lines 532--539
 []$[]$ $[]$
  []
 
 
-Underfull \hbox (badness 1184) in paragraph at lines 537--537
+Underfull \hbox (badness 1184) in paragraph at lines 539--539
 []\T1/ppl/m/n/10.95 Obr. 2.1: []Zn·zornenie fun-kci-ona-lity in-≤truk-ciÌ \T1/p
 pl/m/it/10.95 iload_1 \T1/ppl/m/n/10.95 a \T1/ppl/m/it/10.95 iload_2\T1/ppl/m/n
 /10.95 , zdroj:
@@ -637,34 +637,34 @@ e.2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.571 \chapter
+l.573 \chapter
               {Zav√°dzaƒçe tried} <./iload_1.png> <./iload_2.png>]
 Kapitola 3.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 571.
+(hyperref)                removing `\textasciicaron' on input line 573.
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 593.
+(hyperref)                than one, level fixed on input line 595.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 593.
+(hyperref)                removing `\textasciicaron' on input line 595.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 600.
+(hyperref)                removing `\textasciicaron' on input line 602.
 
 [14
 
 ] [15]
 Kapitola 4.
 
-Overfull \hbox (0.31395pt too wide) in paragraph at lines 637--642
+Overfull \hbox (0.31395pt too wide) in paragraph at lines 639--644
 \T1/ppl/m/n/10.95 ap-li-k·-ciÌ po-£as na-£Ì-ta-va-nia JVM, alebo za behu prog-r
 amu. Po-u-∫Ìva sa najm‰
  []
@@ -696,18 +696,18 @@ Kapitola 7.
 <throw.png, id=446, 539.01375pt x 317.185pt>
 File: throw.png Graphic file (type png)
  <use throw.png>
-Package pdftex.def Info: throw.png used on input line 1009.
+Package pdftex.def Info: throw.png used on input line 1013.
 (pdftex.def)             Requested size: 289.08109pt x 170.11093pt.
  [25
 
 ]
-Overfull \hbox (0.4496pt too wide) in paragraph at lines 1031--1031
+Overfull \hbox (0.4496pt too wide) in paragraph at lines 1035--1035
 []  \T1/pcr/m/n/9 DO System.out.println("Detected athrow, exception: " + except
 ion)[] 
  []
 
 
-Overfull \hbox (0.64188pt too wide) in paragraph at lines 1040--1050
+Overfull \hbox (0.64188pt too wide) in paragraph at lines 1044--1054
 \T1/ppl/m/n/10.95 skript ge-ne-ro-va¥. Prog-ram n·-sledne mo-ni-to-ruje me-tÛdy
  za-da-nej triedy, vr·-
  []
@@ -721,12 +721,12 @@ Overfull \vbox (8.74866pt too high) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1050 
+l.1054 
         <./throw.png>]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1095.
+(hyperref)                removing `\textasciicaron' on input line 1099.
 
 
 Overfull \vbox (6.01653pt too high) has occurred while \output is active []
@@ -735,7 +735,7 @@ Overfull \vbox (6.01653pt too high) has occurred while \output is active []
 [27] <catch.png, id=468, 758.835pt x 280.04625pt>
 File: catch.png Graphic file (type png)
  <use catch.png>
-Package pdftex.def Info: catch.png used on input line 1129.
+Package pdftex.def Info: catch.png used on input line 1133.
 (pdftex.def)             Requested size: 361.34999pt x 133.35664pt.
 
 Underfull \vbox (badness 7486) has occurred while \output is active []
@@ -745,28 +745,28 @@ Underfull \vbox (badness 7486) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1143 
+l.1147 
         <./catch.png>]
 
 Package hyperref Warning: Composite letter `\textasciicaron+l'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1177.
+(hyperref)                removing `\textasciicaron' on input line 1181.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1177.
+(hyperref)                removing `\textasciicaron' on input line 1181.
 
 [29]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1197.
+(hyperref)                removing `\textasciicaron' on input line 1201.
 
 <improvement.png, id=480, 666.49pt x 450.68375pt>
 File: improvement.png Graphic file (type png)
  <use improvement.png>
-Package pdftex.def Info: improvement.png used on input line 1226.
+Package pdftex.def Info: improvement.png used on input line 1230.
 (pdftex.def)             Requested size: 325.21278pt x 219.91545pt.
 
 
@@ -781,21 +781,21 @@ e.7.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1286 \end{verbatim}
+l.1290 \end{verbatim}
                       <./improvement.png>]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1299.
+(hyperref)                removing `\textasciicaron' on input line 1303.
 
 
-Overfull \hbox (0.90398pt too wide) in paragraph at lines 1305--1310
+Overfull \hbox (0.90398pt too wide) in paragraph at lines 1309--1314
 []\T1/ppl/m/n/10.95 Jedn˝mi z naj-£as-tej-≤ie sa vy-sky-tu-j˙-cich in-≤truk-ciÌ
  s˙ in-≤truk-cie typu \T1/ppl/m/it/10.95 store
  []
 
 
-Overfull \hbox (1.78044pt too wide) in paragraph at lines 1311--1314
+Overfull \hbox (1.78044pt too wide) in paragraph at lines 1315--1318
 []\T1/ppl/m/n/10.95 Cie©om tohto prog-ramu je iden-ti-fi-ko-va¥ a od-str·-ni¥ n
 ad-by-to£nÈ in-≤truk-
  []
@@ -808,28 +808,28 @@ Overfull \vbox (5.08228pt too high) has occurred while \output is active []
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1319.
+(hyperref)                removing `\textasciicaron' on input line 1323.
 
 <optimizer.png, id=502, 679.53876pt x 406.51875pt>
 File: optimizer.png Graphic file (type png)
  <use optimizer.png>
-Package pdftex.def Info: optimizer.png used on input line 1329.
+Package pdftex.def Info: optimizer.png used on input line 1333.
 (pdftex.def)             Requested size: 361.34999pt x 216.16724pt.
  [33pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
 4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1343 A
+l.1347 A
         ko bolo uveden√© vy≈°≈°ie, trieda \textit{MethodModifier} sl√∫≈æi na...
  <./optimizer.png>] <identification.png, id=510, 611.28375pt x 408.52625pt>
 File: identification.png Graphic file (type png)
 
 <use identification.png>
-Package pdftex.def Info: identification.png used on input line 1357.
+Package pdftex.def Info: identification.png used on input line 1361.
 (pdftex.def)             Requested size: 361.34999pt x 241.48969pt.
 
-Overfull \hbox (0.32341pt too wide) in paragraph at lines 1363--1369
+Overfull \hbox (0.32341pt too wide) in paragraph at lines 1367--1373
 \T1/ppl/m/n/10.95 trieda \T1/ppl/m/it/10.95 Ins-truc-ti-on-Ve-ri-fier\T1/ppl/m/
 n/10.95 . Ob-sa-huje me-tÛdy ur-£u-j˙ce in-≤truk-cie \T1/ppl/m/it/10.95 dstore 
 \T1/ppl/m/n/10.95 a \T1/ppl/m/it/10.95 dload\T1/ppl/m/n/10.95 .
@@ -843,11 +843,11 @@ Underfull \vbox (badness 5726) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1379 
+l.1383 
         <./identification.png>] [35]
 Kapitola 8.
 
-Overfull \hbox (1.59433pt too wide) in paragraph at lines 1401--1403
+Overfull \hbox (1.59433pt too wide) in paragraph at lines 1405--1407
 []\T1/ppl/m/n/10.95 Anal˝zou vlast-nostÌ spo-mÌ-na-n˝ch n·-stro-jov vy-ply-nuli
  mo∫-nosti ich fun-
  []
@@ -892,70 +892,70 @@ Dodatok A.
 
 Package hyperref Warning: Composite letter `\textasciicaron+l'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 1429.
+(hyperref)                removing `\textasciicaron' on input line 1433.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1466--1467
+Underfull \hbox (badness 10000) in paragraph at lines 1470--1471
 []\T1/ppl/m/n/10.95 Deklarovan· ako ve-rejn·; prÌ-
  []
 
 
-Underfull \hbox (badness 2205) in paragraph at lines 1473--1474
+Underfull \hbox (badness 2205) in paragraph at lines 1477--1478
 []\T1/ppl/m/n/10.95 Deklarovan· ako ab-s-traktn·, ne-
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 1475--1476
+Underfull \hbox (badness 2103) in paragraph at lines 1479--1480
 []\T1/ppl/m/n/10.95 Deklarovan· ako synt-he-tic, nieje
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1488--1488
+Underfull \hbox (badness 10000) in paragraph at lines 1492--1492
 []\T1/ppl/b/n/10.95 Reprezent·cia
  []
 
 
-Underfull \hbox (badness 1097) in paragraph at lines 1524--1525
+Underfull \hbox (badness 1097) in paragraph at lines 1528--1529
 []\T1/ppl/m/n/10.95 Deklarovan· ako trans-ient; nieje £Ì-
  []
 
 
-Underfull \hbox (badness 3199) in paragraph at lines 1524--1525
+Underfull \hbox (badness 3199) in paragraph at lines 1528--1529
 \T1/ppl/m/n/10.95 tan· ani mo-di-fi-ko-van· ob-jek-to-v˝m
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1509--1532
+Underfull \hbox (badness 10000) in paragraph at lines 1513--1536
 [][]
  []
 
 
-Underfull \hbox (badness 1831) in paragraph at lines 1541--1542
+Underfull \hbox (badness 1831) in paragraph at lines 1545--1546
 []\T1/ppl/m/n/10.95 Deklarovan· ako ve-rejn·; prÌ-
  []
 
 
-Underfull \hbox (badness 1558) in paragraph at lines 1552--1552
+Underfull \hbox (badness 1558) in paragraph at lines 1556--1556
 []\T1/ppl/m/n/10.95 Bridge me-tÛda; je ge-ne-ro-van·
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 1555--1556
+Underfull \hbox (badness 1755) in paragraph at lines 1559--1560
 []\T1/ppl/m/n/10.95 Deklarovan· ako na-tÌvna; im-
  []
 
 
-Underfull \hbox (badness 2951) in paragraph at lines 1555--1556
+Underfull \hbox (badness 2951) in paragraph at lines 1559--1560
 \T1/ppl/m/n/10.95 ple-men-to-van· v inom ja-zyku
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1557--1558
+Underfull \hbox (badness 10000) in paragraph at lines 1561--1562
 []\T1/ppl/m/n/10.95 Deklarovan· ako ab-s-traktn·,
  []
 
 
-Overfull \hbox (3.94688pt too wide) in paragraph at lines 1571--1594
+Overfull \hbox (3.94688pt too wide) in paragraph at lines 1575--1598
 [][]
  []
 
@@ -966,51 +966,51 @@ Overfull \hbox (3.94688pt too wide) in paragraph at lines 1571--1594
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1598 \chapter
+l.1602 \chapter
                {Obsah CD}pdfTeX warning (ext4): destination with the same ident
 ifier (name{table.A.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1598 \chapter
+l.1602 \chapter
                {Obsah CD}] [40pdfTeX warning (ext4): destination with the same 
 identifier (name{table.A.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1598 \chapter
+l.1602 \chapter
                {Obsah CD}] [41pdfTeX warning (ext4): destination with the same 
 identifier (name{table.A.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1598 \chapter
+l.1602 \chapter
                {Obsah CD}] [42pdfTeX warning (ext4): destination with the same 
 identifier (name{table.A.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1598 \chapter
+l.1602 \chapter
                {Obsah CD}] [43pdfTeX warning (ext4): destination with the same 
 identifier (name{table.A.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1598 \chapter
+l.1602 \chapter
                {Obsah CD}]
 Dodatok B.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1615.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1619.
 [44
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1615.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1619.
  (./bp.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1615.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1615.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1619.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1619.
 
 Package rerunfilecheck Info: File `bp.out' has not changed.
 (rerunfilecheck)             Checksum: 24DF995A469E101DC982CE3C838BE07E;3034.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1615.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1619.
  ) 
 Here is how much of TeX's memory you used:
  6643 strings out of 493109
@@ -1031,7 +1031,7 @@ t/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/pa
 latino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/
 uplri8a.pfb>
-Output written on bp.pdf (49 pages, 688260 bytes).
+Output written on bp.pdf (49 pages, 688239 bytes).
 PDF statistics:
  706 PDF objects out of 1000 (max. 8388607)
  571 compressed objects within 6 object streams
