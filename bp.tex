@@ -47,8 +47,8 @@ Cieľom tejto práce je analýza vlastností, spolu s implementáciou súboru
 príkladov pre nástroje, \textit{Byteman} a \textit{Javassist}. Teoretická časť 
 charakterizuje bajtkód, \textit{Java Virtual Machine (JVM)}, načítavanie tried
 pomocou zavádzačov a dôležité vlastnosti spomínaných nástrojov. Praktická časť 
-zahŕňa ukážky príkladov, ktoré demonštrujú funkcionalitu nástrojov v rôznych oblastiach 
-vývoja a testovania softvéru.
+zahŕňa ukážky príkladov, ktoré demonštrujú funkcionalitu nástrojov v rôznych 
+oblastiach vývoja a testovania softvéru.
 \end{ThesisAbstract}
 
 \begin{ThesisKeyWords}
@@ -57,7 +57,10 @@ classloader, zavádzač tried
 \end{ThesisKeyWords}
 
 \begin{ThesisThanks}
-TODO...
+Na tomto mieste sa chcem poďakovať najmä Ing. Pavlovi Tišňovskému a RNDr. 
+Adamovi Rambouskovi za odbornú pomoc, užitočné rady a metodické usmernenie 
+počas prípravy bakalárskej práce. Špecialna vďaka patrí mojej rodine a 
+priateľom za podporu.
 \end{ThesisThanks}
 
 \MainMatter
@@ -1593,30 +1596,20 @@ JVM~\cite{Lindholm:2013:JVM:2462629}.
 \end{table}
 
 \chapter{Obsah CD}
-TODO - popis obsahu CD
+Na priloženom CD sú tieto adresáre:
 
-%\begin{example}{Príklad implementácie vlastného \textit{class loaderu}.}
-%\begin{verbatim}
-%class NetworkClassLoader extends ClassLoader {
-%  String host;
-%  int port;
-%
-%  public Class findClass(String name) {
-%    byte[] b = loadClassData(name);
-%    return defineClass(name, b, 0, b.length);
-%  }
-%
-%  private byte[] loadClassData(String name) {
-%    // load the class data from the connection
-%    …
-%  }
-%}
-%\end{verbatim}
-%\caption{Príklad zachytáva štruktúru vlastnej implementácie triedy
-%\textit{ClassLoader}. \textit{NetworkClassLoader} by mohol slúžiť napríklad na
-%načítanie dát zo siete. Zdroj: \cite{Oracle:ClassLoader}.}
-%\label{ex:cLoader}
-%\end{example}
+\begin{itemize}
+\item \texttt{bp} -- obsahuje text bakalárskej práce vo formátu PDF a zdrojové
+soubory vo formáte \LaTeX
+\item \texttt{bp/examples} -- obsahuje štyri podadresáre, z ktorých každý 
+reprezentuje jeden z ukážkových príkladov. Zároveň obsahuje skrytý adresár
+\texttt{.byteman}, ktorý obsahuje súčasti nástroja \textit{Byteman} potrebné
+na spustenie niektorých programov. Dané adresáre takisto obsahujú
+súbory \textit{README}, ktoré popisujú možnosti manipulácie s jednotlivými
+ukážkovými programami.
+\end{itemize}
 
-
+Aktuálna verzia bakalárskej práce a jednotlivých príkladov je takisto k
+dispozícií v repozitári verzovacieho systému GIT
+\url{https://github.com/m-mato/bp.git}.
 \end{document}
